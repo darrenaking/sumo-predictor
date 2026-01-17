@@ -1,0 +1,54 @@
+[{"stream_name":"stderr","time":10.882231096,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.882319687,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.882326373,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.88233042,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.756989584,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.757028184,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.757034406,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.757039552,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.206319232,"data":"Input path: /kaggle/input/sumo-data-01\n"}
+,{"stream_name":"stdout","time":13.206439569,"data":"Output path: /kaggle/working\n"}
+,{"stream_name":"stdout","time":14.931805685,"data":"Loaded 145,934 matches\n"}
+,{"stream_name":"stdout","time":14.931845477,"data":"Columns: ['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'kimarite_category', 'east_won', 'west_won']\n"}
+,{"stream_name":"stdout","time":14.980717518,"data":"Basho range: 199305 to 202601\n"}
+,{"stream_name":"stdout","time":14.980768469000001,"data":"Unique wrestlers: 2,915\n"}
+,{"stream_name":"stdout","time":15.53516843,"data":"Processing bout 0 / 145,934\n"}
+,{"stream_name":"stdout","time":18.451134157,"data":"Processing bout 50,000 / 145,934\n"}
+,{"stream_name":"stdout","time":21.323834123,"data":"Processing bout 100,000 / 145,934\n"}
+,{"stream_name":"stdout","time":23.791435875,"data":"Done! Processed 145,934 bouts.\n"}
+,{"stream_name":"stdout","time":23.824645376,"data":"=== ELO Distribution ===\n"}
+,{"stream_name":"stdout","time":23.824690909,"data":"East ELO - Mean: 1548.7, Std: 175.9\n"}
+,{"stream_name":"stdout","time":23.824697172,"data":"West ELO - Mean: 1548.5, Std: 175.0\n"}
+,{"stream_name":"stdout","time":23.82470145,"data":"\n"}
+,{"stream_name":"stdout","time":23.824705233,"data":"=== Glicko-2 Distribution ===\n"}
+,{"stream_name":"stdout","time":23.824709074,"data":"East Rating - Mean: 1591.6, Std: 397.9\n"}
+,{"stream_name":"stdout","time":23.824712524,"data":"East RD - Mean: 92.3, Std: 94.7\n"}
+,{"stream_name":"stdout","time":23.952520447,"data":"\n"}
+,{"stream_name":"stdout","time":23.95256129,"data":"=== Rating Prediction Accuracy ===\n"}
+,{"stream_name":"stdout","time":23.952566537,"data":"ELO (higher rating wins): 56.4%\n"}
+,{"stream_name":"stdout","time":23.952570009,"data":"Glicko-2 (higher rating wins): 56.2%\n"}
+,{"stream_name":"stdout","time":23.952573711,"data":"\n"}
+,{"stream_name":"stdout","time":23.952577044,"data":"(Note: 50% = random, \u003e60% = useful signal)\n"}
+,{"stream_name":"stdout","time":23.988235439,"data":"\n"}
+,{"stream_name":"stdout","time":23.988274285,"data":"Sample with ratings:\n"}
+,{"stream_name":"stdout","time":24.062059778,"data":"Average ratings by rank (sample):\n"}
+,{"stream_name":"stdout","time":24.087667855,"data":"Saved rank averages to /kaggle/working/rank_averages.parquet\n"}
+,{"stream_name":"stdout","time":24.62272049,"data":"Saved 145,934 matches with ratings to /kaggle/working/matches_with_ratings.parquet\n"}
+,{"stream_name":"stdout","time":24.646532963,"data":"\n"}
+,{"stream_name":"stdout","time":24.646574302,"data":"Final columns: ['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'kimarite_category', 'east_won', 'west_won', 'east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff']\n"}
+,{"stream_name":"stdout","time":24.646592363,"data":"\n"}
+,{"stream_name":"stdout","time":24.646597545,"data":"New rating columns:\n"}
+,{"stream_name":"stdout","time":24.64660313,"data":"['east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff']\n"}
+,{"stream_name":"stderr","time":28.107750462,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":28.107791288,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":28.323825961,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":28.323865902,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":29.154299324,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":29.154386472,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":29.199910392,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":29.615245551,"data":"[NbConvertApp] Writing 49662 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":33.03661807,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":33.036666008,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":33.070136288,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":34.222876868,"data":"[NbConvertApp] Writing 353285 bytes to __results__.html\n"}
+]

@@ -1,0 +1,14 @@
+{
+  "id": "darrenaking/sumo-03-feature-engineering",
+  "title": "Sumo 03 - Feature Engineering",
+  "code_file": "03_feature_engineering.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["darrenaking/sumo-data-01", "darrenaking/sumo-data-02"],
+  "kernel_sources": [],
+  "competition_sources": []
+}

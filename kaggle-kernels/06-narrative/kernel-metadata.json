@@ -1,0 +1,14 @@
+{
+  "id": "darrenaking/sumo-06-narrative-generation",
+  "title": "Sumo 06 - Narrative Generation",
+  "code_file": "06_narrative_generation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["darrenaking/sumo-data-01", "darrenaking/sumo-data-03", "darrenaking/sumo-data-04"],
+  "kernel_sources": [],
+  "competition_sources": []
+}

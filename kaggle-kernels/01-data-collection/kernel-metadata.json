@@ -1,0 +1,15 @@
+{
+  "id": "darrenaking/sumo-01-data-collection",
+  "title": "Sumo 01 - Data Collection",
+  "code_file": "01_data_collection.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["sumo", "data collection", "api"],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": []
+}

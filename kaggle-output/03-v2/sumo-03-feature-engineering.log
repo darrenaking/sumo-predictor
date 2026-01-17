@@ -1,0 +1,148 @@
+[{"stream_name":"stderr","time":12.082643148,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.082729428,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.082738785,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.082742065,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.98762001,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.987661024,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.987667984,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.987673434,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.463408465,"data":"Input path: /kaggle/input/sumo-data-02\n"}
+,{"stream_name":"stdout","time":14.463463659,"data":"Output path: /kaggle/working\n"}
+,{"stream_name":"stdout","time":16.458294029,"data":"Loaded 145,934 matches with ratings\n"}
+,{"stream_name":"stdout","time":16.458346045,"data":"Loaded 619 rikishi profiles\n"}
+,{"stream_name":"stdout","time":16.458353317,"data":"Loaded rank averages for 6 rank levels\n"}
+,{"stream_name":"stdout","time":16.525407792,"data":"\n"}
+,{"stream_name":"stdout","time":16.525447265,"data":"Match columns:\n"}
+,{"stream_name":"stdout","time":16.525460723,"data":"['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'kimarite_category', 'east_won', 'west_won', 'east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff']\n"}
+,{"stream_name":"stdout","time":16.525471677,"data":"\n"}
+,{"stream_name":"stdout","time":16.525476408,"data":"Unknown kimarite: 0 (0.0%)\n"}
+,{"stream_name":"stdout","time":16.525480686999998,"data":"\n"}
+,{"stream_name":"stdout","time":16.5254846,"data":"Top 10 kimarite:\n"}
+,{"stream_name":"stdout","time":16.525488624,"data":"kimarite\n"}
+,{"stream_name":"stdout","time":16.525492447,"data":"oshidashi      36661\n"}
+,{"stream_name":"stdout","time":16.525497168,"data":"yorikiri       35599\n"}
+,{"stream_name":"stdout","time":16.525501569,"data":"hatakikomi     11727\n"}
+,{"stream_name":"stdout","time":16.525505854,"data":"tsukiotoshi     7853\n"}
+,{"stream_name":"stdout","time":16.525526101,"data":"yoritaoshi      7363\n"}
+,{"stream_name":"stdout","time":16.525534888,"data":"uwatenage       6730\n"}
+,{"stream_name":"stdout","time":16.525539498,"data":"oshitaoshi      5203\n"}
+,{"stream_name":"stdout","time":16.525543904,"data":"hikiotoshi      5182\n"}
+,{"stream_name":"stdout","time":16.525548517,"data":"okuridashi      4676\n"}
+,{"stream_name":"stdout","time":16.525552447,"data":"shitatenage     3370\n"}
+,{"stream_name":"stdout","time":16.525556427,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":16.580962035,"data":"Rank parsing examples:\n"}
+,{"stream_name":"stdout","time":16.580998686,"data":"  Y1E -\u003e 0\n"}
+,{"stream_name":"stdout","time":16.58100684,"data":"  Y1W -\u003e 1\n"}
+,{"stream_name":"stdout","time":16.581011123,"data":"  O1E -\u003e 10\n"}
+,{"stream_name":"stdout","time":16.581039605,"data":"  S1W -\u003e 31\n"}
+,{"stream_name":"stdout","time":16.581043977,"data":"  K1E -\u003e 40\n"}
+,{"stream_name":"stdout","time":16.58104903,"data":"  M1E -\u003e 50\n"}
+,{"stream_name":"stdout","time":16.581053573,"data":"  M10W -\u003e 69\n"}
+,{"stream_name":"stdout","time":16.581058592,"data":"  J1E -\u003e 100\n"}
+,{"stream_name":"stdout","time":17.028108286,"data":"Starting vectorized feature engineering...\n"}
+,{"stream_name":"stdout","time":17.028149926,"data":"  Preparing base data...\n"}
+,{"stream_name":"stdout","time":18.242264304,"data":"  Building wrestler bout history...\n"}
+,{"stream_name":"stdout","time":18.786403662,"data":"  Computing career stats...\n"}
+,{"stream_name":"stdout","time":22.412092432,"data":"  Computing basho stats...\n"}
+,{"stream_name":"stdout","time":70.65158525,"data":"  Computing streak stats...\n"}
+,{"stream_name":"stderr","time":72.408779635,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":72.408813319,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":72.408823034,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":72.409330349,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":72.409353187,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":72.409362051,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":72.409972384,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":72.409998759,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":72.410007623,"data":"Exception encountered at \"In [8]\":\n"}
+,{"stream_name":"stderr","time":72.410014172,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":72.410020327,"data":"IntCastingNaNError                        Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":72.410026675,"data":"/tmp/ipykernel_17/3332756648.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":72.410032914,"data":"      1 # Run feature engineering\n"}
+,{"stream_name":"stderr","time":72.410040293,"data":"      2 engine = VectorizedFeatureEngine(matches_df, rikishi_df, rank_averages_df)\n"}
+,{"stream_name":"stderr","time":72.410044319,"data":"----\u003e 3 features_df = engine.engineer_features()\n"}
+,{"stream_name":"stderr","time":72.410048325,"data":"\n"}
+,{"stream_name":"stderr","time":72.410053579,"data":"/tmp/ipykernel_17/292485081.py in engineer_features(self)\n"}
+,{"stream_name":"stderr","time":72.410059068,"data":"    384 \n"}
+,{"stream_name":"stderr","time":72.41006429,"data":"    385         print(\"  Computing streak stats...\")\n"}
+,{"stream_name":"stderr","time":72.410069617,"data":"--\u003e 386         history = self._compute_streak_stats(history)\n"}
+,{"stream_name":"stderr","time":72.410074835,"data":"    387 \n"}
+,{"stream_name":"stderr","time":72.410079485,"data":"    388         print(\"  Computing recent form...\")\n"}
+,{"stream_name":"stderr","time":72.41008467,"data":"\n"}
+,{"stream_name":"stderr","time":72.41008959,"data":"/tmp/ipykernel_17/292485081.py in _compute_streak_stats(self, history)\n"}
+,{"stream_name":"stderr","time":72.41009492,"data":"    159         history['current_win_streak'] = history.groupby('wrestler_id')['won'].transform(\n"}
+,{"stream_name":"stderr","time":72.410118434,"data":"    160             lambda x: compute_streak(x.values, 1)\n"}
+,{"stream_name":"stderr","time":72.410123162,"data":"--\u003e 161         ).astype(int)\n"}
+,{"stream_name":"stderr","time":72.410127076,"data":"    162 \n"}
+,{"stream_name":"stderr","time":72.410131082,"data":"    163         history['current_loss_streak'] = history.groupby('wrestler_id')['won'].transform(\n"}
+,{"stream_name":"stderr","time":72.410135378,"data":"\n"}
+,{"stream_name":"stderr","time":72.410139219,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/generic.py in astype(self, dtype, copy, errors)\n"}
+,{"stream_name":"stderr","time":72.410143239,"data":"   6641         else:\n"}
+,{"stream_name":"stderr","time":72.410147202,"data":"   6642             # else, only a single dtype is given\n"}
+,{"stream_name":"stderr","time":72.410151111,"data":"-\u003e 6643             new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)\n"}
+,{"stream_name":"stderr","time":72.410155047,"data":"   6644             res = self._constructor_from_mgr(new_data, axes=new_data.axes)\n"}
+,{"stream_name":"stderr","time":72.410159121,"data":"   6645             return res.__finalize__(self, method=\"astype\")\n"}
+,{"stream_name":"stderr","time":72.410163365,"data":"\n"}
+,{"stream_name":"stderr","time":72.410167039,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/internals/managers.py in astype(self, dtype, copy, errors)\n"}
+,{"stream_name":"stderr","time":72.410171619,"data":"    428             copy = False\n"}
+,{"stream_name":"stderr","time":72.410175432,"data":"    429 \n"}
+,{"stream_name":"stderr","time":72.410179287,"data":"--\u003e 430         return self.apply(\n"}
+,{"stream_name":"stderr","time":72.410183831,"data":"    431             \"astype\",\n"}
+,{"stream_name":"stderr","time":72.410187659,"data":"    432             dtype=dtype,\n"}
+,{"stream_name":"stderr","time":72.41019159,"data":"\n"}
+,{"stream_name":"stderr","time":72.410195393,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/internals/managers.py in apply(self, f, align_keys, **kwargs)\n"}
+,{"stream_name":"stderr","time":72.410200073,"data":"    361                 applied = b.apply(f, **kwargs)\n"}
+,{"stream_name":"stderr","time":72.410203173,"data":"    362             else:\n"}
+,{"stream_name":"stderr","time":72.410207696,"data":"--\u003e 363                 applied = getattr(b, f)(**kwargs)\n"}
+,{"stream_name":"stderr","time":72.410210562,"data":"    364             result_blocks = extend_blocks(applied, result_blocks)\n"}
+,{"stream_name":"stderr","time":72.410213388,"data":"    365 \n"}
+,{"stream_name":"stderr","time":72.410216056,"data":"\n"}
+,{"stream_name":"stderr","time":72.410218671,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/internals/blocks.py in astype(self, dtype, copy, errors, using_cow, squeeze)\n"}
+,{"stream_name":"stderr","time":72.410221523,"data":"    756             values = values[0, :]  # type: ignore[call-overload]\n"}
+,{"stream_name":"stderr","time":72.410224267,"data":"    757 \n"}
+,{"stream_name":"stderr","time":72.410227018,"data":"--\u003e 758         new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)\n"}
+,{"stream_name":"stderr","time":72.410229886,"data":"    759 \n"}
+,{"stream_name":"stderr","time":72.410232616,"data":"    760         new_values = maybe_coerce_values(new_values)\n"}
+,{"stream_name":"stderr","time":72.410235342,"data":"\n"}
+,{"stream_name":"stderr","time":72.410238005,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/dtypes/astype.py in astype_array_safe(values, dtype, copy, errors)\n"}
+,{"stream_name":"stderr","time":72.410245099,"data":"    235 \n"}
+,{"stream_name":"stderr","time":72.410247948,"data":"    236     try:\n"}
+,{"stream_name":"stderr","time":72.410250662,"data":"--\u003e 237         new_values = astype_array(values, dtype, copy=copy)\n"}
+,{"stream_name":"stderr","time":72.4102535,"data":"    238     except (ValueError, TypeError):\n"}
+,{"stream_name":"stderr","time":72.410256198,"data":"    239         # e.g. _astype_nansafe can fail on object-dtype of strings\n"}
+,{"stream_name":"stderr","time":72.410259163,"data":"\n"}
+,{"stream_name":"stderr","time":72.410261756,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/dtypes/astype.py in astype_array(values, dtype, copy)\n"}
+,{"stream_name":"stderr","time":72.410264587,"data":"    180 \n"}
+,{"stream_name":"stderr","time":72.41026717,"data":"    181     else:\n"}
+,{"stream_name":"stderr","time":72.410269916,"data":"--\u003e 182         values = _astype_nansafe(values, dtype, copy=copy)\n"}
+,{"stream_name":"stderr","time":72.410272704,"data":"    183 \n"}
+,{"stream_name":"stderr","time":72.410275297,"data":"    184     # in pandas we don't store numpy str dtypes, so convert to object\n"}
+,{"stream_name":"stderr","time":72.410278093,"data":"\n"}
+,{"stream_name":"stderr","time":72.410280785,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/dtypes/astype.py in _astype_nansafe(arr, dtype, copy, skipna)\n"}
+,{"stream_name":"stderr","time":72.41028364,"data":"     99 \n"}
+,{"stream_name":"stderr","time":72.410286245,"data":"    100     elif np.issubdtype(arr.dtype, np.floating) and dtype.kind in \"iu\":\n"}
+,{"stream_name":"stderr","time":72.410289123,"data":"--\u003e 101         return _astype_float_to_int_nansafe(arr, dtype, copy)\n"}
+,{"stream_name":"stderr","time":72.410292033,"data":"    102 \n"}
+,{"stream_name":"stderr","time":72.41029463,"data":"    103     elif arr.dtype == object:\n"}
+,{"stream_name":"stderr","time":72.410297379,"data":"\n"}
+,{"stream_name":"stderr","time":72.410341714,"data":"/usr/local/lib/python3.12/dist-packages/pandas/core/dtypes/astype.py in _astype_float_to_int_nansafe(values, dtype, copy)\n"}
+,{"stream_name":"stderr","time":72.410344936,"data":"    143     \"\"\"\n"}
+,{"stream_name":"stderr","time":72.410347759,"data":"    144     if not np.isfinite(values).all():\n"}
+,{"stream_name":"stderr","time":72.410350435,"data":"--\u003e 145         raise IntCastingNaNError(\n"}
+,{"stream_name":"stderr","time":72.410353212,"data":"    146             \"Cannot convert non-finite values (NA or inf) to integer\"\n"}
+,{"stream_name":"stderr","time":72.410356178,"data":"    147         )\n"}
+,{"stream_name":"stderr","time":72.410358834,"data":"\n"}
+,{"stream_name":"stderr","time":72.410361391,"data":"IntCastingNaNError: Cannot convert non-finite values (NA or inf) to integer\n"}
+,{"stream_name":"stderr","time":72.410364165,"data":"\n"}
+,{"stream_name":"stderr","time":75.410861993,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":75.410903745,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":75.624674723,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":75.624709805,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":76.483957869,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":76.484048224,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":76.525427314,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":76.929321092,"data":"[NbConvertApp] Writing 68397 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":80.226561214,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":80.226601882,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":80.259347109,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":81.569325107,"data":"[NbConvertApp] Writing 469833 bytes to __results__.html\n"}
+]

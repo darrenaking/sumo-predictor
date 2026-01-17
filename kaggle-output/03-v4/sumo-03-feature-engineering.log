@@ -1,0 +1,91 @@
+[{"stream_name":"stderr","time":10.401114929,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.401289699,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.401296435999999,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.401300615,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.216769984999999,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.216813881,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.216821646,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.21682696,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.529020974,"data":"Input path: /kaggle/input/sumo-data-02\n"}
+,{"stream_name":"stdout","time":12.529083160999999,"data":"Output path: /kaggle/working\n"}
+,{"stream_name":"stdout","time":14.366413709,"data":"Loaded 145,934 matches with ratings\n"}
+,{"stream_name":"stdout","time":14.366495036,"data":"Loaded 619 rikishi profiles\n"}
+,{"stream_name":"stdout","time":14.366503564,"data":"Loaded rank averages for 6 rank levels\n"}
+,{"stream_name":"stdout","time":14.428276249,"data":"\n"}
+,{"stream_name":"stdout","time":14.428318271,"data":"Match columns:\n"}
+,{"stream_name":"stdout","time":14.428325266,"data":"['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'kimarite_category', 'east_won', 'west_won', 'east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff']\n"}
+,{"stream_name":"stdout","time":14.428334654,"data":"\n"}
+,{"stream_name":"stdout","time":14.428337963,"data":"Unknown kimarite: 0 (0.0%)\n"}
+,{"stream_name":"stdout","time":14.428341179,"data":"\n"}
+,{"stream_name":"stdout","time":14.428344363,"data":"Top 10 kimarite:\n"}
+,{"stream_name":"stdout","time":14.428347549,"data":"kimarite\n"}
+,{"stream_name":"stdout","time":14.428350796,"data":"oshidashi      36661\n"}
+,{"stream_name":"stdout","time":14.428355248,"data":"yorikiri       35599\n"}
+,{"stream_name":"stdout","time":14.428360136,"data":"hatakikomi     11727\n"}
+,{"stream_name":"stdout","time":14.428365447000001,"data":"tsukiotoshi     7853\n"}
+,{"stream_name":"stdout","time":14.428370424,"data":"yoritaoshi      7363\n"}
+,{"stream_name":"stdout","time":14.428375444,"data":"uwatenage       6730\n"}
+,{"stream_name":"stdout","time":14.428380284,"data":"oshitaoshi      5203\n"}
+,{"stream_name":"stdout","time":14.428384684,"data":"hikiotoshi      5182\n"}
+,{"stream_name":"stdout","time":14.428389454,"data":"okuridashi      4676\n"}
+,{"stream_name":"stdout","time":14.428394309,"data":"shitatenage     3370\n"}
+,{"stream_name":"stdout","time":14.428399419,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":14.482292492,"data":"Rank parsing examples:\n"}
+,{"stream_name":"stdout","time":14.482337012,"data":"  Y1E -\u003e 0\n"}
+,{"stream_name":"stdout","time":14.4823453,"data":"  Y1W -\u003e 1\n"}
+,{"stream_name":"stdout","time":14.482350857,"data":"  O1E -\u003e 10\n"}
+,{"stream_name":"stdout","time":14.482390886,"data":"  S1W -\u003e 31\n"}
+,{"stream_name":"stdout","time":14.482395465,"data":"  K1E -\u003e 40\n"}
+,{"stream_name":"stdout","time":14.482399141,"data":"  M1E -\u003e 50\n"}
+,{"stream_name":"stdout","time":14.482402841,"data":"  M10W -\u003e 69\n"}
+,{"stream_name":"stdout","time":14.482406236,"data":"  J1E -\u003e 100\n"}
+,{"stream_name":"stdout","time":14.946692526,"data":"Starting vectorized feature engineering...\n"}
+,{"stream_name":"stdout","time":14.946734927,"data":"  Preparing base data...\n"}
+,{"stream_name":"stdout","time":16.140548638,"data":"  Building wrestler bout history...\n"}
+,{"stream_name":"stdout","time":16.675436531,"data":"  Computing career stats...\n"}
+,{"stream_name":"stdout","time":20.46601107,"data":"  Computing basho stats...\n"}
+,{"stream_name":"stdout","time":69.399353948,"data":"  Computing streak stats...\n"}
+,{"stream_name":"stdout","time":70.540709379,"data":"  Computing recent form...\n"}
+,{"stream_name":"stdout","time":74.602312969,"data":"  Computing basho form...\n"}
+,{"stream_name":"stdout","time":78.031687575,"data":"  Computing style features (windowed)...\n"}
+,{"stream_name":"stdout","time":221.298693268,"data":"  Computing head-to-head features...\n"}
+,{"stream_name":"stdout","time":272.119729416,"data":"  Merging features to bout dataframe...\n"}
+,{"stream_name":"stdout","time":274.448957269,"data":"  Computing pressure features...\n"}
+,{"stream_name":"stdout","time":274.449007899,"data":"  Computing origin features...\n"}
+,{"stream_name":"stdout","time":276.700315268,"data":"  Adding rating features...\n"}
+,{"stream_name":"stdout","time":277.221638097,"data":"  Computing pairwise differentials...\n"}
+,{"stream_name":"stdout","time":277.221690652,"data":"  Cleaning up...\n"}
+,{"stream_name":"stdout","time":277.298054008,"data":"Feature engineering complete. Generated 291,462 rows with 236 columns.\n"}
+,{"stream_name":"stdout","time":277.3285059,"data":"\n"}
+,{"stream_name":"stdout","time":277.328559659,"data":"Feature DataFrame shape: (291462, 236)\n"}
+,{"stream_name":"stdout","time":277.328567784,"data":"\n"}
+,{"stream_name":"stdout","time":277.328572498,"data":"Columns (236):\n"}
+,{"stream_name":"stdout","time":277.32858645,"data":"['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'kimarite_category', 'east_won_x', 'west_won_x', 'east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff', 'tournament_number', 'venue', 'is_tokyo', 'east_basho_year', 'east_basho_month', 'east_day', 'east_won_y', 'east_career_wins', 'east_career_losses', 'east_career_total_bouts', 'east_career_win_rate', 'east_bout_date_approx', 'east_debut_date', 'east_career_length_days', 'east_basho_num', 'east_career_total_tournaments', 'east_basho_wins', 'east_basho_losses', 'east_current_win_streak', 'east_current_loss_streak', 'east_win_rate_last_5_bouts', 'east_win_rate_last_10_bouts', 'east_win_rate_last_15_bouts', 'east_win_rate_last_20_bouts', 'east_win_rate_last_1_basho', 'east_win_rate_last_2_basho', 'east_win_rate_last_3_basho', 'east_kachikoshi_streak', 'east_makekoshi_streak', 'east_pct_wins_by_push_last_1_basho', 'east_pct_wins_by_push_last_3_basho', 'east_pct_wins_by_push_last_6_basho', 'east_pct_wins_by_push_career', 'east_style_drift_push', 'east_pct_wins_by_grapple_last_1_basho', 'east_pct_wins_by_grapple_last_3_basho', 'east_pct_wins_by_grapple_last_6_basho', 'east_pct_wins_by_grapple_career', 'east_style_drift_grapple', 'east_pct_wins_by_evasion_last_1_basho', 'east_pct_wins_by_evasion_last_3_basho', 'east_pct_wins_by_evasion_last_6_basho', 'east_pct_wins_by_evasion_career', 'east_style_drift_evasion', 'east_pct_wins_by_force_out_standing_last_1_basho', 'east_pct_wins_by_force_out_standing_last_3_basho', 'east_pct_wins_by_force_out_standing_last_6_basho', 'east_pct_wins_by_force_out_standing_career', 'east_pct_wins_by_force_out_falling_last_1_basho', 'east_pct_wins_by_force_out_falling_last_3_basho', 'east_pct_wins_by_force_out_falling_last_6_basho', 'east_pct_wins_by_force_out_falling_career', 'east_pct_wins_by_throws_overarm_last_1_basho', 'east_pct_wins_by_throws_overarm_last_3_basho', 'east_pct_wins_by_throws_overarm_last_6_basho', 'east_pct_wins_by_throws_overarm_career', 'east_pct_wins_by_throws_underarm_last_1_basho', 'east_pct_wins_by_throws_underarm_last_3_basho', 'east_pct_wins_by_throws_underarm_last_6_basho', 'east_pct_wins_by_throws_underarm_career', 'east_pct_wins_by_slap_pull_down_last_1_basho', 'east_pct_wins_by_slap_pull_down_last_3_basho', 'east_pct_wins_by_slap_pull_down_last_6_basho', 'east_pct_wins_by_slap_pull_down_career', 'east_pct_wins_by_leg_trips_last_1_basho', 'east_pct_wins_by_leg_trips_last_3_basho', 'east_pct_wins_by_leg_trips_last_6_basho', 'east_pct_wins_by_leg_trips_career', 'east_pct_wins_by_twist_downs_last_1_basho', 'east_pct_wins_by_twist_downs_last_3_basho', 'east_pct_wins_by_twist_downs_last_6_basho', 'east_pct_wins_by_twist_downs_career', 'east_pct_wins_by_rear_techniques_last_1_basho', 'east_pct_wins_by_rear_techniques_last_3_basho', 'east_pct_wins_by_rear_techniques_last_6_basho', 'east_pct_wins_by_rear_techniques_career', 'east_pct_wins_by_thrust_techniques_last_1_basho', 'east_pct_wins_by_thrust_techniques_last_3_basho', 'east_pct_wins_by_thrust_techniques_last_6_basho', 'east_pct_wins_by_thrust_techniques_career', 'east_pct_wins_by_lift_techniques_last_1_basho', 'east_pct_wins_by_lift_techniques_last_3_basho', 'east_pct_wins_by_lift_techniques_last_6_basho', 'east_pct_wins_by_lift_techniques_career', 'west_basho_year', 'west_basho_month', 'west_day', 'west_won_y', 'west_career_wins', 'west_career_losses', 'west_career_total_bouts', 'west_career_win_rate', 'west_bout_date_approx', 'west_debut_date', 'west_career_length_days', 'west_basho_num', 'west_career_total_tournaments', 'west_basho_wins', 'west_basho_losses', 'west_current_win_streak', 'west_current_loss_streak', 'west_win_rate_last_5_bouts', 'west_win_rate_last_10_bouts', 'west_win_rate_last_15_bouts', 'west_win_rate_last_20_bouts', 'west_win_rate_last_1_basho', 'west_win_rate_last_2_basho', 'west_win_rate_last_3_basho', 'west_kachikoshi_streak', 'west_makekoshi_streak', 'west_pct_wins_by_push_last_1_basho', 'west_pct_wins_by_push_last_3_basho', 'west_pct_wins_by_push_last_6_basho', 'west_pct_wins_by_push_career', 'west_style_drift_push', 'west_pct_wins_by_grapple_last_1_basho', 'west_pct_wins_by_grapple_last_3_basho', 'west_pct_wins_by_grapple_last_6_basho', 'west_pct_wins_by_grapple_career', 'west_style_drift_grapple', 'west_pct_wins_by_evasion_last_1_basho', 'west_pct_wins_by_evasion_last_3_basho', 'west_pct_wins_by_evasion_last_6_basho', 'west_pct_wins_by_evasion_career', 'west_style_drift_evasion', 'west_pct_wins_by_force_out_standing_last_1_basho', 'west_pct_wins_by_force_out_standing_last_3_basho', 'west_pct_wins_by_force_out_standing_last_6_basho', 'west_pct_wins_by_force_out_standing_career', 'west_pct_wins_by_force_out_falling_last_1_basho', 'west_pct_wins_by_force_out_falling_last_3_basho', 'west_pct_wins_by_force_out_falling_last_6_basho', 'west_pct_wins_by_force_out_falling_career', 'west_pct_wins_by_throws_overarm_last_1_basho', 'west_pct_wins_by_throws_overarm_last_3_basho', 'west_pct_wins_by_throws_overarm_last_6_basho', 'west_pct_wins_by_throws_overarm_career', 'west_pct_wins_by_throws_underarm_last_1_basho', 'west_pct_wins_by_throws_underarm_last_3_basho', 'west_pct_wins_by_throws_underarm_last_6_basho', 'west_pct_wins_by_throws_underarm_career', 'west_pct_wins_by_slap_pull_down_last_1_basho', 'west_pct_wins_by_slap_pull_down_last_3_basho', 'west_pct_wins_by_slap_pull_down_last_6_basho', 'west_pct_wins_by_slap_pull_down_career', 'west_pct_wins_by_leg_trips_last_1_basho', 'west_pct_wins_by_leg_trips_last_3_basho', 'west_pct_wins_by_leg_trips_last_6_basho', 'west_pct_wins_by_leg_trips_career', 'west_pct_wins_by_twist_downs_last_1_basho', 'west_pct_wins_by_twist_downs_last_3_basho', 'west_pct_wins_by_twist_downs_last_6_basho', 'west_pct_wins_by_twist_downs_career', 'west_pct_wins_by_rear_techniques_last_1_basho', 'west_pct_wins_by_rear_techniques_last_3_basho', 'west_pct_wins_by_rear_techniques_last_6_basho', 'west_pct_wins_by_rear_techniques_career', 'west_pct_wins_by_thrust_techniques_last_1_basho', 'west_pct_wins_by_thrust_techniques_last_3_basho', 'west_pct_wins_by_thrust_techniques_last_6_basho', 'west_pct_wins_by_thrust_techniques_career', 'west_pct_wins_by_lift_techniques_last_1_basho', 'west_pct_wins_by_lift_techniques_last_3_basho', 'west_pct_wins_by_lift_techniques_last_6_basho', 'west_pct_wins_by_lift_techniques_career', 'east_h2h_total_bouts', 'east_h2h_wins', 'east_h2h_losses', 'east_h2h_win_rate', 'east_h2h_never_met', 'east_h2h_last_result', 'east_needs_one_win_for_kachikoshi', 'east_needs_two_wins_for_kachikoshi', 'east_already_kachikoshi', 'east_already_makekoshi', 'east_is_day_15', 'east_day_times_needs_one_for_kachikoshi', 'east_is_ozeki', 'east_is_yokozuna', 'east_yokozuna_losing_record_so_far', 'west_needs_one_win_for_kachikoshi', 'west_needs_two_wins_for_kachikoshi', 'west_already_kachikoshi', 'west_already_makekoshi', 'west_is_day_15', 'west_day_times_needs_one_for_kachikoshi', 'west_is_ozeki', 'west_is_yokozuna', 'west_yokozuna_losing_record_so_far', 'east_country_of_origin', 'east_is_japanese', 'west_country_of_origin', 'west_is_japanese', 'east_expected_elo', 'east_elo_minus_expected', 'east_expected_glicko', 'east_glicko_minus_expected', 'west_expected_elo', 'west_elo_minus_expected', 'west_expected_glicko', 'west_glicko_minus_expected', 'rank_diff', 'career_win_rate_diff']\n"}
+,{"stream_name":"stdout","time":278.71262643,"data":"First 10 career bouts: 21,562\n"}
+,{"stream_name":"stdout","time":278.712672583,"data":"After 50 career bouts: 216,793\n"}
+,{"stream_name":"stdout","time":278.712679631,"data":"First bouts - ELO accuracy: 54.8%\n"}
+,{"stream_name":"stdout","time":278.712684767,"data":"Later bouts - ELO accuracy: 56.4%\n"}
+,{"stream_name":"stdout","time":279.663011951,"data":"\n"}
+,{"stream_name":"stdout","time":279.663066313,"data":"Numeric features: 220\n"}
+,{"stream_name":"stdout","time":283.009561373,"data":"\n"}
+,{"stream_name":"stdout","time":283.009607001,"data":"Columns with missing values (128):\n"}
+,{"stream_name":"stdout","time":283.100210297,"data":"Validation issues found:\n"}
+,{"stream_name":"stdout","time":283.100257757,"data":"  - Win rate out of bounds: career_win_rate_diff\n"}
+,{"stream_name":"stdout","time":286.130879983,"data":"Saved 291,462 rows to /kaggle/working/features.parquet\n"}
+,{"stream_name":"stdout","time":286.176029822,"data":"\n"}
+,{"stream_name":"stdout","time":286.176071203,"data":"Sample of engineered features:\n"}
+,{"stream_name":"stdout","time":286.220355727,"data":"\n"}
+,{"stream_name":"stdout","time":286.220396902,"data":"Style features sample (east wrestler):\n"}
+,{"stream_name":"stderr","time":289.91066686,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":289.910701632,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":290.122428259,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":290.122466324,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":290.965362814,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":290.965403255,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":291.008890261,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":291.423731416,"data":"[NbConvertApp] Writing 105647 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":294.759662668,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":294.759714097,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":294.794614565,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":296.075992078,"data":"[NbConvertApp] Writing 489102 bytes to __results__.html\n"}
+]

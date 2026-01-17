@@ -1,0 +1,62 @@
+[{"stream_name":"stderr","time":14.112538401,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":14.112594611,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":14.112601715,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":14.112606156,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":15.042164713,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":15.042206306,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":15.042211624,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":15.042215751,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":16.619406302,"data":"Input path: /kaggle/input/sumo-data-02\n"}
+,{"stream_name":"stdout","time":16.619449115,"data":"Output path: /kaggle/working\n"}
+,{"stream_name":"stdout","time":19.022106364,"data":"Loaded 145,934 matches with ratings\n"}
+,{"stream_name":"stdout","time":19.02214631,"data":"Loaded 619 rikishi profiles\n"}
+,{"stream_name":"stdout","time":19.022153181,"data":"Loaded rank averages for 6 rank levels\n"}
+,{"stream_name":"stdout","time":19.102187039,"data":"\n"}
+,{"stream_name":"stdout","time":19.102227014,"data":"Match columns:\n"}
+,{"stream_name":"stdout","time":19.102235484,"data":"['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'kimarite_category', 'east_won', 'west_won', 'east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff']\n"}
+,{"stream_name":"stdout","time":19.164530588,"data":"Rank parsing examples:\n"}
+,{"stream_name":"stdout","time":19.164569514,"data":"  Y1E -\u003e 0\n"}
+,{"stream_name":"stdout","time":19.164576986,"data":"  Y1W -\u003e 1\n"}
+,{"stream_name":"stdout","time":19.164582439,"data":"  O1E -\u003e 10\n"}
+,{"stream_name":"stdout","time":19.1645881,"data":"  S1W -\u003e 31\n"}
+,{"stream_name":"stdout","time":19.164593567,"data":"  K1E -\u003e 40\n"}
+,{"stream_name":"stdout","time":19.164598461,"data":"  M1E -\u003e 50\n"}
+,{"stream_name":"stdout","time":19.164603113,"data":"  M10W -\u003e 69\n"}
+,{"stream_name":"stdout","time":19.164606489,"data":"  J1E -\u003e 100\n"}
+,{"stream_name":"stdout","time":19.365158359,"data":"Starting feature engineering...\n"}
+,{"stream_name":"stdout","time":19.874850244,"data":"Processing bout 0 / 145,934\n"}
+,{"stream_name":"stdout","time":31.961076769,"data":"Processing bout 25,000 / 145,934\n"}
+,{"stream_name":"stdout","time":46.691074169,"data":"Processing bout 50,000 / 145,934\n"}
+,{"stream_name":"stdout","time":63.137760746,"data":"Processing bout 75,000 / 145,934\n"}
+,{"stream_name":"stdout","time":81.352522706,"data":"Processing bout 100,000 / 145,934\n"}
+,{"stream_name":"stdout","time":102.097210652,"data":"Processing bout 125,000 / 145,934\n"}
+,{"stream_name":"stdout","time":121.380671092,"data":"Feature engineering complete. Generated 145,934 rows.\n"}
+,{"stream_name":"stdout","time":128.466220222,"data":"\n"}
+,{"stream_name":"stdout","time":128.466286573,"data":"Feature DataFrame shape: (145934, 118)\n"}
+,{"stream_name":"stdout","time":128.466292918,"data":"\n"}
+,{"stream_name":"stdout","time":128.466297008,"data":"Columns (118):\n"}
+,{"stream_name":"stdout","time":128.466305171,"data":"['bout_id', 'bashoId', 'day', 'eastId', 'westId', 'winnerId', 'kimarite', 'east_won', 'east_career_wins', 'east_career_losses', 'east_career_total_bouts', 'east_career_win_rate', 'east_career_length_days', 'east_career_total_tournaments', 'west_career_wins', 'west_career_losses', 'west_career_total_bouts', 'west_career_win_rate', 'west_career_length_days', 'west_career_total_tournaments', 'east_basho_wins', 'east_basho_losses', 'east_current_win_streak', 'east_current_loss_streak', 'west_basho_wins', 'west_basho_losses', 'west_current_win_streak', 'west_current_loss_streak', 'east_win_rate_last_5_bouts', 'west_win_rate_last_5_bouts', 'east_win_rate_last_10_bouts', 'west_win_rate_last_10_bouts', 'east_win_rate_last_15_bouts', 'west_win_rate_last_15_bouts', 'east_win_rate_last_20_bouts', 'west_win_rate_last_20_bouts', 'east_win_rate_last_1_basho', 'west_win_rate_last_1_basho', 'east_win_rate_last_2_basho', 'west_win_rate_last_2_basho', 'east_win_rate_last_3_basho', 'west_win_rate_last_3_basho', 'east_kachikoshi_streak', 'east_makekoshi_streak', 'west_kachikoshi_streak', 'west_makekoshi_streak', 'east_pct_wins_by_push', 'east_pct_wins_by_grapple', 'east_pct_wins_by_evasion', 'east_pct_losses_by_push', 'east_pct_losses_by_grapple', 'east_pct_losses_by_evasion', 'east_modal_kimarite', 'east_second_modal_kimarite', 'east_third_modal_kimarite', 'east_pct_wins_by_modal_kimarite', 'east_kimarite_entropy', 'west_pct_wins_by_push', 'west_pct_wins_by_grapple', 'west_pct_wins_by_evasion', 'west_pct_losses_by_push', 'west_pct_losses_by_grapple', 'west_pct_losses_by_evasion', 'west_modal_kimarite', 'west_second_modal_kimarite', 'west_third_modal_kimarite', 'west_pct_wins_by_modal_kimarite', 'west_kimarite_entropy', 'east_h2h_total_bouts', 'east_h2h_wins', 'east_h2h_losses', 'east_h2h_win_rate', 'east_h2h_never_met', 'east_h2h_current_streak', 'east_h2h_last_result', 'east_h2h_last_bout_kimarite', 'east_needs_one_win_for_kachikoshi', 'east_needs_two_wins_for_kachikoshi', 'east_already_kachikoshi', 'east_already_makekoshi', 'east_is_day_15', 'east_day_times_needs_one_for_kachikoshi', 'east_is_ozeki', 'east_is_yokozuna', 'east_yokozuna_losing_record_so_far', 'east_yokozuna_multiple_losses_early', 'west_needs_one_win_for_kachikoshi', 'west_needs_two_wins_for_kachikoshi', 'west_already_kachikoshi', 'west_already_makekoshi', 'west_is_day_15', 'west_day_times_needs_one_for_kachikoshi', 'west_is_ozeki', 'west_is_yokozuna', 'west_yokozuna_losing_record_so_far', 'west_yokozuna_multiple_losses_early', 'east_rank_numeric', 'west_rank_numeric', 'rank_diff', 'east_elo_minus_expected', 'east_glicko_minus_expected', 'west_elo_minus_expected', 'west_glicko_minus_expected', 'east_elo', 'west_elo', 'east_glicko_rating', 'west_glicko_rating', 'east_glicko_rd', 'west_glicko_rd', 'elo_diff', 'glicko_rating_diff', 'career_win_rate_diff', 'year', 'tournament_number', 'tournament_month', 'venue', 'is_tokyo', 'day_of_tournament']\n"}
+,{"stream_name":"stdout","time":128.629845009,"data":"First 10 career bouts: 10,818\n"}
+,{"stream_name":"stdout","time":128.629886304,"data":"After 50 career bouts: 108,510\n"}
+,{"stream_name":"stdout","time":128.62989121,"data":"First bouts - ELO accuracy: 54.7%\n"}
+,{"stream_name":"stdout","time":128.629895774,"data":"Later bouts - ELO accuracy: 56.4%\n"}
+,{"stream_name":"stdout","time":128.790267874,"data":"\n"}
+,{"stream_name":"stdout","time":128.7903103,"data":"Numeric features: 106\n"}
+,{"stream_name":"stdout","time":129.491019498,"data":"\n"}
+,{"stream_name":"stdout","time":129.491061235,"data":"Columns with missing values (23):\n"}
+,{"stream_name":"stdout","time":130.511925764,"data":"Saved 145,934 rows to /kaggle/working/features.parquet\n"}
+,{"stream_name":"stdout","time":130.560489603,"data":"\n"}
+,{"stream_name":"stdout","time":130.560527017,"data":"Sample of engineered features:\n"}
+,{"stream_name":"stderr","time":134.432488252,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":134.432532982,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":134.671740187,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":134.671772382,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":135.523382271,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":135.523423032,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":135.569341952,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":135.997772558,"data":"[NbConvertApp] Writing 80614 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":139.279656066,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":139.279704842,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":139.312050149,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":140.556660389,"data":"[NbConvertApp] Writing 424124 bytes to __results__.html\n"}
+]

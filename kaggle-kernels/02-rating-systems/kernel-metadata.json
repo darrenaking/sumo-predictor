@@ -1,0 +1,14 @@
+{
+  "id": "darrenaking/sumo-02-rating-systems",
+  "title": "Sumo 02 - Rating Systems",
+  "code_file": "02_rating_systems.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["darrenaking/sumo-data-01"],
+  "kernel_sources": [],
+  "competition_sources": []
+}

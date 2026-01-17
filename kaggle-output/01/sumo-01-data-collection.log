@@ -1,0 +1,77 @@
+[{"stream_name":"stderr","time":10.47395021,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.474034312,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.474042338,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.474047111,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.359665202,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.359702282,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.359708617,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.359713585,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.74410965,"data":"Input path: /kaggle/input/sumo-data\n"}
+,{"stream_name":"stdout","time":12.744158371,"data":"Output path: /kaggle/working\n"}
+,{"stream_name":"stdout","time":20.376627041,"data":"API connection successful!\n"}
+,{"stream_name":"stdout","time":20.376671334,"data":"Total rikishi available: 619\n"}
+,{"stream_name":"stdout","time":20.554622238,"data":"Error 400 for /kimarite\n"}
+,{"stream_name":"stdout","time":20.747090078,"data":"Fetching all rikishi...\n"}
+,{"stream_name":"stdout","time":21.538058766,"data":"  Fetched 619 / 619 rikishi...\n"}
+,{"stream_name":"stdout","time":21.538103271,"data":"Total rikishi fetched: 619\n"}
+,{"stream_name":"stdout","time":21.538109156,"data":"\n"}
+,{"stream_name":"stdout","time":21.538113685,"data":"Rikishi DataFrame shape: (619, 14)\n"}
+,{"stream_name":"stdout","time":21.538118287,"data":"\n"}
+,{"stream_name":"stdout","time":21.538122662,"data":"Columns: ['id', 'sumodbId', 'nskId', 'shikonaEn', 'shikonaJp', 'currentRank', 'heya', 'birthDate', 'shusshin', 'height', 'weight', 'debut', 'updatedAt', 'createdAt']\n"}
+,{"stream_name":"stdout","time":380.108353754,"data":"Progress: 500/619 rikishi processed, 197378 total match records\n"}
+,{"stream_name":"stdout","time":457.781482307,"data":"\n"}
+,{"stream_name":"stdout","time":457.781520447,"data":"Total match records (with duplicates): 202341\n"}
+,{"stream_name":"stdout","time":460.945997055,"data":"After deduplication: 145934 unique bouts\n"}
+,{"stream_name":"stdout","time":460.946039388,"data":"\n"}
+,{"stream_name":"stdout","time":460.946047108,"data":"Matches DataFrame shape: (145934, 15)\n"}
+,{"stream_name":"stdout","time":460.946053908,"data":"\n"}
+,{"stream_name":"stdout","time":460.946059828,"data":"Columns: ['bashoId', 'division', 'day', 'matchNo', 'eastId', 'eastShikona', 'eastRank', 'westId', 'westShikona', 'westRank', 'kimarite', 'winnerId', 'winnerEn', 'winnerJp', 'bout_id']\n"}
+,{"stream_name":"stdout","time":462.354674472,"data":"Cleaned matches DataFrame shape: (145934, 22)\n"}
+,{"stream_name":"stdout","time":462.428285498,"data":"=== Data Summary ===\n"}
+,{"stream_name":"stdout","time":462.428322821,"data":"\n"}
+,{"stream_name":"stdout","time":462.428330381,"data":"Total unique bouts: 145,934\n"}
+,{"stream_name":"stdout","time":462.42833652,"data":"Total unique rikishi: 619\n"}
+,{"stream_name":"stdout","time":462.42834217,"data":"\n"}
+,{"stream_name":"stdout","time":462.428347515,"data":"Year range: 1993 - 2026\n"}
+,{"stream_name":"stdout","time":462.428353113,"data":"\n"}
+,{"stream_name":"stdout","time":462.428358975,"data":"Top 10 kimarite:\n"}
+,{"stream_name":"stdout","time":462.42839116,"data":"kimarite\n"}
+,{"stream_name":"stdout","time":462.428396305,"data":"oshidashi      36661\n"}
+,{"stream_name":"stdout","time":462.4284009,"data":"yorikiri       35599\n"}
+,{"stream_name":"stdout","time":462.428405675,"data":"hatakikomi     11727\n"}
+,{"stream_name":"stdout","time":462.428410257,"data":"tsukiotoshi     7853\n"}
+,{"stream_name":"stdout","time":462.428414711,"data":"yoritaoshi      7363\n"}
+,{"stream_name":"stdout","time":462.428419233,"data":"uwatenage       6730\n"}
+,{"stream_name":"stdout","time":462.428423629,"data":"oshitaoshi      5203\n"}
+,{"stream_name":"stdout","time":462.428427974,"data":"hikiotoshi      5182\n"}
+,{"stream_name":"stdout","time":462.428432198,"data":"okuridashi      4676\n"}
+,{"stream_name":"stdout","time":462.428435273,"data":"shitatenage     3370\n"}
+,{"stream_name":"stdout","time":462.42843906,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":462.428443483,"data":"\n"}
+,{"stream_name":"stdout","time":462.428447749,"data":"Kimarite by category:\n"}
+,{"stream_name":"stdout","time":462.428452087,"data":"kimarite_category\n"}
+,{"stream_name":"stdout","time":462.428456417,"data":"grapple    68520\n"}
+,{"stream_name":"stdout","time":462.428460588,"data":"push       58605\n"}
+,{"stream_name":"stdout","time":462.428465001,"data":"evasion    17818\n"}
+,{"stream_name":"stdout","time":462.42846945,"data":"unknown      991\n"}
+,{"stream_name":"stdout","time":462.428473891,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":462.739709058,"data":"Saved 619 rikishi to /kaggle/working/rikishi.parquet\n"}
+,{"stream_name":"stdout","time":462.935554858,"data":"Saved 145934 matches to /kaggle/working/matches.parquet\n"}
+,{"stream_name":"stdout","time":462.96159001,"data":"\n"}
+,{"stream_name":"stdout","time":462.96162785,"data":"Files in /kaggle/working:\n"}
+,{"stream_name":"stdout","time":462.961634893,"data":"  matches.parquet: 3.28 MB\n"}
+,{"stream_name":"stdout","time":462.961639808,"data":"  __notebook__.ipynb: 0.05 MB\n"}
+,{"stream_name":"stdout","time":462.961644246,"data":"  rikishi.parquet: 0.06 MB\n"}
+,{"stream_name":"stderr","time":466.389169682,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":466.389213498,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":466.58802731,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":466.588060826,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":467.387905389,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":467.387938769,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":467.428853244,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":467.864402726,"data":"[NbConvertApp] Writing 55522 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":471.136872752,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":471.136924658,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":471.168196924,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":472.366649885,"data":"[NbConvertApp] Writing 358508 bytes to __results__.html\n"}
+]

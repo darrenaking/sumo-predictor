@@ -1,0 +1,239 @@
+[{"stream_name":"stderr","time":11.399162663,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.399256186,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.39926353,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.399268683,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.328291582,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.328333222,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.32833971,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.328344296,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.721690799,"data":"Models path: /kaggle/input/sumo-data-04\n"}
+,{"stream_name":"stdout","time":13.721729672,"data":"Features path: /kaggle/input/sumo-data-03\n"}
+,{"stream_name":"stdout","time":29.689399581,"data":"Models loaded\n"}
+,{"stream_name":"stdout","time":29.689439375,"data":"Kimarite classes: ['hatakikomi' 'hikiotoshi' 'katasukashi' 'kimedashi' 'kotenage'\n"}
+,{"stream_name":"stdout","time":29.689445572,"data":" 'makiotoshi' 'okuridashi' 'oshidashi' 'oshitaoshi' 'other' 'shitatenage'\n"}
+,{"stream_name":"stdout","time":29.689449949,"data":" 'sotogake' 'sukuinage' 'tsukidashi' 'tsukiotoshi' 'tsukitaoshi'\n"}
+,{"stream_name":"stdout","time":29.689454533,"data":" 'uchigake' 'uwatedashinage' 'uwatenage' 'yorikiri' 'yoritaoshi']\n"}
+,{"stream_name":"stdout","time":31.140720745,"data":"Loaded 291,462 bouts\n"}
+,{"stream_name":"stdout","time":31.140780043,"data":"Loaded 619 wrestler names\n"}
+,{"stream_name":"stdout","time":31.807012401,"data":"Sample bouts for narrative generation: 790\n"}
+,{"stream_name":"stdout","time":31.911351501,"data":"Predictions generated: 790\n"}
+,{"stream_name":"stdout","time":31.939080124,"data":"Selected 10 diverse bouts for narratives\n"}
+,{"stream_name":"stdout","time":31.977855407,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":31.977891761,"data":"SAMPLE BOUT PREVIEW NARRATIVES\n"}
+,{"stream_name":"stdout","time":31.977897278,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":31.977902845,"data":"\n"}
+,{"stream_name":"stdout","time":31.977907045,"data":"--- Bout 1 (202601 Day 1) ---\n"}
+,{"stream_name":"stdout","time":31.977911534,"data":"\n"}
+,{"stream_name":"stdout","time":31.97791628,"data":"**Wakazakura** should beat Ryuseio (79% confidence). Expect a pushing/thrusting contest. Likely finishes: oshidashi (push out), or hatakikomi (slap down). This is their first meeting.\n"}
+,{"stream_name":"stdout","time":31.977921571,"data":"\n"}
+,{"stream_name":"stdout","time":31.977926494,"data":"[Actual outcome: West won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.977931862,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.977936794,"data":"\n"}
+,{"stream_name":"stdout","time":31.97794132,"data":"--- Bout 2 (202601 Day 1) ---\n"}
+,{"stream_name":"stdout","time":31.977945737,"data":"\n"}
+,{"stream_name":"stdout","time":31.977950065,"data":"**Azumanami** is favored against Itakozakura (75% confidence). Expect a belt battle. Most likely finish: yorikiri (force out). Azumanami appears overranked based on recent form. Itakozakura appears overranked based on recent form.\n"}
+,{"stream_name":"stdout","time":31.977976087000002,"data":"\n"}
+,{"stream_name":"stdout","time":31.977980764,"data":"[Actual outcome: East won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.977985645,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.977990741,"data":"\n"}
+,{"stream_name":"stdout","time":31.977994996,"data":"--- Bout 3 (202601 Day 3) ---\n"}
+,{"stream_name":"stdout","time":31.978000066,"data":"\n"}
+,{"stream_name":"stdout","time":31.978004571,"data":"**Furanshisu** is favored against Kikuryuho (75% confidence). Pushing attacks likely at the tachiai. Likely finishes: oshidashi (push out), or yorikiri (force out). This is their first meeting. Kikuryuho appears overranked based on recent form.\n"}
+,{"stream_name":"stdout","time":31.978010814,"data":"\n"}
+,{"stream_name":"stdout","time":31.978015364,"data":"[Actual outcome: West won. Prediction: ✗]\n"}
+,{"stream_name":"stdout","time":31.978020092,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978025204,"data":"\n"}
+,{"stream_name":"stdout","time":31.978029652,"data":"--- Bout 4 (202601 Day 1) ---\n"}
+,{"stream_name":"stdout","time":31.9780342,"data":"\n"}
+,{"stream_name":"stdout","time":31.978039349,"data":"**Fujinonami** is likely to beat Amamidake (65% confidence). Pushing attacks likely at the tachiai. Likely finishes: oshidashi (push out), yorikiri (force out), or hatakikomi (slap down). Head-to-head record: Fujinonami leads 2-1. Amamidake appears overranked based on recent form. Fujinonami appears overranked based on recent form.\n"}
+,{"stream_name":"stdout","time":31.978045532,"data":"\n"}
+,{"stream_name":"stdout","time":31.978050151,"data":"[Actual outcome: West won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.978055098,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978059915,"data":"\n"}
+,{"stream_name":"stdout","time":31.97806444,"data":"--- Bout 5 (202601 Day 1) ---\n"}
+,{"stream_name":"stdout","time":31.978069046,"data":"\n"}
+,{"stream_name":"stdout","time":31.978073659,"data":"**Daishimatsu** is likely to beat Tsukioka (65% confidence). Expect a pushing/thrusting contest. Likely finishes: oshidashi (push out), or hatakikomi (slap down). This is their first meeting.\n"}
+,{"stream_name":"stdout","time":31.978079531,"data":"\n"}
+,{"stream_name":"stdout","time":31.978084261,"data":"[Actual outcome: East won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.978090864,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978095701,"data":"\n"}
+,{"stream_name":"stdout","time":31.978100276,"data":"--- Bout 6 (202601 Day 3) ---\n"}
+,{"stream_name":"stdout","time":31.978104835,"data":"\n"}
+,{"stream_name":"stdout","time":31.978109342,"data":"**Satsumao** is favored against Fujinoteru (72% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), oshidashi (push out), or hatakikomi (slap down). Head-to-head record: Satsumao leads 3-2. Fujinoteru appears overranked based on recent form. Satsumao appears overranked based on recent form.\n"}
+,{"stream_name":"stdout","time":31.978115659,"data":"\n"}
+,{"stream_name":"stdout","time":31.978120204,"data":"[Actual outcome: West won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.978124684,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978134422,"data":"\n"}
+,{"stream_name":"stdout","time":31.978139109,"data":"--- Bout 7 (202601 Day 1) ---\n"}
+,{"stream_name":"stdout","time":31.978143462,"data":"\n"}
+,{"stream_name":"stdout","time":31.978147812,"data":"**Akitoba** is likely to beat Dairaido (63% confidence). Expect a pushing/thrusting contest. Likely finishes: oshidashi (push out), or yorikiri (force out). This is their first meeting. Akitoba is performing above his rank.\n"}
+,{"stream_name":"stdout","time":31.978153151,"data":"\n"}
+,{"stream_name":"stdout","time":31.978157572,"data":"[Actual outcome: East won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.978162482,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978167428,"data":"\n"}
+,{"stream_name":"stdout","time":31.978172225,"data":"--- Bout 8 (202601 Day 3) ---\n"}
+,{"stream_name":"stdout","time":31.978176532,"data":"\n"}
+,{"stream_name":"stdout","time":31.978181124,"data":"**Kitadaichi** is narrowly favored over Tendozan (52% confidence). Pushing attacks likely at the tachiai. Likely finishes: oshidashi (push out), or yorikiri (force out). Head-to-head record: Tendozan leads 2-1.\n"}
+,{"stream_name":"stdout","time":31.978186554,"data":"\n"}
+,{"stream_name":"stdout","time":31.978191098,"data":"[Actual outcome: East won. Prediction: ✗]\n"}
+,{"stream_name":"stdout","time":31.978195747,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978248359,"data":"\n"}
+,{"stream_name":"stdout","time":31.978252651,"data":"--- Bout 9 (202601 Day 2) ---\n"}
+,{"stream_name":"stdout","time":31.978257461,"data":"\n"}
+,{"stream_name":"stdout","time":31.978262149,"data":"**Shishi** is narrowly favored over Asakoryu (54% confidence). Will likely come down to who gets the better grip. Likely finishes: yorikiri (force out), or oshidashi (push out). Head-to-head record is even at 5-5. Shishi is performing above his rank. Asakoryu is performing above his rank.\n"}
+,{"stream_name":"stdout","time":31.978280659,"data":"\n"}
+,{"stream_name":"stdout","time":31.978285367,"data":"[Actual outcome: East won. Prediction: ✓]\n"}
+,{"stream_name":"stdout","time":31.978290328,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":31.978295149,"data":"\n"}
+,{"stream_name":"stdout","time":31.978299425,"data":"--- Bout 10 (202601 Day 1) ---\n"}
+,{"stream_name":"stdout","time":31.97830424,"data":"\n"}
+,{"stream_name":"stdout","time":31.978308652,"data":"**Mudoho** is narrowly favored over Gojinyu (53% confidence). Pushing attacks likely at the tachiai. Likely finishes: oshidashi (push out), or yorikiri (force out). Gojinyu is performing above his rank.\n"}
+,{"stream_name":"stdout","time":31.978314327,"data":"\n"}
+,{"stream_name":"stdout","time":31.978318731,"data":"[Actual outcome: East won. Prediction: ✗]\n"}
+,{"stream_name":"stdout","time":31.97832356,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":32.014921454,"data":"\n"}
+,{"stream_name":"stdout","time":32.014957443,"data":"NARRATIVE STRUCTURE EXAMPLES:\n"}
+,{"stream_name":"stdout","time":32.014964395,"data":"\n"}
+,{"stream_name":"stdout","time":32.014968828,"data":"1. HIGH CONFIDENCE (\u003e75%):\n"}
+,{"stream_name":"stdout","time":32.014974269,"data":"   \"Terunofuji should beat Takakeisho (78% confidence). Expect a belt battle. \n"}
+,{"stream_name":"stdout","time":32.014979548,"data":"   Most likely finish: yorikiri (force out). Terunofuji dominates this matchup \n"}
+,{"stream_name":"stdout","time":32.015001423,"data":"   historically (8-2). Terunofuji is competing as yokozuna.\"\n"}
+,{"stream_name":"stdout","time":32.015006383,"data":"\n"}
+,{"stream_name":"stdout","time":32.015010934,"data":"2. MEDIUM CONFIDENCE (60-75%):\n"}
+,{"stream_name":"stdout","time":32.015014389,"data":"   \"Hoshoryu is favored against Wakatakakage (65% confidence). Will likely \n"}
+,{"stream_name":"stdout","time":32.015017634,"data":"   come down to who gets the better grip. Likely finishes: uwatenage \n"}
+,{"stream_name":"stdout","time":32.015020709,"data":"   (overarm throw), or yorikiri (force out). Wakatakakage has won 3 straight \n"}
+,{"stream_name":"stdout","time":32.015023789,"data":"   in this matchup.\"\n"}
+,{"stream_name":"stdout","time":32.015026881,"data":"\n"}
+,{"stream_name":"stdout","time":32.015029742,"data":"3. SLIGHT EDGE (55-60%):\n"}
+,{"stream_name":"stdout","time":32.015032707,"data":"   \"Kotonowaka has the edge over Abi (58% confidence). Expect a pushing/\n"}
+,{"stream_name":"stdout","time":32.015035768,"data":"   thrusting contest. Most likely finish: oshidashi (push out). This is \n"}
+,{"stream_name":"stdout","time":32.015048324,"data":"   their first meeting.\"\n"}
+,{"stream_name":"stdout","time":32.015051498,"data":"\n"}
+,{"stream_name":"stdout","time":32.015054285,"data":"4. COIN FLIP (\u003c55%):\n"}
+,{"stream_name":"stdout","time":32.015057285,"data":"   \"Coin flip between Onosho and Midorifuji. Could go either way. Watch \n"}
+,{"stream_name":"stdout","time":32.015060405,"data":"   for evasive maneuvers. Onosho is fighting for kachikoshi on the final \n"}
+,{"stream_name":"stdout","time":32.015063634,"data":"   day (7-7 record). Midorifuji has already locked in a losing record.\"\n"}
+,{"stream_name":"stdout","time":32.015066775,"data":"\n"}
+,{"stream_name":"stdout","time":32.015069528,"data":"5. PRESSURE SITUATION:\n"}
+,{"stream_name":"stdout","time":32.015072547,"data":"   \"Kirishima is narrowly favored over Daieisho (53% confidence). Pushing \n"}
+,{"stream_name":"stdout","time":32.015075665,"data":"   attacks likely at the tachiai. Kirishima is competing as ozeki. \n"}
+,{"stream_name":"stdout","time":32.015079027,"data":"   Kirishima appears overranked based on recent form.\"\n"}
+,{"stream_name":"stdout","time":32.015082048,"data":"\n"}
+,{"stream_name":"stdout","time":32.088242882,"data":"\n"}
+,{"stream_name":"stdout","time":32.088283191,"data":"\n"}
+,{"stream_name":"stdout","time":32.088288915,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":32.088294403,"data":"TORIKUMI PREVIEW: 202601 Day 6\n"}
+,{"stream_name":"stdout","time":32.088299087,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":32.088303897,"data":"\n"}
+,{"stream_name":"stdout","time":32.088308077,"data":"\n"}
+,{"stream_name":"stdout","time":32.088312015,"data":"Fujinoshin vs Kaiyuma\n"}
+,{"stream_name":"stdout","time":32.08831656,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088321408,"data":"**Fujinoshin** has the edge over Kaiyuma (59% confidence). Will likely come down to who gets the better grip. Likely finishes: yorikiri (force out), or oshidashi (push out). This is their first meeting.\n"}
+,{"stream_name":"stdout","time":32.08832813,"data":"\n"}
+,{"stream_name":"stdout","time":32.08833238,"data":"\n"}
+,{"stream_name":"stdout","time":32.088336369,"data":"Nishikigi vs Hidenoumi\n"}
+,{"stream_name":"stdout","time":32.088340578,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088437439,"data":"**Hidenoumi** is narrowly favored over Nishikigi (54% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), or oshidashi (push out). Head-to-head record: Hidenoumi leads 5-4. Nishikigi is performing above his rank. Hidenoumi is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.088445541,"data":"\n"}
+,{"stream_name":"stdout","time":32.088450144,"data":"\n"}
+,{"stream_name":"stdout","time":32.088454673,"data":"Nishikigi vs Hidenoumi\n"}
+,{"stream_name":"stdout","time":32.088459558,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088489487,"data":"**Hidenoumi** is narrowly favored over Nishikigi (54% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), or oshidashi (push out). Head-to-head record: Nishikigi leads 5-4. Nishikigi is performing above his rank. Hidenoumi is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.088495843,"data":"\n"}
+,{"stream_name":"stdout","time":32.088500318,"data":"\n"}
+,{"stream_name":"stdout","time":32.08850459,"data":"Shishi vs Hatsuyama\n"}
+,{"stream_name":"stdout","time":32.08850895,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088513492,"data":"**Shishi** is likely to beat Hatsuyama (62% confidence). Pushing attacks likely at the tachiai. Likely finishes: oshidashi (push out), yorikiri (force out), or hatakikomi (slap down). Shishi is performing above his rank. Hatsuyama is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.088518976,"data":"\n"}
+,{"stream_name":"stdout","time":32.088523803,"data":"\n"}
+,{"stream_name":"stdout","time":32.088526795,"data":"Shishi vs Hatsuyama\n"}
+,{"stream_name":"stdout","time":32.088529644,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088533271,"data":"**Shishi** is likely to beat Hatsuyama (62% confidence). Pushing attacks likely at the tachiai. Likely finishes: oshidashi (push out), yorikiri (force out), or hatakikomi (slap down). Shishi is performing above his rank. Hatsuyama is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.088536981,"data":"\n"}
+,{"stream_name":"stdout","time":32.088539732,"data":"\n"}
+,{"stream_name":"stdout","time":32.088542635,"data":"Fujinoshin vs Kaiyuma\n"}
+,{"stream_name":"stdout","time":32.088545522,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088550282,"data":"**Fujinoshin** has the edge over Kaiyuma (59% confidence). Will likely come down to who gets the better grip. Likely finishes: yorikiri (force out), or oshidashi (push out). This is their first meeting.\n"}
+,{"stream_name":"stdout","time":32.08855363,"data":"\n"}
+,{"stream_name":"stdout","time":32.08855635,"data":"\n"}
+,{"stream_name":"stdout","time":32.088559083,"data":"Oshoumi vs Mitakeumi\n"}
+,{"stream_name":"stdout","time":32.088561903,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088564967,"data":"**Oshoumi** is narrowly favored over Mitakeumi (55% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), or oshidashi (push out). Oshoumi is performing above his rank. Mitakeumi is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.0885684,"data":"\n"}
+,{"stream_name":"stdout","time":32.088571112,"data":"\n"}
+,{"stream_name":"stdout","time":32.088573875,"data":"Oshoumi vs Mitakeumi\n"}
+,{"stream_name":"stdout","time":32.088576692,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088581027,"data":"**Oshoumi** is narrowly favored over Mitakeumi (55% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), or oshidashi (push out). Oshoumi is performing above his rank. Mitakeumi is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.088592558,"data":"\n"}
+,{"stream_name":"stdout","time":32.088596689,"data":"\n"}
+,{"stream_name":"stdout","time":32.088600615,"data":"Okinohama vs Tokitenran\n"}
+,{"stream_name":"stdout","time":32.088604981,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088609349,"data":"**Tokitenran** is likely to beat Okinohama (63% confidence). Will likely come down to who gets the better grip. Likely finishes: yorikiri (force out), or oshidashi (push out). This is their first meeting. Okinohama is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.088614252,"data":"\n"}
+,{"stream_name":"stdout","time":32.088618565,"data":"\n"}
+,{"stream_name":"stdout","time":32.088622596,"data":"Okinohama vs Tokitenran\n"}
+,{"stream_name":"stdout","time":32.088627234,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088631723,"data":"**Tokitenran** is likely to beat Okinohama (63% confidence). Will likely come down to who gets the better grip. Likely finishes: yorikiri (force out), or oshidashi (push out). This is their first meeting. Okinohama is performing above his rank.\n"}
+,{"stream_name":"stdout","time":32.08863717,"data":"\n"}
+,{"stream_name":"stdout","time":32.088641477,"data":"\n"}
+,{"stream_name":"stdout","time":32.088645637,"data":"Hokuyozan vs Tomiyutaka\n"}
+,{"stream_name":"stdout","time":32.088649882,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088654321,"data":"**Tomiyutaka** is likely to beat Hokuyozan (62% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), oshidashi (push out), or sotogake (outside leg trip). This is their first meeting.\n"}
+,{"stream_name":"stdout","time":32.088659384,"data":"\n"}
+,{"stream_name":"stdout","time":32.088663564,"data":"\n"}
+,{"stream_name":"stdout","time":32.088667767,"data":"Hokuyozan vs Tomiyutaka\n"}
+,{"stream_name":"stdout","time":32.088672312,"data":"----------------------------------------\n"}
+,{"stream_name":"stdout","time":32.088677062,"data":"**Tomiyutaka** is likely to beat Hokuyozan (62% confidence). Expect a belt battle. Likely finishes: yorikiri (force out), oshidashi (push out), or sotogake (outside leg trip). This is their first meeting.\n"}
+,{"stream_name":"stdout","time":32.088682246,"data":"\n"}
+,{"stream_name":"stdout","time":32.118731479,"data":"\n"}
+,{"stream_name":"stdout","time":32.118771858,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":32.118778703,"data":"NARRATIVE GENERATION COMPLETE\n"}
+,{"stream_name":"stdout","time":32.118805613,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":32.118811095,"data":"\n"}
+,{"stream_name":"stdout","time":32.118817852,"data":"The narrative generator produces bout previews that include:\n"}
+,{"stream_name":"stdout","time":32.118822617,"data":"\n"}
+,{"stream_name":"stdout","time":32.118826872,"data":"1. PREDICTION \u0026 CONFIDENCE\n"}
+,{"stream_name":"stdout","time":32.118832025,"data":"   - Winner prediction with probability\n"}
+,{"stream_name":"stdout","time":32.118836903,"data":"   - Confidence level description (heavy favorite -\u003e coin flip)\n"}
+,{"stream_name":"stdout","time":32.118841856,"data":"\n"}
+,{"stream_name":"stdout","time":32.118846395,"data":"2. BOUT TYPE\n"}
+,{"stream_name":"stdout","time":32.118870513,"data":"   - Derived from kimarite category probabilities\n"}
+,{"stream_name":"stdout","time":32.118875396,"data":"   - Push battle, belt battle, or evasive techniques\n"}
+,{"stream_name":"stdout","time":32.118879913,"data":"\n"}
+,{"stream_name":"stdout","time":32.11888518,"data":"3. LIKELY TECHNIQUES\n"}
+,{"stream_name":"stdout","time":32.118889772,"data":"   - Top kimarite with English translations\n"}
+,{"stream_name":"stdout","time":32.118894653,"data":"   - Only shown if probability \u003e 10%\n"}
+,{"stream_name":"stdout","time":32.118899333,"data":"\n"}
+,{"stream_name":"stdout","time":32.118903856,"data":"4. HEAD-TO-HEAD HISTORY\n"}
+,{"stream_name":"stdout","time":32.118908413,"data":"   - First meeting flag\n"}
+,{"stream_name":"stdout","time":32.118913406,"data":"   - Historical record for frequent matchups\n"}
+,{"stream_name":"stdout","time":32.118918173,"data":"   - Current streak information\n"}
+,{"stream_name":"stdout","time":32.11892297,"data":"\n"}
+,{"stream_name":"stdout","time":32.118927183,"data":"5. PRESSURE CONTEXT\n"}
+,{"stream_name":"stdout","time":32.118931469,"data":"   - Kachikoshi/makekoshi situations\n"}
+,{"stream_name":"stdout","time":32.118936127,"data":"   - Rank-specific pressure (ozeki, yokozuna)\n"}
+,{"stream_name":"stdout","time":32.118940525,"data":"   - Day 15 pressure for 7-7 records\n"}
+,{"stream_name":"stdout","time":32.118944747,"data":"\n"}
+,{"stream_name":"stdout","time":32.118948935,"data":"6. RATING VS RANK\n"}
+,{"stream_name":"stdout","time":32.118953463,"data":"   - Flags when ELO suggests over/underranking\n"}
+,{"stream_name":"stdout","time":32.11895806,"data":"   - Useful for promotion/demotion narratives\n"}
+,{"stream_name":"stdout","time":32.118962628,"data":"\n"}
+,{"stream_name":"stdout","time":32.118967272,"data":"To use in production:\n"}
+,{"stream_name":"stdout","time":32.118971809,"data":"1. Load upcoming bout data with features\n"}
+,{"stream_name":"stdout","time":32.118976449,"data":"2. Call generate_torikumi_preview()\n"}
+,{"stream_name":"stdout","time":32.118981755,"data":"3. Display or export narratives\n"}
+,{"stream_name":"stdout","time":32.118986277,"data":"\n"}
+,{"stream_name":"stderr","time":36.056215599,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":36.056250008,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":36.267873239,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":36.267905309,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":37.087727088,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":37.087773081,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":37.138978758,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":37.575421552,"data":"[NbConvertApp] Writing 50031 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":40.916624118,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":40.916689276,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":40.9477729,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":42.19681085,"data":"[NbConvertApp] Writing 372929 bytes to __results__.html\n"}
+]

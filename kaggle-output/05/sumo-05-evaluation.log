@@ -1,0 +1,92 @@
+[{"stream_name":"stderr","time":9.02443147,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.024524811,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.024530242,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.024533631,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.813775827,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.813815196,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.813819304999999,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.813823542,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.109686992,"data":"Input path: /kaggle/input/sumo-data-04\n"}
+,{"stream_name":"stdout","time":11.10972022,"data":"Features path: /kaggle/input/sumo-data-03\n"}
+,{"stream_name":"stdout","time":25.586636994,"data":"Models loaded successfully\n"}
+,{"stream_name":"stdout","time":25.586670905,"data":"Kimarite classes: ['hatakikomi' 'hikiotoshi' 'katasukashi' 'kimedashi' 'kotenage'\n"}
+,{"stream_name":"stdout","time":25.58667555,"data":" 'makiotoshi' 'okuridashi' 'oshidashi' 'oshitaoshi' 'other' 'shitatenage'\n"}
+,{"stream_name":"stdout","time":25.586678724,"data":" 'sotogake' 'sukuinage' 'tsukidashi' 'tsukiotoshi' 'tsukitaoshi'\n"}
+,{"stream_name":"stdout","time":25.586681686,"data":" 'uchigake' 'uwatedashinage' 'uwatenage' 'yorikiri' 'yoritaoshi']\n"}
+,{"stream_name":"stdout","time":25.706561139,"data":"Loaded 25,352 test predictions\n"}
+,{"stream_name":"stdout","time":27.067985265,"data":"Loaded 291,462 total bouts\n"}
+,{"stream_name":"stdout","time":27.13830926,"data":"=== Winner Model - Core Metrics ===\n"}
+,{"stream_name":"stdout","time":27.138347305,"data":"Accuracy: 0.6164\n"}
+,{"stream_name":"stdout","time":27.138353152,"data":"AUC: 0.6633\n"}
+,{"stream_name":"stdout","time":27.138358157,"data":"Log Loss: 0.6511\n"}
+,{"stream_name":"stdout","time":27.138362506,"data":"Brier Score: 0.2297\n"}
+,{"stream_name":"stdout","time":27.138366892,"data":"\n"}
+,{"stream_name":"stdout","time":27.13837079,"data":"Baseline (random 50%): Accuracy=0.5000, AUC=0.5000\n"}
+,{"stream_name":"stdout","time":27.163400332,"data":"\n"}
+,{"stream_name":"stdout","time":27.163466558,"data":"Confusion Matrix:\n"}
+,{"stream_name":"stdout","time":27.163476599,"data":"                 Pred West  Pred East\n"}
+,{"stream_name":"stdout","time":27.163481409,"data":"Actual West         7912      4970\n"}
+,{"stream_name":"stdout","time":27.16348626,"data":"Actual East         4756      7714\n"}
+,{"stream_name":"stdout","time":27.21108466,"data":"Expected Calibration Error (ECE): 0.0153\n"}
+,{"stream_name":"stdout","time":27.211120338,"data":"\n"}
+,{"stream_name":"stdout","time":27.211126116,"data":"(ECE \u003c 0.05 is considered well-calibrated)\n"}
+,{"stream_name":"stdout","time":27.211130883,"data":"\n"}
+,{"stream_name":"stdout","time":27.21113563,"data":"Calibration by prediction bin:\n"}
+,{"stream_name":"stdout","time":28.299495894,"data":"Accuracy by prediction confidence:\n"}
+,{"stream_name":"stdout","time":28.921027574,"data":"Merged data: 25352 rows\n"}
+,{"stream_name":"stdout","time":29.032311728,"data":"\n"}
+,{"stream_name":"stdout","time":29.032384511,"data":"=== Model Comparison ===\n"}
+,{"stream_name":"stdout","time":34.222982897,"data":"Computing SHAP values for 5000 samples with 216 features...\n"}
+,{"stream_name":"stdout","time":36.85028496,"data":"SHAP values computed\n"}
+,{"stream_name":"stdout","time":36.890830896,"data":"\n"}
+,{"stream_name":"stdout","time":36.890871738,"data":"Top 20 Features by SHAP Importance:\n"}
+,{"stream_name":"stdout","time":41.109728255,"data":"\n"}
+,{"stream_name":"stdout","time":41.109771853,"data":"Top 20 Features by LightGBM Gain:\n"}
+,{"stream_name":"stdout","time":41.92411149,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":41.924158842,"data":"EVALUATION SUMMARY\n"}
+,{"stream_name":"stdout","time":41.924168122,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":41.924176122,"data":"\n"}
+,{"stream_name":"stdout","time":41.924183342,"data":"--- Winner Prediction Model ---\n"}
+,{"stream_name":"stdout","time":41.924191107,"data":"Test Accuracy: 0.6164\n"}
+,{"stream_name":"stdout","time":41.924198764,"data":"Test AUC: 0.6633\n"}
+,{"stream_name":"stdout","time":41.92420676,"data":"Test Log Loss: 0.6511\n"}
+,{"stream_name":"stdout","time":41.924214944,"data":"Expected Calibration Error: 0.0153\n"}
+,{"stream_name":"stdout","time":41.924223339,"data":"\n"}
+,{"stream_name":"stdout","time":41.924231289,"data":"--- Improvement over Baselines ---\n"}
+,{"stream_name":"stdout","time":41.924239213,"data":"vs ELO Only: +2.1% accuracy\n"}
+,{"stream_name":"stdout","time":41.924246686000004,"data":"vs Random: +11.6% accuracy\n"}
+,{"stream_name":"stdout","time":41.92425419,"data":"\n"}
+,{"stream_name":"stdout","time":41.924261594,"data":"--- Top 5 Features ---\n"}
+,{"stream_name":"stdout","time":41.924270382,"data":"  1. elo_diff\n"}
+,{"stream_name":"stdout","time":41.924278078,"data":"  2. glicko_rating_diff\n"}
+,{"stream_name":"stdout","time":41.924286307,"data":"  3. career_win_rate_diff\n"}
+,{"stream_name":"stdout","time":41.92429421,"data":"  4. west_career_length_days\n"}
+,{"stream_name":"stdout","time":41.924303618,"data":"  5. west_win_rate_last_1_basho\n"}
+,{"stream_name":"stdout","time":41.924316398,"data":"\n"}
+,{"stream_name":"stdout","time":41.924321278,"data":"--- Plots Saved ---\n"}
+,{"stream_name":"stdout","time":41.924325653,"data":"  /kaggle/working/calibration_plot.png\n"}
+,{"stream_name":"stdout","time":41.92433024,"data":"  /kaggle/working/accuracy_by_confidence.png\n"}
+,{"stream_name":"stdout","time":41.924334622,"data":"  /kaggle/working/model_comparison.png\n"}
+,{"stream_name":"stdout","time":41.924339067,"data":"  /kaggle/working/roc_curves.png\n"}
+,{"stream_name":"stdout","time":41.924343324,"data":"  /kaggle/working/lgb_importance.png\n"}
+,{"stream_name":"stderr","time":47.087551306,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":47.08758904,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":47.28152054,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":47.281547022,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":48.066866864,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":48.066934585,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":48.106533161,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":48.529617361,"data":"[NbConvertApp] Writing 729980 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":51.766185461,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":51.766239087,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":51.796642258,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":52.95543151,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":52.955482876,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.955758376,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.95605129,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.956153055,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.956436654,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.956805555,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.957051836,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":52.957361102,"data":"[NbConvertApp] Writing 389855 bytes to __results__.html\n"}
+]

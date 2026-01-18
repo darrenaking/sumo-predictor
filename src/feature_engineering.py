@@ -61,6 +61,44 @@ MOROZASHI_KIMARITE = {'yorikiri', 'yoritaoshi'}  # Both hands inside (often)
 # Time windows for style features
 STYLE_WINDOWS = [1, 3, 6]  # basho lookback windows
 
+# Zero-importance features to exclude (determined from model analysis)
+# These features had zero gain in the trained LightGBM model
+ZERO_IMPORTANCE_FEATURES = {
+    'is_tokyo',
+    'west_glicko_vol',
+    'east_glicko_vol',
+    'east_basho_year',
+    'west_pct_wins_by_evasion_last_1_basho',
+    'west_basho_month',
+    'west_day',
+    'east_pct_wins_by_lift_techniques_last_3_basho',
+    'east_pct_wins_by_lift_techniques_last_1_basho',
+    'east_h2h_win_rate',
+    'east_h2h_wins',
+    'west_pct_wins_by_leg_trips_last_1_basho',
+    'west_pct_wins_by_leg_trips_last_3_basho',
+    'west_pct_wins_by_slap_pull_down_last_1_basho',
+    'east_already_makekoshi',
+    'east_needs_one_win_for_kachikoshi',
+    'east_h2h_last_result',
+    'west_day_times_needs_one_for_kachikoshi',
+    'west_is_day_15',
+    'west_already_makekoshi',
+    'west_already_kachikoshi',
+    'west_needs_one_win_for_kachikoshi',
+    'east_yokozuna_losing_record_so_far',
+    'east_is_yokozuna',
+    'east_is_ozeki',
+    'east_already_kachikoshi',
+    'east_day_times_needs_one_for_kachikoshi',
+    'east_is_day_15',
+    'west_is_ozeki',
+    'east_expected_glicko',
+    'west_yokozuna_losing_record_so_far',
+    'west_expected_glicko',
+    'year',
+}
+
 # Rank bases for parsing
 RANK_BASES = {
     "Y": 0,      # Yokozuna

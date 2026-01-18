@@ -1,0 +1,341 @@
+[{"stream_name":"stderr","time":9.86651388,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.866600594,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.866605798,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.866608513,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.682876122,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.68291758,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.682921912,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.682925056,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":21.756006764,"data":"Total features: 216\n"}
+,{"stream_name":"stdout","time":21.812455347,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.812493682,"data":"ALL FEATURES RANKED BY IMPORTANCE (gain)\n"}
+,{"stream_name":"stdout","time":21.812499,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.812503125,"data":"                                               feature          gain  split   gain_pct  cumulative_gain_pct\n"}
+,{"stream_name":"stdout","time":21.812507296,"data":"rank                                                                                                       \n"}
+,{"stream_name":"stdout","time":21.812511389,"data":"1                                             elo_diff  31328.804119    201  15.073551            15.073551\n"}
+,{"stream_name":"stdout","time":21.81251538,"data":"2                                   glicko_rating_diff  26472.183605    251  12.736835            27.810386\n"}
+,{"stream_name":"stdout","time":21.812519866,"data":"3                                 career_win_rate_diff  20218.377481    158   9.727877            37.538262\n"}
+,{"stream_name":"stdout","time":21.812523596,"data":"4                              west_career_length_days   5311.411509    116   2.555534            40.093797\n"}
+,{"stream_name":"stdout","time":21.812527464,"data":"5                           west_win_rate_last_1_basho   4841.824116     61   2.329597            42.423393\n"}
+,{"stream_name":"stdout","time":21.812530842,"data":"6                           east_win_rate_last_1_basho   4402.924589     52   2.118425            44.541818\n"}
+,{"stream_name":"stdout","time":21.812534443,"data":"7                          west_win_rate_last_15_bouts   4126.646503     69   1.985496            46.527314\n"}
+,{"stream_name":"stdout","time":21.81253845,"data":"8                                east_bout_date_approx   4087.015621     79   1.966428            48.493742\n"}
+,{"stream_name":"stdout","time":21.812541986,"data":"9                          east_win_rate_last_10_bouts   4023.958075     70   1.936088            50.429830\n"}
+,{"stream_name":"stdout","time":21.812579608,"data":"10                                  east_glicko_rating   4013.431490     85   1.931024            52.360854\n"}
+,{"stream_name":"stdout","time":21.812584081,"data":"11                                  west_glicko_rating   3829.596497     80   1.842573            54.203427\n"}
+,{"stream_name":"stdout","time":21.81258831,"data":"12                             east_career_length_days   3732.554497    105   1.795882            55.999310\n"}
+,{"stream_name":"stdout","time":21.812612616,"data":"13                         east_win_rate_last_20_bouts   3638.249414     74   1.750508            57.749818\n"}
+,{"stream_name":"stdout","time":21.812616192,"data":"14                         west_win_rate_last_10_bouts   3543.942295     66   1.705134            59.454952\n"}
+,{"stream_name":"stdout","time":21.812618732,"data":"15                         west_win_rate_last_20_bouts   3324.400993     63   1.599503            61.054455\n"}
+,{"stream_name":"stdout","time":21.812623357,"data":"16                                west_career_win_rate   3250.438877     82   1.563917            62.618372\n"}
+,{"stream_name":"stdout","time":21.812625824,"data":"17                         east_win_rate_last_15_bouts   3190.132080     58   1.534901            64.153274\n"}
+,{"stream_name":"stdout","time":21.812628542,"data":"18                                     west_debut_date   2973.914303     74   1.430870            65.584144\n"}
+,{"stream_name":"stdout","time":21.812631131,"data":"19                                            west_elo   2925.750597     64   1.407697            66.991840\n"}
+,{"stream_name":"stdout","time":21.812633651,"data":"20                          west_win_rate_last_5_bouts   2898.449291     58   1.394561            68.386401\n"}
+,{"stream_name":"stdout","time":21.812636183,"data":"21                                            east_elo   2796.141708     58   1.345337            69.731738\n"}
+,{"stream_name":"stdout","time":21.812638611,"data":"22                                      glicko_rd_diff   2752.375700     61   1.324279            71.056016\n"}
+,{"stream_name":"stdout","time":21.812641091,"data":"23                                     east_debut_date   2405.378576     50   1.157325            72.213341\n"}
+,{"stream_name":"stdout","time":21.812643524,"data":"24                          west_win_rate_last_3_basho   2338.395399     57   1.125096            73.338437\n"}
+,{"stream_name":"stdout","time":21.812645975,"data":"25                                east_career_win_rate   2143.915895     54   1.031524            74.369962\n"}
+,{"stream_name":"stdout","time":21.8126487,"data":"26                             west_elo_minus_expected   1781.454094     44   0.857129            75.227091\n"}
+,{"stream_name":"stdout","time":21.812651337,"data":"27                          east_win_rate_last_5_bouts   1662.716709     39   0.800000            76.027091\n"}
+,{"stream_name":"stdout","time":21.81265383,"data":"28                          west_win_rate_last_2_basho   1568.200294     34   0.754524            76.781616\n"}
+,{"stream_name":"stdout","time":21.812656419,"data":"29                          east_win_rate_last_2_basho   1496.111605     30   0.719840            77.501455\n"}
+,{"stream_name":"stdout","time":21.812658813,"data":"30                                    west_career_wins   1466.155609     40   0.705427            78.206882\n"}
+,{"stream_name":"stdout","time":21.81266128,"data":"31                             east_elo_minus_expected   1440.524603     38   0.693094            78.899976\n"}
+,{"stream_name":"stdout","time":21.812663685,"data":"32                          east_win_rate_last_3_basho   1414.789198     31   0.680712            79.580688\n"}
+,{"stream_name":"stdout","time":21.812666077,"data":"33                                      west_basho_num   1403.321692     35   0.675195            80.255883\n"}
+,{"stream_name":"stdout","time":21.812668761,"data":"34                          east_glicko_minus_expected   1196.585289     35   0.575725            80.831608\n"}
+,{"stream_name":"stdout","time":21.812671566,"data":"35                                      east_basho_num    990.309296     26   0.476478            81.308086\n"}
+,{"stream_name":"stdout","time":21.812681781,"data":"36                          west_glicko_minus_expected    981.367002     32   0.472175            81.780261\n"}
+,{"stream_name":"stdout","time":21.812684732,"data":"37                                      east_glicko_rd    943.829201     22   0.454114            82.234376\n"}
+,{"stream_name":"stdout","time":21.812687199,"data":"38                             east_current_win_streak    894.588596     23   0.430423            82.664798\n"}
+,{"stream_name":"stdout","time":21.812689627,"data":"39                       east_career_total_tournaments    836.890200     21   0.402662            83.067460\n"}
+,{"stream_name":"stdout","time":21.812692054,"data":"40                                    east_career_wins    828.747702     23   0.398744            83.466204\n"}
+,{"stream_name":"stdout","time":21.812694484,"data":"41    west_pct_wins_by_force_out_standing_last_6_basho    823.069599     29   0.396012            83.862216\n"}
+,{"stream_name":"stdout","time":21.812697192,"data":"42                             west_current_win_streak    757.020298     23   0.364233            84.226449\n"}
+,{"stream_name":"stdout","time":21.812699713,"data":"43                        east_pct_wins_by_push_career    698.490700     25   0.336072            84.562521\n"}
+,{"stream_name":"stdout","time":21.812702236,"data":"44          west_pct_wins_by_force_out_standing_career    650.848000     23   0.313149            84.875670\n"}
+,{"stream_name":"stdout","time":21.812704784,"data":"45                                             matchNo    638.003801     22   0.306969            85.182639\n"}
+,{"stream_name":"stdout","time":21.812707203,"data":"46                     west_pct_wins_by_evasion_career    637.194498     23   0.306580            85.489219\n"}
+,{"stream_name":"stdout","time":21.812709632,"data":"47                            east_current_loss_streak    629.833498     23   0.303038            85.792258\n"}
+,{"stream_name":"stdout","time":21.812712042,"data":"48                                  east_career_losses    614.151602     20   0.295493            86.087751\n"}
+,{"stream_name":"stdout","time":21.812714465,"data":"49                                east_h2h_total_bouts    587.515299     20   0.282677            86.370428\n"}
+,{"stream_name":"stdout","time":21.812717173,"data":"50                  west_pct_wins_by_push_last_6_basho    584.756001     21   0.281350            86.651778\n"}
+,{"stream_name":"stdout","time":21.81271976,"data":"51                                  west_career_losses    583.626606     15   0.280806            86.932584\n"}
+,{"stream_name":"stdout","time":21.812722282,"data":"52           east_pct_wins_by_force_out_falling_career    580.962704     21   0.279525            87.212109\n"}
+,{"stream_name":"stdout","time":21.81272483,"data":"53             west_pct_wins_by_rear_techniques_career    563.110901     19   0.270935            87.483044\n"}
+,{"stream_name":"stdout","time":21.812727564,"data":"54                                          basho_year    555.056204     11   0.267060            87.750104\n"}
+,{"stream_name":"stdout","time":21.812730115,"data":"55                       west_career_total_tournaments    552.003405     17   0.265591            88.015695\n"}
+,{"stream_name":"stdout","time":21.812732554,"data":"56                               east_style_drift_push    539.911400     19   0.259773            88.275468\n"}
+,{"stream_name":"stdout","time":21.812734949,"data":"57                            west_current_loss_streak    535.923508     18   0.257854            88.533323\n"}
+,{"stream_name":"stdout","time":21.812737986,"data":"58             east_pct_wins_by_throws_underarm_career    499.180899     18   0.240176            88.773499\n"}
+,{"stream_name":"stdout","time":21.8127427,"data":"59                            east_style_drift_grapple    475.101604     18   0.228591            89.002089\n"}
+,{"stream_name":"stdout","time":21.812745298,"data":"60                   east_pct_wins_by_leg_trips_career    473.827999     16   0.227978            89.230067\n"}
+,{"stream_name":"stdout","time":21.812747948,"data":"61    east_pct_wins_by_force_out_standing_last_6_basho    467.751299     17   0.225054            89.455121\n"}
+,{"stream_name":"stdout","time":21.812750363,"data":"62                            west_style_drift_evasion    454.764099     16   0.218805            89.673926\n"}
+,{"stream_name":"stdout","time":21.812752867,"data":"63                                     west_basho_wins    439.426397     14   0.211426            89.885352\n"}
+,{"stream_name":"stdout","time":21.812755291,"data":"64                                         basho_month    429.358599     14   0.206582            90.091934\n"}
+,{"stream_name":"stdout","time":21.812757726,"data":"65                     east_pct_wins_by_evasion_career    419.743601     14   0.201956            90.293889\n"}
+,{"stream_name":"stdout","time":21.812760441000002,"data":"66        west_pct_wins_by_slap_pull_down_last_6_basho    406.641104     15   0.195651            90.489541\n"}
+,{"stream_name":"stdout","time":21.812763056,"data":"67                               west_bout_date_approx    401.934393      9   0.193387            90.682928\n"}
+,{"stream_name":"stdout","time":21.812765595,"data":"68                                    east_is_japanese    400.413797     10   0.192655            90.875583\n"}
+,{"stream_name":"stdout","time":21.812768142,"data":"69               east_pct_wins_by_grapple_last_3_basho    399.873100     13   0.192395            91.067978\n"}
+,{"stream_name":"stdout","time":21.812770565,"data":"70              west_pct_wins_by_slap_pull_down_career    382.731298     14   0.184147            91.252125\n"}
+,{"stream_name":"stdout","time":21.812773061,"data":"71                  east_pct_wins_by_push_last_6_basho    370.984102     14   0.178495            91.430621\n"}
+,{"stream_name":"stdout","time":21.812775805,"data":"72                                   east_rank_numeric    370.597898     12   0.178310            91.608930\n"}
+,{"stream_name":"stdout","time":21.812778267,"data":"73                                   east_expected_elo    355.656002     13   0.171120            91.780051\n"}
+,{"stream_name":"stdout","time":21.812780973,"data":"74                  east_pct_wins_by_push_last_3_basho    349.121996     12   0.167977            91.948027\n"}
+,{"stream_name":"stdout","time":21.812783479,"data":"75              east_pct_wins_by_slap_pull_down_career    347.242802     12   0.167073            92.115100\n"}
+,{"stream_name":"stdout","time":21.812786072,"data":"76    west_pct_wins_by_force_out_standing_last_3_basho    346.070501     13   0.166508            92.281608\n"}
+,{"stream_name":"stdout","time":21.812788613,"data":"77                               west_style_drift_push    335.550499     11   0.161447            92.443055\n"}
+,{"stream_name":"stdout","time":21.812791004,"data":"78        west_pct_wins_by_throws_overarm_last_6_basho    334.308300     13   0.160849            92.603905\n"}
+,{"stream_name":"stdout","time":21.812793431,"data":"79               east_pct_wins_by_evasion_last_6_basho    333.531401     12   0.160475            92.764380\n"}
+,{"stream_name":"stdout","time":21.812795846,"data":"80     west_pct_wins_by_thrust_techniques_last_6_basho    328.740004     12   0.158170            92.922550\n"}
+,{"stream_name":"stdout","time":21.812798273,"data":"81             west_pct_wins_by_throws_underarm_career    323.916698     12   0.155849            93.078399\n"}
+,{"stream_name":"stdout","time":21.812802808,"data":"82     west_pct_wins_by_force_out_falling_last_6_basho    316.147802     11   0.152111            93.230511\n"}
+,{"stream_name":"stdout","time":21.812838514,"data":"83       east_pct_wins_by_rear_techniques_last_3_basho    315.481804     12   0.151791            93.382302\n"}
+,{"stream_name":"stdout","time":21.81284281,"data":"84                     east_pct_wins_by_grapple_career    307.802200     10   0.148096            93.530398\n"}
+,{"stream_name":"stdout","time":21.812846909,"data":"85                        west_pct_wins_by_push_career    304.483601     11   0.146499            93.676897\n"}
+,{"stream_name":"stdout","time":21.812850523,"data":"86                                      west_glicko_rd    299.685190      5   0.144191            93.821088\n"}
+,{"stream_name":"stdout","time":21.812852996,"data":"87                                   east_basho_losses    297.091801      9   0.142943            93.964031\n"}
+,{"stream_name":"stdout","time":21.812855693,"data":"88     east_pct_wins_by_force_out_falling_last_6_basho    290.590397     11   0.139815            94.103845\n"}
+,{"stream_name":"stdout","time":21.81285819,"data":"89                                   west_rank_numeric    286.151205      8   0.137679            94.241524\n"}
+,{"stream_name":"stdout","time":21.812860689,"data":"90                            east_style_drift_evasion    284.276796     10   0.136777            94.378301\n"}
+,{"stream_name":"stdout","time":21.812863811,"data":"91           west_pct_wins_by_thrust_techniques_career    278.182796     10   0.133845            94.512146\n"}
+,{"stream_name":"stdout","time":21.81286626,"data":"92               east_pct_wins_by_grapple_last_1_basho    275.734900      8   0.132667            94.644814\n"}
+,{"stream_name":"stdout","time":21.812868746,"data":"93                  east_pct_wins_by_push_last_1_basho    272.201101     11   0.130967            94.775780\n"}
+,{"stream_name":"stdout","time":21.812871151,"data":"94               west_pct_wins_by_grapple_last_6_basho    268.690399      9   0.129278            94.905058\n"}
+,{"stream_name":"stdout","time":21.812873591,"data":"95              east_pct_wins_by_throws_overarm_career    263.160500     10   0.126617            95.031675\n"}
+,{"stream_name":"stdout","time":21.812876285,"data":"96               east_pct_wins_by_grapple_last_6_basho    261.716795      9   0.125923            95.157598\n"}
+,{"stream_name":"stdout","time":21.812878803,"data":"97              west_pct_wins_by_throws_overarm_career    256.534000      9   0.123429            95.281027\n"}
+,{"stream_name":"stdout","time":21.81288131,"data":"98           west_pct_wins_by_force_out_falling_career    255.065002     10   0.122722            95.403749\n"}
+,{"stream_name":"stdout","time":21.812883811,"data":"99     west_pct_wins_by_thrust_techniques_last_3_basho    240.157099      9   0.115549            95.519298\n"}
+,{"stream_name":"stdout","time":21.812886235,"data":"100                east_pct_wins_by_twist_downs_career    239.015402      9   0.115000            95.634298\n"}
+,{"stream_name":"stdout","time":21.812888687,"data":"101         east_pct_wins_by_force_out_standing_career    237.896500      9   0.114462            95.748760\n"}
+,{"stream_name":"stdout","time":21.812891113,"data":"102              east_pct_wins_by_evasion_last_3_basho    237.386400      9   0.114216            95.862976\n"}
+,{"stream_name":"stdout","time":21.812893549,"data":"103                            west_career_total_bouts    227.772799      8   0.109591            95.972566\n"}
+,{"stream_name":"stdout","time":21.81289624,"data":"104       east_pct_wins_by_slap_pull_down_last_3_basho    225.058496      8   0.108285            96.080851\n"}
+,{"stream_name":"stdout","time":21.812901577,"data":"105                           west_style_drift_grapple    221.295000      9   0.106474            96.187325\n"}
+,{"stream_name":"stdout","time":21.81290425,"data":"106            west_pct_wins_by_lift_techniques_career    218.938700      8   0.105340            96.292665\n"}
+,{"stream_name":"stdout","time":21.812906771,"data":"107      west_pct_wins_by_rear_techniques_last_6_basho    210.094200      8   0.101085            96.393750\n"}
+,{"stream_name":"stdout","time":21.81290921,"data":"108                 west_pct_wins_by_push_last_3_basho    207.947399      8   0.100052            96.493802\n"}
+,{"stream_name":"stdout","time":21.812911764,"data":"109          east_pct_wins_by_thrust_techniques_career    202.026001      7   0.097203            96.591005\n"}
+,{"stream_name":"stdout","time":21.812914379,"data":"110                                  west_expected_elo    201.455896      6   0.096929            96.687933\n"}
+,{"stream_name":"stdout","time":21.812916801,"data":"111   east_pct_wins_by_force_out_standing_last_3_basho    201.154600      8   0.096784            96.784717\n"}
+,{"stream_name":"stdout","time":21.812919635,"data":"112            east_pct_wins_by_lift_techniques_career    191.812300      7   0.092289            96.877006\n"}
+,{"stream_name":"stdout","time":21.812922127,"data":"113                west_pct_wins_by_twist_downs_career    191.512402      7   0.092144            96.969150\n"}
+,{"stream_name":"stdout","time":21.812924603,"data":"114              west_pct_wins_by_evasion_last_3_basho    185.501898      6   0.089252            97.058402\n"}
+,{"stream_name":"stdout","time":21.812927174,"data":"115          west_pct_wins_by_twist_downs_last_3_basho    184.079599      7   0.088568            97.146971\n"}
+,{"stream_name":"stdout","time":21.812929557,"data":"116    east_pct_wins_by_thrust_techniques_last_3_basho    179.560101      7   0.086394            97.233364\n"}
+,{"stream_name":"stdout","time":21.812932043,"data":"117                    west_pct_wins_by_grapple_career    178.185303      6   0.085732            97.319096\n"}
+,{"stream_name":"stdout","time":21.812934428,"data":"118       east_pct_wins_by_slap_pull_down_last_6_basho    177.003801      7   0.085164            97.404260\n"}
+,{"stream_name":"stdout","time":21.812936897,"data":"119    east_pct_wins_by_thrust_techniques_last_1_basho    176.735600      6   0.085035            97.489295\n"}
+,{"stream_name":"stdout","time":21.812939701,"data":"120                 west_pct_wins_by_push_last_1_basho    173.220499      6   0.083343            97.572638\n"}
+,{"stream_name":"stdout","time":21.812942401,"data":"121    west_pct_wins_by_force_out_falling_last_3_basho    161.985598      6   0.077938            97.650576\n"}
+,{"stream_name":"stdout","time":21.812945049,"data":"122                                   west_is_japanese    161.199100      5   0.077559            97.728135\n"}
+,{"stream_name":"stdout","time":21.812947547,"data":"123              west_pct_wins_by_grapple_last_3_basho    158.332800      6   0.076180            97.804315\n"}
+,{"stream_name":"stdout","time":21.812949945,"data":"124   east_pct_wins_by_force_out_standing_last_1_basho    158.203199      6   0.076118            97.880433\n"}
+,{"stream_name":"stdout","time":21.812952452,"data":"125                             west_kachikoshi_streak    153.971699      5   0.074082            97.954515\n"}
+,{"stream_name":"stdout","time":21.812954844,"data":"126                                                day    151.016502      5   0.072660            98.027175\n"}
+,{"stream_name":"stdout","time":21.812957245,"data":"127                                          rank_diff    150.612303      5   0.072466            98.099641\n"}
+,{"stream_name":"stdout","time":21.812961506,"data":"128              west_pct_wins_by_evasion_last_6_basho    145.969101      6   0.070232            98.169873\n"}
+,{"stream_name":"stdout","time":21.812965144,"data":"129      east_pct_wins_by_rear_techniques_last_6_basho    140.229401      5   0.067470            98.237343\n"}
+,{"stream_name":"stdout","time":21.812967685,"data":"130            east_pct_wins_by_rear_techniques_career    139.634401      5   0.067184            98.304526\n"}
+,{"stream_name":"stdout","time":21.812970203,"data":"131    east_pct_wins_by_thrust_techniques_last_6_basho    136.825701      5   0.065832            98.370359\n"}
+,{"stream_name":"stdout","time":21.812972619,"data":"132      east_pct_wins_by_throws_underarm_last_3_basho    132.534801      5   0.063768            98.434127\n"}
+,{"stream_name":"stdout","time":21.812975196,"data":"133       east_pct_wins_by_throws_overarm_last_6_basho    132.513500      5   0.063758            98.497884\n"}
+,{"stream_name":"stdout","time":21.812977623,"data":"134      west_pct_wins_by_rear_techniques_last_3_basho    130.323500      5   0.062704            98.560588\n"}
+,{"stream_name":"stdout","time":21.812980054,"data":"135              west_pct_wins_by_grapple_last_1_basho    128.692495      4   0.061919            98.622507\n"}
+,{"stream_name":"stdout","time":21.812982744,"data":"136                                    east_basho_wins    128.349800      5   0.061754            98.684262\n"}
+,{"stream_name":"stdout","time":21.812985298,"data":"137    west_pct_wins_by_force_out_falling_last_1_basho    127.786100      5   0.061483            98.745745\n"}
+,{"stream_name":"stdout","time":21.812987801,"data":"138       west_pct_wins_by_throws_overarm_last_3_basho    119.907099      5   0.057692            98.803437\n"}
+,{"stream_name":"stdout","time":21.81299032,"data":"139   west_pct_wins_by_force_out_standing_last_1_basho    110.666901      4   0.053246            98.856683\n"}
+,{"stream_name":"stdout","time":21.812992724,"data":"140                              west_makekoshi_streak    109.075098      3   0.052480            98.909163\n"}
+,{"stream_name":"stdout","time":21.812995156,"data":"141            west_pct_wins_by_leg_trips_last_6_basho    108.792898      4   0.052345            98.961508\n"}
+,{"stream_name":"stdout","time":21.812997566,"data":"142              east_pct_wins_by_evasion_last_1_basho    100.667500      4   0.048435            99.009943\n"}
+,{"stream_name":"stdout","time":21.812999988,"data":"143      east_pct_wins_by_throws_underarm_last_1_basho     93.621000      4   0.045045            99.054988\n"}
+,{"stream_name":"stdout","time":21.813002666,"data":"144       east_pct_wins_by_throws_overarm_last_3_basho     81.272301      3   0.039103            99.094092\n"}
+,{"stream_name":"stdout","time":21.813005175,"data":"145      west_pct_wins_by_lift_techniques_last_6_basho     79.591398      3   0.038295            99.132386\n"}
+,{"stream_name":"stdout","time":21.813007729,"data":"146                            east_career_total_bouts     78.320000      3   0.037683            99.170069\n"}
+,{"stream_name":"stdout","time":21.813010232,"data":"147    east_pct_wins_by_force_out_falling_last_3_basho     76.908699      3   0.037004            99.207073\n"}
+,{"stream_name":"stdout","time":21.813012847,"data":"148      west_pct_wins_by_throws_underarm_last_3_basho     76.429800      3   0.036773            99.243846\n"}
+,{"stream_name":"stdout","time":21.813015398,"data":"149      west_pct_wins_by_throws_underarm_last_6_basho     75.637800      3   0.036392            99.280239\n"}
+,{"stream_name":"stdout","time":21.813017811,"data":"150                  west_pct_wins_by_leg_trips_career     74.305300      3   0.035751            99.315990\n"}
+,{"stream_name":"stdout","time":21.813022336,"data":"151      east_pct_wins_by_rear_techniques_last_1_basho     73.950901      3   0.035581            99.351571\n"}
+,{"stream_name":"stdout","time":21.813025139,"data":"152       west_pct_wins_by_throws_overarm_last_1_basho     68.775202      3   0.033091            99.384661\n"}
+,{"stream_name":"stdout","time":21.813027655,"data":"153      east_pct_wins_by_throws_underarm_last_6_basho     66.719601      3   0.032101            99.416763\n"}
+,{"stream_name":"stdout","time":21.813030161,"data":"154                                 east_h2h_never_met     62.311201      2   0.029980            99.446743\n"}
+,{"stream_name":"stdout","time":21.813032698,"data":"155          west_pct_wins_by_twist_downs_last_6_basho     62.227098      2   0.029940            99.476683\n"}
+,{"stream_name":"stdout","time":21.813035123,"data":"156                 east_needs_two_wins_for_kachikoshi     58.135601      2   0.027971            99.504655\n"}
+,{"stream_name":"stdout","time":21.813037569,"data":"157       east_pct_wins_by_throws_overarm_last_1_basho     57.694599      2   0.027759            99.532414\n"}
+,{"stream_name":"stdout","time":21.813039985,"data":"158            east_pct_wins_by_leg_trips_last_6_basho     54.934801      2   0.026431            99.558845\n"}
+,{"stream_name":"stdout","time":21.813042392,"data":"159          east_pct_wins_by_twist_downs_last_1_basho     53.213900      2   0.025603            99.584449\n"}
+,{"stream_name":"stdout","time":21.813045078000002,"data":"160      west_pct_wins_by_lift_techniques_last_3_basho     52.659801      2   0.025337            99.609785\n"}
+,{"stream_name":"stdout","time":21.813047609,"data":"161          east_pct_wins_by_twist_downs_last_6_basho     52.190500      2   0.025111            99.634896\n"}
+,{"stream_name":"stdout","time":21.813050119,"data":"162          east_pct_wins_by_twist_downs_last_3_basho     51.615501      2   0.024834            99.659731\n"}
+,{"stream_name":"stdout","time":21.813052704,"data":"163    west_pct_wins_by_thrust_techniques_last_1_basho     50.829201      2   0.024456            99.684187\n"}
+,{"stream_name":"stdout","time":21.813055096,"data":"164       east_pct_wins_by_slap_pull_down_last_1_basho     50.184299      2   0.024146            99.708332\n"}
+,{"stream_name":"stdout","time":21.813057537,"data":"165                                  west_basho_losses     49.367599      2   0.023753            99.732085\n"}
+,{"stream_name":"stdout","time":21.813059945,"data":"166                              east_makekoshi_streak     49.359400      2   0.023749            99.755834\n"}
+,{"stream_name":"stdout","time":21.813062497,"data":"167                                           east_day     48.871300      2   0.023514            99.779348\n"}
+,{"stream_name":"stdout","time":21.813065209,"data":"168      west_pct_wins_by_rear_techniques_last_1_basho     48.376501      2   0.023276            99.802624\n"}
+,{"stream_name":"stdout","time":21.813067757,"data":"169    east_pct_wins_by_force_out_falling_last_1_basho     45.694201      2   0.021985            99.824609\n"}
+,{"stream_name":"stdout","time":21.813070245,"data":"170      east_pct_wins_by_lift_techniques_last_6_basho     43.979801      2   0.021160            99.845769\n"}
+,{"stream_name":"stdout","time":21.813072749,"data":"171            east_pct_wins_by_leg_trips_last_3_basho     38.043402      2   0.018304            99.864074\n"}
+,{"stream_name":"stdout","time":21.81307514,"data":"172       west_pct_wins_by_slap_pull_down_last_3_basho     33.218800      1   0.015983            99.880056\n"}
+,{"stream_name":"stdout","time":21.813077566,"data":"173                                  tournament_number     28.040701      1   0.013492            99.893548\n"}
+,{"stream_name":"stdout","time":21.813081649,"data":"174      west_pct_wins_by_lift_techniques_last_1_basho     25.579300      1   0.012307            99.905855\n"}
+,{"stream_name":"stdout","time":21.813084139,"data":"175            east_pct_wins_by_leg_trips_last_1_basho     23.721399      1   0.011413            99.917269\n"}
+,{"stream_name":"stdout","time":21.813086849,"data":"176                                   west_is_yokozuna     23.535400      1   0.011324            99.928592\n"}
+,{"stream_name":"stdout","time":21.813089364,"data":"177                                    west_basho_year     22.491501      1   0.010822            99.939414\n"}
+,{"stream_name":"stdout","time":21.813091878,"data":"178                                   east_basho_month     22.310200      1   0.010734            99.950148\n"}
+,{"stream_name":"stdout","time":21.813094389,"data":"179                 west_needs_two_wins_for_kachikoshi     22.113600      1   0.010640            99.960788\n"}
+,{"stream_name":"stdout","time":21.813096859,"data":"180      west_pct_wins_by_throws_underarm_last_1_basho     21.040701      1   0.010124            99.970912\n"}
+,{"stream_name":"stdout","time":21.813099379,"data":"181                                    east_h2h_losses     20.369101      1   0.009800            99.980712\n"}
+,{"stream_name":"stdout","time":21.813101856,"data":"182          west_pct_wins_by_twist_downs_last_1_basho     20.109200      1   0.009675            99.990387\n"}
+,{"stream_name":"stdout","time":21.813104292,"data":"183                             east_kachikoshi_streak     19.979000      1   0.009613           100.000000\n"}
+,{"stream_name":"stdout","time":21.813106995,"data":"184                                           is_tokyo      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813109514,"data":"185                                    west_glicko_vol      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813112231,"data":"186                                    east_glicko_vol      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813114803,"data":"187                                    east_basho_year      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813117231,"data":"188              west_pct_wins_by_evasion_last_1_basho      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813119678,"data":"189                                   west_basho_month      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813122094,"data":"190                                           west_day      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813124495,"data":"191      east_pct_wins_by_lift_techniques_last_3_basho      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813127192,"data":"192      east_pct_wins_by_lift_techniques_last_1_basho      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813129718,"data":"193                                  east_h2h_win_rate      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813132231,"data":"194                                      east_h2h_wins      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813134746,"data":"195            west_pct_wins_by_leg_trips_last_1_basho      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813137179,"data":"196            west_pct_wins_by_leg_trips_last_3_basho      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813141279,"data":"197       west_pct_wins_by_slap_pull_down_last_1_basho      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813143748999998,"data":"198                             east_already_makekoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813146182,"data":"199                  east_needs_one_win_for_kachikoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813148869,"data":"200                               east_h2h_last_result      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813151389,"data":"201            west_day_times_needs_one_for_kachikoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813153905,"data":"202                                     west_is_day_15      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813156419,"data":"203                             west_already_makekoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813158828,"data":"204                            west_already_kachikoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813161557,"data":"205                  west_needs_one_win_for_kachikoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813163995,"data":"206                 east_yokozuna_losing_record_so_far      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813166415,"data":"207                                   east_is_yokozuna      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813169075,"data":"208                                      east_is_ozeki      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813171572,"data":"209                            east_already_kachikoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813174055,"data":"210            east_day_times_needs_one_for_kachikoshi      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813176531,"data":"211                                     east_is_day_15      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813178946,"data":"212                                      west_is_ozeki      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813181372,"data":"213                               east_expected_glicko      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.81318376,"data":"214                 west_yokozuna_losing_record_so_far      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.81318623,"data":"215                               west_expected_glicko      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.813188987,"data":"216                                               year      0.000000      0   0.000000           100.000000\n"}
+,{"stream_name":"stdout","time":21.826770704,"data":"\n"}
+,{"stream_name":"stdout","time":21.826823543,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.826832148,"data":"ZERO IMPORTANCE FEATURES (candidates for removal)\n"}
+,{"stream_name":"stdout","time":21.826836364000002,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.826840745,"data":"Count: 33\n"}
+,{"stream_name":"stdout","time":21.826862862,"data":"\n"}
+,{"stream_name":"stdout","time":21.826867183,"data":"  - is_tokyo\n"}
+,{"stream_name":"stdout","time":21.826870882,"data":"  - west_glicko_vol\n"}
+,{"stream_name":"stdout","time":21.826874541,"data":"  - east_glicko_vol\n"}
+,{"stream_name":"stdout","time":21.826878226,"data":"  - east_basho_year\n"}
+,{"stream_name":"stdout","time":21.826881884,"data":"  - west_pct_wins_by_evasion_last_1_basho\n"}
+,{"stream_name":"stdout","time":21.826885638,"data":"  - west_basho_month\n"}
+,{"stream_name":"stdout","time":21.8268893,"data":"  - west_day\n"}
+,{"stream_name":"stdout","time":21.826892762,"data":"  - east_pct_wins_by_lift_techniques_last_3_basho\n"}
+,{"stream_name":"stdout","time":21.826896602,"data":"  - east_pct_wins_by_lift_techniques_last_1_basho\n"}
+,{"stream_name":"stdout","time":21.826899881,"data":"  - east_h2h_win_rate\n"}
+,{"stream_name":"stdout","time":21.826902379,"data":"  - east_h2h_wins\n"}
+,{"stream_name":"stdout","time":21.826904738,"data":"  - west_pct_wins_by_leg_trips_last_1_basho\n"}
+,{"stream_name":"stdout","time":21.826907428,"data":"  - west_pct_wins_by_leg_trips_last_3_basho\n"}
+,{"stream_name":"stdout","time":21.826911014,"data":"  - west_pct_wins_by_slap_pull_down_last_1_basho\n"}
+,{"stream_name":"stdout","time":21.826914463,"data":"  - east_already_makekoshi\n"}
+,{"stream_name":"stdout","time":21.8269176,"data":"  - east_needs_one_win_for_kachikoshi\n"}
+,{"stream_name":"stdout","time":21.826921394,"data":"  - east_h2h_last_result\n"}
+,{"stream_name":"stdout","time":21.826924923,"data":"  - west_day_times_needs_one_for_kachikoshi\n"}
+,{"stream_name":"stdout","time":21.826928898,"data":"  - west_is_day_15\n"}
+,{"stream_name":"stdout","time":21.826932481,"data":"  - west_already_makekoshi\n"}
+,{"stream_name":"stdout","time":21.826936164,"data":"  - west_already_kachikoshi\n"}
+,{"stream_name":"stdout","time":21.826939852,"data":"  - west_needs_one_win_for_kachikoshi\n"}
+,{"stream_name":"stdout","time":21.826943231,"data":"  - east_yokozuna_losing_record_so_far\n"}
+,{"stream_name":"stdout","time":21.826946984,"data":"  - east_is_yokozuna\n"}
+,{"stream_name":"stdout","time":21.826955166,"data":"  - east_is_ozeki\n"}
+,{"stream_name":"stdout","time":21.826958987,"data":"  - east_already_kachikoshi\n"}
+,{"stream_name":"stdout","time":21.826962778,"data":"  - east_day_times_needs_one_for_kachikoshi\n"}
+,{"stream_name":"stdout","time":21.826966473,"data":"  - east_is_day_15\n"}
+,{"stream_name":"stdout","time":21.826970111,"data":"  - west_is_ozeki\n"}
+,{"stream_name":"stdout","time":21.826974128,"data":"  - east_expected_glicko\n"}
+,{"stream_name":"stdout","time":21.826977611,"data":"  - west_yokozuna_losing_record_so_far\n"}
+,{"stream_name":"stdout","time":21.826981307,"data":"  - west_expected_glicko\n"}
+,{"stream_name":"stdout","time":21.826985427,"data":"  - year\n"}
+,{"stream_name":"stdout","time":21.843324722,"data":"\n"}
+,{"stream_name":"stdout","time":21.843361878,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.843367471,"data":"LOW IMPORTANCE FEATURES (gain \u003c 100)\n"}
+,{"stream_name":"stdout","time":21.843372866,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.843376773,"data":"Count: 41\n"}
+,{"stream_name":"stdout","time":21.843380078,"data":"\n"}
+,{"stream_name":"stdout","time":21.843383548,"data":"  - east_pct_wins_by_throws_underarm_last_1_basho: gain=93.6\n"}
+,{"stream_name":"stdout","time":21.843410117,"data":"  - east_pct_wins_by_throws_overarm_last_3_basho: gain=81.3\n"}
+,{"stream_name":"stdout","time":21.843414021,"data":"  - west_pct_wins_by_lift_techniques_last_6_basho: gain=79.6\n"}
+,{"stream_name":"stdout","time":21.843417357,"data":"  - east_career_total_bouts: gain=78.3\n"}
+,{"stream_name":"stdout","time":21.843420724,"data":"  - east_pct_wins_by_force_out_falling_last_3_basho: gain=76.9\n"}
+,{"stream_name":"stdout","time":21.843424786,"data":"  - west_pct_wins_by_throws_underarm_last_3_basho: gain=76.4\n"}
+,{"stream_name":"stdout","time":21.843428432,"data":"  - west_pct_wins_by_throws_underarm_last_6_basho: gain=75.6\n"}
+,{"stream_name":"stdout","time":21.843432128,"data":"  - west_pct_wins_by_leg_trips_career: gain=74.3\n"}
+,{"stream_name":"stdout","time":21.843436089,"data":"  - east_pct_wins_by_rear_techniques_last_1_basho: gain=74.0\n"}
+,{"stream_name":"stdout","time":21.843439861,"data":"  - west_pct_wins_by_throws_overarm_last_1_basho: gain=68.8\n"}
+,{"stream_name":"stdout","time":21.843443623,"data":"  - east_pct_wins_by_throws_underarm_last_6_basho: gain=66.7\n"}
+,{"stream_name":"stdout","time":21.843447137,"data":"  - east_h2h_never_met: gain=62.3\n"}
+,{"stream_name":"stdout","time":21.843450125,"data":"  - west_pct_wins_by_twist_downs_last_6_basho: gain=62.2\n"}
+,{"stream_name":"stdout","time":21.843454004,"data":"  - east_needs_two_wins_for_kachikoshi: gain=58.1\n"}
+,{"stream_name":"stdout","time":21.843457606,"data":"  - east_pct_wins_by_throws_overarm_last_1_basho: gain=57.7\n"}
+,{"stream_name":"stdout","time":21.843461224,"data":"  - east_pct_wins_by_leg_trips_last_6_basho: gain=54.9\n"}
+,{"stream_name":"stdout","time":21.843465019,"data":"  - east_pct_wins_by_twist_downs_last_1_basho: gain=53.2\n"}
+,{"stream_name":"stdout","time":21.843468771,"data":"  - west_pct_wins_by_lift_techniques_last_3_basho: gain=52.7\n"}
+,{"stream_name":"stdout","time":21.843472526,"data":"  - east_pct_wins_by_twist_downs_last_6_basho: gain=52.2\n"}
+,{"stream_name":"stdout","time":21.843476146,"data":"  - east_pct_wins_by_twist_downs_last_3_basho: gain=51.6\n"}
+,{"stream_name":"stdout","time":21.843479823,"data":"  - west_pct_wins_by_thrust_techniques_last_1_basho: gain=50.8\n"}
+,{"stream_name":"stdout","time":21.843483733,"data":"  - east_pct_wins_by_slap_pull_down_last_1_basho: gain=50.2\n"}
+,{"stream_name":"stdout","time":21.843487595,"data":"  - west_basho_losses: gain=49.4\n"}
+,{"stream_name":"stdout","time":21.843491327,"data":"  - east_makekoshi_streak: gain=49.4\n"}
+,{"stream_name":"stdout","time":21.84349537,"data":"  - east_day: gain=48.9\n"}
+,{"stream_name":"stdout","time":21.843499024,"data":"  - west_pct_wins_by_rear_techniques_last_1_basho: gain=48.4\n"}
+,{"stream_name":"stdout","time":21.843502584,"data":"  - east_pct_wins_by_force_out_falling_last_1_basho: gain=45.7\n"}
+,{"stream_name":"stdout","time":21.843505809,"data":"  - east_pct_wins_by_lift_techniques_last_6_basho: gain=44.0\n"}
+,{"stream_name":"stdout","time":21.843509203,"data":"  - east_pct_wins_by_leg_trips_last_3_basho: gain=38.0\n"}
+,{"stream_name":"stdout","time":21.843513392,"data":"  - west_pct_wins_by_slap_pull_down_last_3_basho: gain=33.2\n"}
+,{"stream_name":"stdout","time":21.843517279,"data":"  - tournament_number: gain=28.0\n"}
+,{"stream_name":"stdout","time":21.843520691,"data":"  - west_pct_wins_by_lift_techniques_last_1_basho: gain=25.6\n"}
+,{"stream_name":"stdout","time":21.843524282,"data":"  - east_pct_wins_by_leg_trips_last_1_basho: gain=23.7\n"}
+,{"stream_name":"stdout","time":21.843527763,"data":"  - west_is_yokozuna: gain=23.5\n"}
+,{"stream_name":"stdout","time":21.843577294,"data":"  - west_basho_year: gain=22.5\n"}
+,{"stream_name":"stdout","time":21.843584291,"data":"  - east_basho_month: gain=22.3\n"}
+,{"stream_name":"stdout","time":21.843588087,"data":"  - west_needs_two_wins_for_kachikoshi: gain=22.1\n"}
+,{"stream_name":"stdout","time":21.843591614,"data":"  - west_pct_wins_by_throws_underarm_last_1_basho: gain=21.0\n"}
+,{"stream_name":"stdout","time":21.843595274,"data":"  - east_h2h_losses: gain=20.4\n"}
+,{"stream_name":"stdout","time":21.843599064,"data":"  - west_pct_wins_by_twist_downs_last_1_basho: gain=20.1\n"}
+,{"stream_name":"stdout","time":21.843602701000002,"data":"  - east_kachikoshi_streak: gain=20.0\n"}
+,{"stream_name":"stdout","time":21.859473829,"data":"\n"}
+,{"stream_name":"stdout","time":21.859507727,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.859513544,"data":"SUMMARY\n"}
+,{"stream_name":"stdout","time":21.859517311,"data":"================================================================================\n"}
+,{"stream_name":"stdout","time":21.859521678,"data":"Total features: 216\n"}
+,{"stream_name":"stdout","time":21.859525022,"data":"Zero importance: 33 (15.3%)\n"}
+,{"stream_name":"stdout","time":21.859529355,"data":"Low importance (\u003c100): 41 (19.0%)\n"}
+,{"stream_name":"stdout","time":21.859534104,"data":"\n"}
+,{"stream_name":"stdout","time":21.859537538,"data":"Features for 90% of predictive power: 63\n"}
+,{"stream_name":"stdout","time":21.859541309,"data":"Features for 95% of predictive power: 94\n"}
+,{"stream_name":"stdout","time":21.85954504,"data":"Features for 99% of predictive power: 141\n"}
+,{"stream_name":"stdout","time":21.880530323,"data":"Saved to feature_importance_full.csv\n"}
+,{"stream_name":"stderr","time":25.593232179,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":25.593271587,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":25.789519286,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":25.789552524,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":26.559109331,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":26.559151685,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":26.595664709,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":26.978644351,"data":"[NbConvertApp] Writing 40221 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":30.12205144,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":30.122200485,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":30.152644579,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":31.203554792,"data":"[NbConvertApp] Writing 318985 bytes to __results__.html\n"}
+]

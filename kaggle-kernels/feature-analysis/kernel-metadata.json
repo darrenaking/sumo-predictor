@@ -1,0 +1,14 @@
+{
+  "id": "darrenaking/sumo-feature-analysis",
+  "title": "Sumo Feature Analysis",
+  "code_file": "feature_analysis.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["darrenaking/sumo-data-04"],
+  "kernel_sources": [],
+  "competition_sources": []
+}

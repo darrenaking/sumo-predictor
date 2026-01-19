@@ -1,0 +1,137 @@
+[{"stream_name":"stderr","time":9.684712312,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.684800489,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.684807931,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.684812839,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.533951731,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.533994372,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.534000188,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.534005192,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.933755197,"data":"Input path: /kaggle/input/sumo-data-03\n"}
+,{"stream_name":"stdout","time":11.93380856,"data":"Output path: /kaggle/working\n"}
+,{"stream_name":"stdout","time":29.25676751,"data":"Loaded 291,462 bouts with features\n"}
+,{"stream_name":"stdout","time":29.256818181,"data":"Columns: 234\n"}
+,{"stream_name":"stdout","time":29.256831805,"data":"\n"}
+,{"stream_name":"stdout","time":29.256837825,"data":"Sample columns:\n"}
+,{"stream_name":"stdout","time":29.256845312,"data":"['east_elo', 'west_elo', 'elo_diff', 'east_career_wins', 'east_career_losses', 'east_career_total_bouts', 'east_career_win_rate', 'east_career_length_days', 'east_career_total_tournaments', 'east_pct_wins_by_push_career', 'east_pct_wins_by_grapple_career', 'east_pct_wins_by_evasion_career', 'east_pct_wins_by_force_out_standing_career', 'east_pct_wins_by_force_out_falling_career', 'east_pct_wins_by_throws_overarm_career', 'east_pct_wins_by_throws_underarm_career', 'east_pct_wins_by_slap_pull_down_career', 'east_pct_wins_by_leg_trips_career', 'east_pct_wins_by_twist_downs_career', 'east_pct_wins_by_rear_techniques_career']\n"}
+,{"stream_name":"stdout","time":29.33594353,"data":"Basho range: 199305 to 202601\n"}
+,{"stream_name":"stdout","time":29.335984741,"data":"\n"}
+,{"stream_name":"stdout","time":29.335991873,"data":"Bouts per year:\n"}
+,{"stream_name":"stdout","time":29.335997296,"data":"year\n"}
+,{"stream_name":"stdout","time":29.336002453,"data":"2017    16034\n"}
+,{"stream_name":"stdout","time":29.336007933,"data":"2018    18242\n"}
+,{"stream_name":"stdout","time":29.336014147,"data":"2019    20400\n"}
+,{"stream_name":"stdout","time":29.336020124,"data":"2020    18443\n"}
+,{"stream_name":"stdout","time":29.336025471,"data":"2021    22856\n"}
+,{"stream_name":"stdout","time":29.336030632,"data":"2022    24316\n"}
+,{"stream_name":"stdout","time":29.336036066,"data":"2023    25870\n"}
+,{"stream_name":"stdout","time":29.336041729,"data":"2024    26486\n"}
+,{"stream_name":"stdout","time":29.336047586,"data":"2025    27862\n"}
+,{"stream_name":"stdout","time":29.336053127,"data":"2026     1910\n"}
+,{"stream_name":"stdout","time":29.336058611,"data":"dtype: int64\n"}
+,{"stream_name":"stdout","time":29.693604554,"data":"Using 216 numeric features\n"}
+,{"stream_name":"stdout","time":29.693646678,"data":"\n"}
+,{"stream_name":"stdout","time":29.693654231,"data":"Sample features:\n"}
+,{"stream_name":"stdout","time":29.693661405,"data":"['day', 'matchNo', 'basho_year', 'basho_month', 'east_rank_numeric', 'west_rank_numeric', 'east_elo', 'west_elo', 'east_glicko_rating', 'east_glicko_rd', 'east_glicko_vol', 'west_glicko_rating', 'west_glicko_rd', 'west_glicko_vol', 'elo_diff', 'glicko_rating_diff', 'glicko_rd_diff', 'tournament_number', 'is_tokyo', 'east_basho_year', 'east_basho_month', 'east_day', 'east_career_wins', 'east_career_losses', 'east_career_total_bouts', 'east_career_win_rate', 'east_bout_date_approx', 'east_debut_date', 'east_career_length_days', 'east_basho_num']\n"}
+,{"stream_name":"stdout","time":29.714731489000002,"data":"\n"}
+,{"stream_name":"stdout","time":29.714768426,"data":"Top 20 kimarite for prediction\n"}
+,{"stream_name":"stdout","time":29.774518341,"data":"Total basho: 195\n"}
+,{"stream_name":"stdout","time":29.774559158,"data":"First: 199305, Last: 202601\n"}
+,{"stream_name":"stdout","time":29.774610101,"data":"\n"}
+,{"stream_name":"stdout","time":29.774615665,"data":"Split points:\n"}
+,{"stream_name":"stdout","time":29.774620563,"data":"  Train: before 202403\n"}
+,{"stream_name":"stdout","time":29.774625474,"data":"  Val: 202403 to 202503\n"}
+,{"stream_name":"stdout","time":29.774630714,"data":"  Test: after 202503\n"}
+,{"stream_name":"stdout","time":30.493409074,"data":"Train: 239,512 bouts\n"}
+,{"stream_name":"stdout","time":30.493448817,"data":"Val: 26,598 bouts\n"}
+,{"stream_name":"stdout","time":30.493454615,"data":"Test: 25,352 bouts\n"}
+,{"stream_name":"stdout","time":30.927410179,"data":"Valid bouts - Train: 239,512, Val: 26,598, Test: 25,352\n"}
+,{"stream_name":"stdout","time":32.676793998,"data":"X_train shape: (239512, 216)\n"}
+,{"stream_name":"stdout","time":32.67683266,"data":"y_train distribution: {1: 120048, 0: 119464}\n"}
+,{"stream_name":"stdout","time":32.876528789,"data":"Training winner prediction model...\n"}
+,{"stream_name":"stdout","time":37.563822646,"data":"Training until validation scores don't improve for 50 rounds\n"}
+,{"stream_name":"stdout","time":46.922750577,"data":"[100]\ttrain's binary_logloss: 0.647372\ttrain's auc: 0.671843\tval's binary_logloss: 0.645048\tval's auc: 0.664772\n"}
+,{"stream_name":"stdout","time":52.814587916,"data":"Early stopping, best iteration is:\n"}
+,{"stream_name":"stdout","time":52.814635703,"data":"[127]\ttrain's binary_logloss: 0.642772\ttrain's auc: 0.681768\tval's binary_logloss: 0.644372\tval's auc: 0.66538\n"}
+,{"stream_name":"stdout","time":52.814644826,"data":"\n"}
+,{"stream_name":"stdout","time":52.814651371,"data":"Best iteration: 127\n"}
+,{"stream_name":"stdout","time":54.43282717,"data":"=== Winner Model Metrics ===\n"}
+,{"stream_name":"stdout","time":54.432884813,"data":"Train: Accuracy=0.6277, AUC=0.6818, LogLoss=0.6428\n"}
+,{"stream_name":"stdout","time":54.432894546,"data":"Val: Accuracy=0.6146, AUC=0.6654, LogLoss=0.6444\n"}
+,{"stream_name":"stdout","time":54.432900829,"data":"Test: Accuracy=0.6164, AUC=0.6633, LogLoss=0.6511\n"}
+,{"stream_name":"stdout","time":54.476291118,"data":"\n"}
+,{"stream_name":"stdout","time":54.476342745,"data":"Top 20 features by importance:\n"}
+,{"stream_name":"stdout","time":56.547393119,"data":"Kimarite samples - Train: 239512, Val: 26598, Test: 25352\n"}
+,{"stream_name":"stdout","time":56.547431841,"data":"\n"}
+,{"stream_name":"stdout","time":56.547439875,"data":"Kimarite distribution in training:\n"}
+,{"stream_name":"stdout","time":56.547446347,"data":"kimarite\n"}
+,{"stream_name":"stdout","time":56.547451869,"data":"oshidashi         59855\n"}
+,{"stream_name":"stdout","time":56.547457796,"data":"yorikiri          58303\n"}
+,{"stream_name":"stdout","time":56.547463351,"data":"hatakikomi        18904\n"}
+,{"stream_name":"stdout","time":56.547468652,"data":"other             13720\n"}
+,{"stream_name":"stdout","time":56.547489433,"data":"tsukiotoshi       12835\n"}
+,{"stream_name":"stdout","time":56.547492781,"data":"yoritaoshi        12420\n"}
+,{"stream_name":"stdout","time":56.547495769,"data":"uwatenage         11118\n"}
+,{"stream_name":"stdout","time":56.54749861,"data":"oshitaoshi         8703\n"}
+,{"stream_name":"stdout","time":56.547501421,"data":"hikiotoshi         8698\n"}
+,{"stream_name":"stdout","time":56.547504321,"data":"okuridashi         7671\n"}
+,{"stream_name":"stdout","time":56.547507141,"data":"shitatenage        5603\n"}
+,{"stream_name":"stdout","time":56.54750999,"data":"tsukidashi         5267\n"}
+,{"stream_name":"stdout","time":56.547512803000004,"data":"sukuinage          4866\n"}
+,{"stream_name":"stdout","time":56.547515684,"data":"kotenage           3780\n"}
+,{"stream_name":"stdout","time":56.547518544,"data":"uwatedashinage     2849\n"}
+,{"stream_name":"stdout","time":56.547521387,"data":"katasukashi        2041\n"}
+,{"stream_name":"stdout","time":56.54752421,"data":"kimedashi           905\n"}
+,{"stream_name":"stdout","time":56.547527089,"data":"tsukitaoshi         854\n"}
+,{"stream_name":"stdout","time":56.547529889,"data":"sotogake            748\n"}
+,{"stream_name":"stdout","time":56.547532684,"data":"uchigake            216\n"}
+,{"stream_name":"stdout","time":56.547535513,"data":"makiotoshi          156\n"}
+,{"stream_name":"stdout","time":56.547538484,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":56.619644816,"data":"Classes: ['hatakikomi' 'hikiotoshi' 'katasukashi' 'kimedashi' 'kotenage'\n"}
+,{"stream_name":"stdout","time":56.619684328,"data":" 'makiotoshi' 'okuridashi' 'oshidashi' 'oshitaoshi' 'other' 'shitatenage'\n"}
+,{"stream_name":"stdout","time":56.619690377,"data":" 'sotogake' 'sukuinage' 'tsukidashi' 'tsukiotoshi' 'tsukitaoshi'\n"}
+,{"stream_name":"stdout","time":56.61969517,"data":" 'uchigake' 'uwatedashinage' 'uwatenage' 'yorikiri' 'yoritaoshi']\n"}
+,{"stream_name":"stdout","time":56.747633835,"data":"Training kimarite prediction model...\n"}
+,{"stream_name":"stdout","time":62.663999253,"data":"Training until validation scores don't improve for 50 rounds\n"}
+,{"stream_name":"stdout","time":199.709200561,"data":"[100]\ttrain's multi_logloss: 1.79846\tval's multi_logloss: 2.18861\n"}
+,{"stream_name":"stdout","time":270.286721349,"data":"Early stopping, best iteration is:\n"}
+,{"stream_name":"stdout","time":270.286763402,"data":"[108]\ttrain's multi_logloss: 1.77747\tval's multi_logloss: 2.18842\n"}
+,{"stream_name":"stdout","time":270.329342246,"data":"\n"}
+,{"stream_name":"stdout","time":270.32938504,"data":"Best iteration: 108\n"}
+,{"stream_name":"stdout","time":272.699307161,"data":"\n"}
+,{"stream_name":"stdout","time":272.699387325,"data":"Kimarite Test Accuracy: 0.3334\n"}
+,{"stream_name":"stdout","time":272.7094522,"data":"Kimarite Top-3 Accuracy: 0.6046\n"}
+,{"stream_name":"stdout","time":272.741103576,"data":"\n"}
+,{"stream_name":"stdout","time":272.741145741,"data":"Average category probabilities:\n"}
+,{"stream_name":"stdout","time":272.741166147,"data":"  Push: 0.409\n"}
+,{"stream_name":"stdout","time":272.741173105,"data":"  Grapple: 0.413\n"}
+,{"stream_name":"stdout","time":272.741178993,"data":"  Evasion: 0.129\n"}
+,{"stream_name":"stdout","time":272.889017552,"data":"Saved winner model to /kaggle/working/winner_model.lgb\n"}
+,{"stream_name":"stdout","time":272.889049282,"data":"Saved kimarite model to /kaggle/working/kimarite_model.lgb\n"}
+,{"stream_name":"stdout","time":272.88905433,"data":"Saved label encoder to /kaggle/working/kimarite_encoder.joblib\n"}
+,{"stream_name":"stdout","time":272.889074421,"data":"Saved feature list to /kaggle/working/feature_columns.csv\n"}
+,{"stream_name":"stdout","time":272.981528642,"data":"Saved test predictions to /kaggle/working/test_predictions.parquet\n"}
+,{"stream_name":"stdout","time":273.029362815,"data":"=== Model Training Summary ===\n"}
+,{"stream_name":"stdout","time":273.029399687,"data":"\n"}
+,{"stream_name":"stdout","time":273.029405449,"data":"Winner Model:\n"}
+,{"stream_name":"stdout","time":273.029410073,"data":"  Test Accuracy: 0.6164\n"}
+,{"stream_name":"stdout","time":273.029414813,"data":"  Test AUC: 0.6633\n"}
+,{"stream_name":"stdout","time":273.029418881,"data":"  Baseline (50%): 0.5000\n"}
+,{"stream_name":"stdout","time":273.029423036,"data":"\n"}
+,{"stream_name":"stdout","time":273.029427174,"data":"Kimarite Model:\n"}
+,{"stream_name":"stdout","time":273.029431666,"data":"  Test Top-1 Accuracy: 0.3334\n"}
+,{"stream_name":"stdout","time":273.029436074,"data":"  Test Top-3 Accuracy: 0.6046\n"}
+,{"stream_name":"stdout","time":273.029440554,"data":"\n"}
+,{"stream_name":"stdout","time":273.029445073,"data":"Models saved to: /kaggle/working\n"}
+,{"stream_name":"stderr","time":277.039569728,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":277.039612539,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":277.258399753,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":277.25843124,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":278.070835478,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":278.070897638,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":278.11375328,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":278.559753051,"data":"[NbConvertApp] Writing 47346 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":281.904605607,"data":"/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":281.904651375,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":281.935633295,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":283.162706421,"data":"[NbConvertApp] Writing 361736 bytes to __results__.html\n"}
+]

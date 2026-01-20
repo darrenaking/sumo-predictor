@@ -4,71 +4,54 @@
 <h1 class="text-2xl font-bold text-gray-900 mb-1">TachiAI</h1>
 <p class="text-gray-500 mb-8">Sumo bout previews and results</p>
 
+{% if tournaments|length > 1 %}
 <div class="mb-8">
     <label class="block text-xs text-gray-500 uppercase tracking-wide mb-2">Tournament</label>
     <select id="basho-selector" class="w-full px-3 py-2 border border-gray-300 rounded text-gray-900 focus:outline-none focus:border-gray-500">
-        <option value="">Select tournament</option>
         {% for t in tournaments %}
-        <option value="{{ t.dir }}">{{ t.name }}</option>
+        <option value="{{ t.dir }}"{% if loop.first %} selected{% endif %}>{{ t.name }}</option>
         {% endfor %}
     </select>
 </div>
+{% elif tournaments %}
+<p class="text-gray-500 mb-6">{{ tournaments[0].name }}</p>
+{% endif %}
 
-<div id="days-list" class="hidden">
-    <div class="space-y-3">
-        {% for d in range(1, 16) %}
-        <div class="flex items-center justify-between py-3 border-b border-gray-100" data-day="{{ d }}">
-            <span class="text-gray-900 font-medium">Day {{ d }}</span>
-            <div class="flex gap-4">
-                <a href="#" class="preview-link text-gray-500 hover:text-gray-900 text-sm">Preview</a>
-                <a href="#" class="results-link text-gray-500 hover:text-gray-900 text-sm">Results</a>
-            </div>
+{% if tournaments %}
+<div id="days-list" class="space-y-3">
+    {% for d in range(1, 16) %}
+    <div class="flex items-center justify-between py-3 border-b border-gray-100" data-day="{{ d }}">
+        <span class="text-gray-900 font-medium">Day {{ d }}</span>
+        <div class="flex gap-4">
+            <a href="/{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-preview.html" class="preview-link text-gray-500 hover:text-gray-900 text-sm">Preview</a>
+            <a href="/{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-results.html" class="results-link text-gray-500 hover:text-gray-900 text-sm">Results</a>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
-
-{% if not tournaments %}
+{% else %}
 <p class="text-gray-500">No tournaments available yet.</p>
 {% endif %}
 {% endblock %}
 
 {% block scripts %}
+{% if tournaments|length > 1 %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const bashoSelector = document.getElementById('basho-selector');
-    const daysList = document.getElementById('days-list');
-    const dayRows = daysList.querySelectorAll('[data-day]');
-
-    const savedBasho = localStorage.getItem('sumo-basho');
-    if (savedBasho) {
-        bashoSelector.value = savedBasho;
-        updateLinks();
-    }
+    const dayRows = document.querySelectorAll('[data-day]');
 
     bashoSelector.addEventListener('change', function() {
-        localStorage.setItem('sumo-basho', this.value);
-        updateLinks();
-    });
-
-    function updateLinks() {
-        const basho = bashoSelector.value;
-        if (!basho) {
-            daysList.classList.add('hidden');
-            return;
-        }
-
-        daysList.classList.remove('hidden');
-
+        const basho = this.value;
         dayRows.forEach(row => {
             const day = row.dataset.day;
             const previewLink = row.querySelector('.preview-link');
             const resultsLink = row.querySelector('.results-link');
-
             previewLink.href = `/${basho}/day-${day.padStart(2, '0')}-preview.html`;
             resultsLink.href = `/${basho}/day-${day.padStart(2, '0')}-results.html`;
         });
-    }
+    });
 });
 </script>
+{% endif %}
 {% endblock %}

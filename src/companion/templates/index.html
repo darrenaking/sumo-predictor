@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Sumo Companion - Tournament Previews & Recaps{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <h1>Sumo Companion</h1>
+    <p class="subtitle">Spoiler-free previews and recaps for sumo tournaments</p>
+</header>
+
+<section class="spoiler-controls card">
+    <h2>Select Tournament</h2>
+
+    <div class="form-group">
+        <label for="basho-selector">Tournament:</label>
+        <select id="basho-selector" class="form-control">
+            <option value="">-- Select a tournament --</option>
+            {% for t in tournaments %}
+            <option value="{{ t.dir }}">{{ t.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group" id="day-picker-group" style="display: none;">
+        <label for="day-selector">Last day watched:</label>
+        <select id="day-selector" class="form-control">
+            <option value="0">Haven't started watching</option>
+            {% for d in range(1, 16) %}
+            <option value="{{ d }}">Day {{ d }}</option>
+            {% endfor %}
+        </select>
+        <p class="help-text">
+            You'll see results through this day, plus a spoiler-free preview for the next day.
+        </p>
+    </div>
+</section>
+
+<section id="content-area" class="content-area" style="display: none;">
+    <!-- Preview section -->
+    <div id="preview-section" class="card" style="display: none;">
+        <h2>Next Day Preview</h2>
+        <div id="preview-link"></div>
+    </div>
+
+    <!-- Results section -->
+    <div id="results-section" class="card" style="display: none;">
+        <h2>Latest Results</h2>
+        <div id="results-link"></div>
+    </div>
+
+    <!-- Must Watch section -->
+    <div id="must-watch-section" class="card" style="display: none;">
+        <h2>Must Watch Bouts</h2>
+        <div id="must-watch-list"></div>
+    </div>
+
+    <!-- Day navigation -->
+    <div id="day-nav" class="day-navigation"></div>
+</section>
+
+{% if not tournaments %}
+<section class="card">
+    <h2>No Tournaments Available</h2>
+    <p>No tournament data has been generated yet. Run the pipeline to generate content:</p>
+    <pre><code>make preview BASHO=202501 DAY=1</code></pre>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bashoSelector = document.getElementById('basho-selector');
+    const dayPickerGroup = document.getElementById('day-picker-group');
+    const daySelector = document.getElementById('day-selector');
+    const contentArea = document.getElementById('content-area');
+    const previewSection = document.getElementById('preview-section');
+    const resultsSection = document.getElementById('results-section');
+    const previewLink = document.getElementById('preview-link');
+    const resultsLink = document.getElementById('results-link');
+    const dayNav = document.getElementById('day-nav');
+
+    // Load saved state
+    const savedBasho = localStorage.getItem('sumo-basho');
+    const savedDay = localStorage.getItem('sumo-day');
+
+    if (savedBasho) {
+        bashoSelector.value = savedBasho;
+        dayPickerGroup.style.display = 'block';
+    }
+    if (savedDay) {
+        daySelector.value = savedDay;
+    }
+
+    function updateDisplay() {
+        const basho = bashoSelector.value;
+        const day = parseInt(daySelector.value);
+
+        if (!basho) {
+            contentArea.style.display = 'none';
+            dayPickerGroup.style.display = 'none';
+            return;
+        }
+
+        dayPickerGroup.style.display = 'block';
+        contentArea.style.display = 'block';
+
+        // Save state
+        localStorage.setItem('sumo-basho', basho);
+        localStorage.setItem('sumo-day', day);
+
+        // Show preview for next day
+        const nextDay = day + 1;
+        if (nextDay <= 15) {
+            previewSection.style.display = 'block';
+            previewLink.innerHTML = `<a href="/${basho}/day-${String(nextDay).padStart(2, '0')}-preview.html" class="btn btn-primary">View Day ${nextDay} Preview</a>`;
+        } else {
+            previewSection.style.display = 'none';
+        }
+
+        // Show results for watched days
+        if (day > 0) {
+            resultsSection.style.display = 'block';
+            resultsLink.innerHTML = `<a href="/${basho}/day-${String(day).padStart(2, '0')}-results.html" class="btn btn-secondary">View Day ${day} Results</a>`;
+        } else {
+            resultsSection.style.display = 'none';
+        }
+
+        // Build day navigation
+        let navHtml = '<div class="day-links">';
+        for (let d = 1; d <= 15; d++) {
+            const previewFile = `/${basho}/day-${String(d).padStart(2, '0')}-preview.html`;
+            const resultsFile = `/${basho}/day-${String(d).padStart(2, '0')}-results.html`;
+
+            let dayClass = 'day-link';
+            if (d <= day) {
+                dayClass += ' watched';
+            } else if (d === day + 1) {
+                dayClass += ' next';
+            } else {
+                dayClass += ' hidden';
+            }
+
+            navHtml += `<div class="${dayClass}">`;
+            navHtml += `<span class="day-num">Day ${d}</span>`;
+
+            if (d <= day) {
+                navHtml += ` <a href="${resultsFile}">Results</a>`;
+            }
+            if (d <= day + 1) {
+                navHtml += ` <a href="${previewFile}">Preview</a>`;
+            }
+
+            navHtml += '</div>';
+        }
+        navHtml += '</div>';
+        dayNav.innerHTML = navHtml;
+    }
+
+    bashoSelector.addEventListener('change', function() {
+        daySelector.value = '0';
+        updateDisplay();
+    });
+
+    daySelector.addEventListener('change', updateDisplay);
+
+    // Initial display
+    updateDisplay();
+});
+</script>
+{% endblock %}

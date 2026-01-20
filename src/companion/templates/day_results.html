@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Day {{ day }} Results - {{ basho_name }} - Sumo Companion{% endblock %}
+
+{% block nav_controls %}
+<a href="/" class="nav-link">Home</a>
+{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <div class="breadcrumb">
+        <a href="/">Home</a> &rsaquo;
+        <span>{{ basho_name }}</span> &rsaquo;
+        <span>Day {{ day }} Results</span>
+    </div>
+    <h1>Day {{ day }} Results</h1>
+    <p class="subtitle">{{ basho_name }}</p>
+</header>
+
+<!-- Prediction Accuracy -->
+<section class="card accuracy-summary">
+    <div class="card-header">
+        <h2>Prediction Accuracy</h2>
+    </div>
+    <div class="card-body">
+        <div class="accuracy-display">
+            <span class="accuracy-value">{{ "%.1f"|format(accuracy) }}%</span>
+            <span class="accuracy-label">correct predictions today</span>
+        </div>
+    </div>
+</section>
+
+<!-- Upsets -->
+{% if upsets %}
+<section class="card upsets">
+    <div class="card-header">
+        <h2>Upsets</h2>
+        <p class="help-text">Bouts where the 65%+ favorite lost</p>
+    </div>
+    <div class="card-body">
+        <div class="upset-list">
+            {% for upset in upsets %}
+            <div class="upset-card">
+                <div class="upset-wrestlers">
+                    <span class="loser">{{ upset.east_name if upset.winner == upset.west_name else upset.west_name }}</span>
+                    <span class="upset-arrow">&rarr;</span>
+                    <span class="winner">{{ upset.winner }}</span>
+                </div>
+                <div class="upset-details">
+                    <span class="kimarite">by {{ upset.kimarite }}</span>
+                    <span class="magnitude">{{ "%.0f"|format(upset.upset_magnitude * 100) }}% favorite lost</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- All Results -->
+<section class="card all-results">
+    <div class="card-header">
+        <h2>All Results</h2>
+    </div>
+    <div class="card-body">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>East</th>
+                    <th>West</th>
+                    <th>Winner</th>
+                    <th>Kimarite</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr class="{% if result.is_upset %}upset{% elif result.predicted_correct %}correct{% else %}incorrect{% endif %}">
+                    <td>{{ result.bout_number }}</td>
+                    <td>
+                        <span class="rank">{{ result.east_rank }}</span>
+                        {{ result.east_name }}
+                    </td>
+                    <td>
+                        {{ result.west_name }}
+                        <span class="rank">{{ result.west_rank }}</span>
+                    </td>
+                    <td class="winner-cell">
+                        <strong>{{ result.winner }}</strong>
+                    </td>
+                    <td>{{ result.kimarite }}</td>
+                    <td>
+                        {% if result.predicted_correct %}
+                        <span class="prediction-result correct">&#10003;</span>
+                        {% else %}
+                        <span class="prediction-result incorrect">&#10007;</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Current Standings -->
+{% if standings %}
+<section class="card standings">
+    <div class="card-header">
+        <h2>Current Standings</h2>
+        <p class="help-text">Through Day {{ day }}</p>
+    </div>
+    <div class="card-body">
+        <table class="standings-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Wrestler</th>
+                    <th>Record</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in standings %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.wins }}-{{ s.losses }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endif %}
+
+<!-- Navigation -->
+<nav class="day-navigation">
+    {% if day > 1 %}
+    <a href="day-{{ '%02d'|format(day - 1) }}-results.html" class="btn btn-secondary">&larr; Day {{ day - 1 }} Results</a>
+    {% endif %}
+    <a href="day-{{ '%02d'|format(day) }}-preview.html" class="btn btn-secondary">Day {{ day }} Preview</a>
+    <a href="/" class="btn btn-secondary">Home</a>
+    {% if day < 15 %}
+    <a href="day-{{ '%02d'|format(day + 1) }}-results.html" class="btn btn-secondary">Day {{ day + 1 }} Results &rarr;</a>
+    {% endif %}
+</nav>
+{% endblock %}

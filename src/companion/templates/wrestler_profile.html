@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}{{ wrestler.name }} - Sumo Companion{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <div class="breadcrumb">
+        <a href="/">Home</a> &rsaquo;
+        <span>Wrestlers</span> &rsaquo;
+        <span>{{ wrestler.name }}</span>
+    </div>
+    <h1>{{ wrestler.name }}</h1>
+    <p class="subtitle">{{ wrestler.rank }}</p>
+</header>
+
+<!-- Rank vs Rating -->
+<section class="card rank-rating">
+    <div class="card-header">
+        <h2>Rank vs True Strength</h2>
+    </div>
+    <div class="card-body">
+        <div class="rank-comparison">
+            <div class="rank-item">
+                <span class="label">Official Rank</span>
+                <span class="value">{{ wrestler.rank }}</span>
+            </div>
+            <div class="rank-item">
+                <span class="label">ELO Rating</span>
+                <span class="value">{{ stats.elo_rating|int }}</span>
+            </div>
+            <div class="rank-item">
+                <span class="label">True Rank (ELO)</span>
+                <span class="value">{{ stats.elo_equivalent_rank }}</span>
+            </div>
+        </div>
+        {% if stats.elo_rating > stats.expected_elo + 50 %}
+        <p class="rank-insight positive">Performing above his official rank</p>
+        {% elif stats.elo_rating < stats.expected_elo - 50 %}
+        <p class="rank-insight negative">May be overranked based on recent results</p>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Style Breakdown -->
+<section class="card style-breakdown">
+    <div class="card-header">
+        <h2>Fighting Style</h2>
+    </div>
+    <div class="card-body">
+        <div class="style-bars">
+            <div class="style-bar">
+                <span class="style-label">Push/Thrust</span>
+                <div class="bar-container">
+                    <div class="bar push" style="width: {{ style.push_pct }}%"></div>
+                </div>
+                <span class="style-value">{{ style.push_pct|int }}%</span>
+            </div>
+            <div class="style-bar">
+                <span class="style-label">Grappling</span>
+                <div class="bar-container">
+                    <div class="bar grapple" style="width: {{ style.grapple_pct }}%"></div>
+                </div>
+                <span class="style-value">{{ style.grapple_pct|int }}%</span>
+            </div>
+            <div class="style-bar">
+                <span class="style-label">Evasion</span>
+                <div class="bar-container">
+                    <div class="bar evasion" style="width: {{ style.evasion_pct }}%"></div>
+                </div>
+                <span class="style-value">{{ style.evasion_pct|int }}%</span>
+            </div>
+        </div>
+        <div class="favorite-techniques">
+            <h4>Favorite Techniques</h4>
+            <ul>
+                {% for tech in style.top_kimarite %}
+                <li>{{ tech.name }} ({{ tech.pct|int }}%)</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Form -->
+<section class="card recent-form">
+    <div class="card-header">
+        <h2>Recent Form</h2>
+    </div>
+    <div class="card-body">
+        <div class="form-stats">
+            <div class="stat-item">
+                <span class="label">Last 5 Bouts</span>
+                <span class="value">{{ stats.last_5_record }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="label">Last 3 Basho</span>
+                <span class="value">{{ stats.last_3_basho_record }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="label">Win Rate (Recent)</span>
+                <span class="value">{{ "%.1f"|format(stats.recent_win_rate * 100) }}%</span>
+            </div>
+        </div>
+
+        {% if stats.current_streak != 0 %}
+        <p class="streak-info">
+            {% if stats.current_streak > 0 %}
+            On a {{ stats.current_streak }}-bout winning streak
+            {% else %}
+            On a {{ -stats.current_streak }}-bout losing streak
+            {% endif %}
+        </p>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Career Stats -->
+<section class="card career-stats">
+    <div class="card-header">
+        <h2>Career Statistics</h2>
+    </div>
+    <div class="card-body">
+        <div class="stat-grid">
+            <div class="stat-item">
+                <span class="label">Career Record</span>
+                <span class="value">{{ stats.career_wins }}-{{ stats.career_losses }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="label">Win Rate</span>
+                <span class="value">{{ "%.1f"|format(stats.career_win_rate * 100) }}%</span>
+            </div>
+            <div class="stat-item">
+                <span class="label">Tournaments</span>
+                <span class="value">{{ stats.total_tournaments }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="label">Highest Rank</span>
+                <span class="value">{{ stats.highest_rank }}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Bouts -->
+<section class="card recent-bouts">
+    <div class="card-header">
+        <h2>Recent Bouts</h2>
+    </div>
+    <div class="card-body">
+        <table class="bouts-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>Result</th>
+                    <th>Kimarite</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bout in recent_bouts %}
+                <tr class="{{ 'win' if bout.won else 'loss' }}">
+                    <td>{{ bout.date }}</td>
+                    <td>{{ bout.opponent }}</td>
+                    <td>{{ 'W' if bout.won else 'L' }}</td>
+                    <td>{{ bout.kimarite }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

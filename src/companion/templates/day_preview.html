@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Day {{ day }} Preview - {{ basho_name }} - Sumo Companion{% endblock %}
+
+{% block nav_controls %}
+<a href="/" class="nav-link">Home</a>
+{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <div class="breadcrumb">
+        <a href="/">Home</a> &rsaquo;
+        <span>{{ basho_name }}</span> &rsaquo;
+        <span>Day {{ day }} Preview</span>
+    </div>
+    <h1>Day {{ day }} Preview</h1>
+    <p class="subtitle">{{ basho_name }}</p>
+</header>
+
+<!-- Bout of the Day -->
+{% if bout_of_day %}
+<section class="card bout-of-day">
+    <div class="card-header">
+        <h2>Bout of the Day</h2>
+    </div>
+    <div class="card-body">
+        <div class="featured-bout">
+            <div class="bout-wrestlers">
+                <div class="wrestler east">
+                    <span class="rank">{{ bout_of_day.east_rank }}</span>
+                    <span class="name">{{ bout_of_day.east_name }}</span>
+                </div>
+                <div class="bout-vs">vs</div>
+                <div class="wrestler west">
+                    <span class="name">{{ bout_of_day.west_name }}</span>
+                    <span class="rank">{{ bout_of_day.west_rank }}</span>
+                </div>
+            </div>
+            <div class="bout-prediction">
+                <strong>{{ bout_of_day.prediction }}</strong>
+            </div>
+            {% if bout_of_day.interest_reasons %}
+            <div class="bout-storylines">
+                <h4>Why to Watch:</h4>
+                <ul>
+                    {% for reason in bout_of_day.interest_reasons %}
+                    <li>{{ reason }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Yusho Race -->
+{% if yusho_race %}
+<section class="card yusho-race">
+    <div class="card-header">
+        <h2>Yusho Race</h2>
+    </div>
+    <div class="card-body">
+        <p class="yusho-status">
+            Leader: {{ yusho_race.leader_wins }} wins | {{ yusho_race.days_remaining }} days remaining
+        </p>
+        <table class="standings-table">
+            <thead>
+                <tr>
+                    <th>Wrestler</th>
+                    <th>Record</th>
+                    <th>Yusho %</th>
+                    <th>Magic #</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in yusho_race.contenders %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.record }}</td>
+                    <td>{{ c.probability }}</td>
+                    <td>{% if c.magic_number %}{{ c.magic_number }}{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if yusho_race.playoff_probability > 5 %}
+        <p class="playoff-chance">
+            Playoff probability: {{ "%.1f"|format(yusho_race.playoff_probability) }}%
+        </p>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+<!-- All Bouts -->
+<section class="card all-bouts">
+    <div class="card-header">
+        <h2>All Makuuchi Bouts</h2>
+        <p class="help-text">Ranked by interest level</p>
+    </div>
+    <div class="card-body">
+        <div class="bout-list">
+            {% for bout in bouts %}
+            <div class="bout-card {% if bout.is_bout_of_day %}featured{% endif %}">
+                <div class="bout-header">
+                    <span class="bout-number">#{{ bout.bout_number }}</span>
+                    <span class="interest-badge {{ bout.interest_label|lower|replace(' ', '-') }}">
+                        {{ bout.interest_label }}
+                    </span>
+                </div>
+                <div class="bout-wrestlers">
+                    <div class="wrestler east">
+                        <span class="rank">{{ bout.east_rank }}</span>
+                        <span class="name">{{ bout.east_name }}</span>
+                    </div>
+                    <div class="bout-vs">vs</div>
+                    <div class="wrestler west">
+                        <span class="name">{{ bout.west_name }}</span>
+                        <span class="rank">{{ bout.west_rank }}</span>
+                    </div>
+                </div>
+                <div class="bout-prediction">
+                    {{ bout.prediction }}
+                </div>
+                {% if bout.interest_reasons %}
+                <div class="bout-reasons">
+                    {% for reason in bout.interest_reasons %}
+                    <span class="reason-tag">{{ reason }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Navigation -->
+<nav class="day-navigation">
+    {% if day > 1 %}
+    <a href="day-{{ '%02d'|format(day - 1) }}-preview.html" class="btn btn-secondary">&larr; Day {{ day - 1 }} Preview</a>
+    {% endif %}
+    <a href="/" class="btn btn-secondary">Home</a>
+    {% if day < 15 %}
+    <a href="day-{{ '%02d'|format(day + 1) }}-preview.html" class="btn btn-secondary">Day {{ day + 1 }} Preview &rarr;</a>
+    {% endif %}
+</nav>
+{% endblock %}

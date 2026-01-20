@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sumo Companion{% endblock %}</title>
+    <link rel="stylesheet" href="/css/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">Sumo Companion</a>
+            <div class="nav-controls">
+                {% block nav_controls %}{% endblock %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Predictions powered by ML models trained on historical sumo data.</p>
+            <p>Data from sumo-api.com | Model accuracy: ~62%</p>
+            <p class="generated-at">Generated: {{ generated_at }}</p>
+        </div>
+    </footer>
+
+    <script src="/js/spoiler-free.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

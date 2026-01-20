@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumo Companion - Tournament Previews & Recaps</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">Sumo Companion</a>
+            <div class="nav-controls">
+                
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+<header class="page-header">
+    <h1>Sumo Companion</h1>
+    <p class="subtitle">Spoiler-free previews and recaps for sumo tournaments</p>
+</header>
+
+<section class="spoiler-controls card">
+    <h2>Select Tournament</h2>
+
+    <div class="form-group">
+        <label for="basho-selector">Tournament:</label>
+        <select id="basho-selector" class="form-control">
+            <option value="">-- Select a tournament --</option>
+            
+            <option value="2025-01">2025 Hatsu Basho (January)</option>
+            
+        </select>
+    </div>
+
+    <div class="form-group" id="day-picker-group" style="display: none;">
+        <label for="day-selector">Last day watched:</label>
+        <select id="day-selector" class="form-control">
+            <option value="0">Haven't started watching</option>
+            
+            <option value="1">Day 1</option>
+            
+            <option value="2">Day 2</option>
+            
+            <option value="3">Day 3</option>
+            
+            <option value="4">Day 4</option>
+            
+            <option value="5">Day 5</option>
+            
+            <option value="6">Day 6</option>
+            
+            <option value="7">Day 7</option>
+            
+            <option value="8">Day 8</option>
+            
+            <option value="9">Day 9</option>
+            
+            <option value="10">Day 10</option>
+            
+            <option value="11">Day 11</option>
+            
+            <option value="12">Day 12</option>
+            
+            <option value="13">Day 13</option>
+            
+            <option value="14">Day 14</option>
+            
+            <option value="15">Day 15</option>
+            
+        </select>
+        <p class="help-text">
+            You'll see results through this day, plus a spoiler-free preview for the next day.
+        </p>
+    </div>
+</section>
+
+<section id="content-area" class="content-area" style="display: none;">
+    <!-- Preview section -->
+    <div id="preview-section" class="card" style="display: none;">
+        <h2>Next Day Preview</h2>
+        <div id="preview-link"></div>
+    </div>
+
+    <!-- Results section -->
+    <div id="results-section" class="card" style="display: none;">
+        <h2>Latest Results</h2>
+        <div id="results-link"></div>
+    </div>
+
+    <!-- Must Watch section -->
+    <div id="must-watch-section" class="card" style="display: none;">
+        <h2>Must Watch Bouts</h2>
+        <div id="must-watch-list"></div>
+    </div>
+
+    <!-- Day navigation -->
+    <div id="day-nav" class="day-navigation"></div>
+</section>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Predictions powered by ML models trained on historical sumo data.</p>
+            <p>Data from sumo-api.com | Model accuracy: ~62%</p>
+            <p class="generated-at">Generated: 2026-01-19 19:59</p>
+        </div>
+    </footer>
+
+    <script src="/js/spoiler-free.js"></script>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bashoSelector = document.getElementById('basho-selector');
+    const dayPickerGroup = document.getElementById('day-picker-group');
+    const daySelector = document.getElementById('day-selector');
+    const contentArea = document.getElementById('content-area');
+    const previewSection = document.getElementById('preview-section');
+    const resultsSection = document.getElementById('results-section');
+    const previewLink = document.getElementById('preview-link');
+    const resultsLink = document.getElementById('results-link');
+    const dayNav = document.getElementById('day-nav');
+
+    // Load saved state
+    const savedBasho = localStorage.getItem('sumo-basho');
+    const savedDay = localStorage.getItem('sumo-day');
+
+    if (savedBasho) {
+        bashoSelector.value = savedBasho;
+        dayPickerGroup.style.display = 'block';
+    }
+    if (savedDay) {
+        daySelector.value = savedDay;
+    }
+
+    function updateDisplay() {
+        const basho = bashoSelector.value;
+        const day = parseInt(daySelector.value);
+
+        if (!basho) {
+            contentArea.style.display = 'none';
+            dayPickerGroup.style.display = 'none';
+            return;
+        }
+
+        dayPickerGroup.style.display = 'block';
+        contentArea.style.display = 'block';
+
+        // Save state
+        localStorage.setItem('sumo-basho', basho);
+        localStorage.setItem('sumo-day', day);
+
+        // Show preview for next day
+        const nextDay = day + 1;
+        if (nextDay <= 15) {
+            previewSection.style.display = 'block';
+            previewLink.innerHTML = `<a href="/${basho}/day-${String(nextDay).padStart(2, '0')}-preview.html" class="btn btn-primary">View Day ${nextDay} Preview</a>`;
+        } else {
+            previewSection.style.display = 'none';
+        }
+
+        // Show results for watched days
+        if (day > 0) {
+            resultsSection.style.display = 'block';
+            resultsLink.innerHTML = `<a href="/${basho}/day-${String(day).padStart(2, '0')}-results.html" class="btn btn-secondary">View Day ${day} Results</a>`;
+        } else {
+            resultsSection.style.display = 'none';
+        }
+
+        // Build day navigation
+        let navHtml = '<div class="day-links">';
+        for (let d = 1; d <= 15; d++) {
+            const previewFile = `/${basho}/day-${String(d).padStart(2, '0')}-preview.html`;
+            const resultsFile = `/${basho}/day-${String(d).padStart(2, '0')}-results.html`;
+
+            let dayClass = 'day-link';
+            if (d <= day) {
+                dayClass += ' watched';
+            } else if (d === day + 1) {
+                dayClass += ' next';
+            } else {
+                dayClass += ' hidden';
+            }
+
+            navHtml += `<div class="${dayClass}">`;
+            navHtml += `<span class="day-num">Day ${d}</span>`;
+
+            if (d <= day) {
+                navHtml += ` <a href="${resultsFile}">Results</a>`;
+            }
+            if (d <= day + 1) {
+                navHtml += ` <a href="${previewFile}">Preview</a>`;
+            }
+
+            navHtml += '</div>';
+        }
+        navHtml += '</div>';
+        dayNav.innerHTML = navHtml;
+    }
+
+    bashoSelector.addEventListener('change', function() {
+        daySelector.value = '0';
+        updateDisplay();
+    });
+
+    daySelector.addEventListener('change', updateDisplay);
+
+    // Initial display
+    updateDisplay();
+});
+</script>
+
+</body>
+</html>

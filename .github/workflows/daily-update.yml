@@ -1,0 +1,150 @@
+name: Daily Sumo Update
+
+on:
+  schedule:
+    # Run at 6am JST (21:00 UTC previous day) during basho
+    # Tournaments typically run 2nd-4th Sunday of Jan, Mar, May, Jul, Sep, Nov
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+    inputs:
+      basho_id:
+        description: 'Tournament ID (YYYYMM, e.g., 202501)'
+        required: false
+        type: string
+      day:
+        description: 'Day number (1-15)'
+        required: false
+        type: string
+      mode:
+        description: 'Generation mode'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+          - preview
+          - results
+          - both
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  check-tournament:
+    runs-on: ubuntu-latest
+    outputs:
+      is_active: ${{ steps.check.outputs.is_active }}
+      basho_id: ${{ steps.check.outputs.basho_id }}
+      day: ${{ steps.check.outputs.day }}
+    steps:
+      - name: Check if tournament is active
+        id: check
+        run: |
+          # Get current date in JST
+          CURRENT_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d)
+          CURRENT_YEAR=$(TZ=Asia/Tokyo date +%Y)
+          CURRENT_MONTH=$(TZ=Asia/Tokyo date +%m)
+          CURRENT_DAY=$(TZ=Asia/Tokyo date +%d)
+
+          # Tournament months (Jan=01, Mar=03, May=05, Jul=07, Sep=09, Nov=11)
+          TOURNAMENT_MONTHS="01 03 05 07 09 11"
+
+          # Check if current month is a tournament month
+          IS_TOURNAMENT_MONTH=false
+          for month in $TOURNAMENT_MONTHS; do
+            if [ "$CURRENT_MONTH" = "$month" ]; then
+              IS_TOURNAMENT_MONTH=true
+              break
+            fi
+          done
+
+          # Tournaments typically run from around day 8-22 of the month
+          # (starting 2nd Sunday, running 15 days)
+          # Simplified: assume active if days 7-23 of tournament month
+          if [ "$IS_TOURNAMENT_MONTH" = "true" ] && [ "$CURRENT_DAY" -ge 7 ] && [ "$CURRENT_DAY" -le 23 ]; then
+            IS_ACTIVE=true
+            BASHO_ID="${CURRENT_YEAR}${CURRENT_MONTH}"
+            # Estimate tournament day (this is approximate)
+            TOURNAMENT_DAY=$((CURRENT_DAY - 7))
+            if [ $TOURNAMENT_DAY -lt 1 ]; then TOURNAMENT_DAY=1; fi
+            if [ $TOURNAMENT_DAY -gt 15 ]; then TOURNAMENT_DAY=15; fi
+          else
+            IS_ACTIVE=false
+            BASHO_ID=""
+            TOURNAMENT_DAY=""
+          fi
+
+          echo "is_active=$IS_ACTIVE" >> $GITHUB_OUTPUT
+          echo "basho_id=$BASHO_ID" >> $GITHUB_OUTPUT
+          echo "day=$TOURNAMENT_DAY" >> $GITHUB_OUTPUT
+
+          echo "Tournament active: $IS_ACTIVE"
+          echo "Basho ID: $BASHO_ID"
+          echo "Day: $TOURNAMENT_DAY"
+
+  generate:
+    needs: check-tournament
+    if: needs.check-tournament.outputs.is_active == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Determine basho and day
+        id: params
+        run: |
+          # Use workflow inputs if provided, otherwise use detected values
+          if [ -n "${{ github.event.inputs.basho_id }}" ]; then
+            BASHO="${{ github.event.inputs.basho_id }}"
+          else
+            BASHO="${{ needs.check-tournament.outputs.basho_id }}"
+          fi
+
+          if [ -n "${{ github.event.inputs.day }}" ]; then
+            DAY="${{ github.event.inputs.day }}"
+          else
+            DAY="${{ needs.check-tournament.outputs.day }}"
+          fi
+
+          MODE="${{ github.event.inputs.mode || 'both' }}"
+
+          echo "basho=$BASHO" >> $GITHUB_OUTPUT
+          echo "day=$DAY" >> $GITHUB_OUTPUT
+          echo "mode=$MODE" >> $GITHUB_OUTPUT
+
+          echo "Generating for basho=$BASHO day=$DAY mode=$MODE"
+
+      - name: Generate yesterday's results
+        if: steps.params.outputs.day != '1' && (steps.params.outputs.mode == 'results' || steps.params.outputs.mode == 'both')
+        run: |
+          YESTERDAY=$((steps.params.outputs.day - 1))
+          python -m src.companion.daily_pipeline \
+            --basho ${{ steps.params.outputs.basho }} \
+            --day $YESTERDAY \
+            --mode results
+        continue-on-error: true
+
+      - name: Generate today's preview
+        if: steps.params.outputs.mode == 'preview' || steps.params.outputs.mode == 'both'
+        run: |
+          python -m src.companion.daily_pipeline \
+            --basho ${{ steps.params.outputs.basho }} \
+            --day ${{ steps.params.outputs.day }} \
+            --mode preview
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          keep_files: true
+          commit_message: "Update ${{ steps.params.outputs.basho }} day ${{ steps.params.outputs.day }}"

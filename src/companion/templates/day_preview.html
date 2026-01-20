@@ -11,27 +11,36 @@
 <p class="text-gray-500 mb-8">{{ basho_name }}</p>
 
 {% if bout_of_day %}
-<div class="mb-8 p-4 border border-gray-200 rounded">
-    <p class="text-sm text-gray-500 mb-3">Bout of the Day</p>
-    <div class="flex items-center justify-center gap-4 mb-3">
+<div class="mb-8 p-4 border border-gray-300 rounded">
+    <p class="text-xs text-gray-500 mb-3 uppercase tracking-wide">Bout of the Day</p>
+    <div class="flex items-center justify-center gap-6 mb-3">
         <div class="text-right">
             <span class="text-xs text-gray-400 block">{{ bout_of_day.east_rank }}</span>
             <span class="font-medium">{{ bout_of_day.east_name }}</span>
+            <div class="text-xs text-gray-500">
+                {% if bout_of_day.east_form %}{{ bout_of_day.east_form }}{% endif %}
+                {% if bout_of_day.east_style %} · {{ bout_of_day.east_style }}{% endif %}
+            </div>
         </div>
         <span class="text-gray-400">vs</span>
         <div class="text-left">
             <span class="text-xs text-gray-400 block">{{ bout_of_day.west_rank }}</span>
             <span class="font-medium">{{ bout_of_day.west_name }}</span>
+            <div class="text-xs text-gray-500">
+                {% if bout_of_day.west_form %}{{ bout_of_day.west_form }}{% endif %}
+                {% if bout_of_day.west_style %} · {{ bout_of_day.west_style }}{% endif %}
+            </div>
         </div>
     </div>
-    <p class="text-center text-sm text-gray-600">{{ bout_of_day.prediction }}</p>
-    {% if bout_of_day.interest_reasons %}
-    <div class="mt-3 pt-3 border-t border-gray-100">
-        <ul class="text-sm text-gray-500 space-y-1">
-            {% for reason in bout_of_day.interest_reasons %}
-            <li>{{ reason }}</li>
-            {% endfor %}
-        </ul>
+    <p class="text-center text-sm text-gray-600 mb-2">{{ bout_of_day.prediction }}</p>
+    {% if bout_of_day.expected_style %}
+    <p class="text-center text-xs text-gray-500 mb-2">{{ bout_of_day.expected_style }}</p>
+    {% endif %}
+    {% if bout_of_day.storylines %}
+    <div class="mt-3 pt-3 border-t border-gray-100 space-y-1">
+        {% for storyline in bout_of_day.storylines %}
+        <p class="text-sm text-gray-600 text-center">{{ storyline }}</p>
+        {% endfor %}
     </div>
     {% endif %}
 </div>
@@ -64,25 +73,49 @@
 
 <div class="mb-8">
     <h2 class="text-lg font-bold text-gray-900 mb-4">All Bouts</h2>
-    <div class="space-y-4">
+    <div class="space-y-6">
         {% for bout in bouts %}
-        <div class="py-3 border-b border-gray-100">
+        <div class="py-4 border-b border-gray-100">
             <div class="flex items-center justify-between mb-2">
                 <span class="text-xs text-gray-400">#{{ bout.bout_number }}</span>
-                <span class="text-xs text-gray-500">{{ bout.interest_label }}</span>
+                {% if bout.is_must_watch %}
+                <span class="text-xs font-medium text-gray-900">Must Watch</span>
+                {% endif %}
             </div>
-            <div class="flex items-center justify-center gap-4 mb-2">
+
+            <div class="flex items-center justify-center gap-6 mb-3">
                 <div class="text-right flex-1">
                     <span class="text-xs text-gray-400 block">{{ bout.east_rank }}</span>
-                    <span class="font-medium">{{ bout.east_name }}</span>
+                    <span class="font-medium text-gray-900">{{ bout.east_name }}</span>
+                    <div class="text-xs text-gray-500 mt-0.5">
+                        {% if bout.east_form %}{{ bout.east_form }}{% endif %}
+                        {% if bout.east_style %} · {{ bout.east_style }}{% endif %}
+                    </div>
                 </div>
-                <span class="text-gray-400 text-sm">vs</span>
+                <span class="text-gray-300 text-sm">vs</span>
                 <div class="text-left flex-1">
                     <span class="text-xs text-gray-400 block">{{ bout.west_rank }}</span>
-                    <span class="font-medium">{{ bout.west_name }}</span>
+                    <span class="font-medium text-gray-900">{{ bout.west_name }}</span>
+                    <div class="text-xs text-gray-500 mt-0.5">
+                        {% if bout.west_form %}{{ bout.west_form }}{% endif %}
+                        {% if bout.west_style %} · {{ bout.west_style }}{% endif %}
+                    </div>
                 </div>
             </div>
-            <p class="text-center text-sm text-gray-600">{{ bout.prediction }}</p>
+
+            <p class="text-center text-sm text-gray-700 mb-1">{{ bout.prediction }}</p>
+
+            {% if bout.expected_style %}
+            <p class="text-center text-xs text-gray-500 mb-2">{{ bout.expected_style }}</p>
+            {% endif %}
+
+            {% if bout.storylines %}
+            <div class="text-center space-y-1 mt-2">
+                {% for storyline in bout.storylines %}
+                <p class="text-xs text-gray-500">{{ storyline }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

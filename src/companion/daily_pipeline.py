@@ -27,6 +27,7 @@ from src.data_collection import (
     parse_banzuke_rank,
     make_request,
 )
+from src.rating_systems import EloSystem, Glicko2System
 from src.narrative import (
     generate_bout_narrative,
     BoutPrediction,
@@ -54,6 +55,174 @@ from src.companion.html_generator import (
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 KAGGLE_OUTPUT = PROJECT_ROOT / "kaggle-output" / "04-v3"
 SITE_OUTPUT = PROJECT_ROOT / "site"
+
+# Rank to expected ELO mapping (higher rank = higher expected ELO)
+RANK_EXPECTED_ELO = {
+    'Y': 1700,   # Yokozuna
+    'O': 1650,   # Ozeki
+    'S': 1600,   # Sekiwake
+    'K': 1575,   # Komusubi
+    'M1': 1550, 'M2': 1530, 'M3': 1510, 'M4': 1490, 'M5': 1470,
+    'M6': 1450, 'M7': 1430, 'M8': 1410, 'M9': 1390, 'M10': 1370,
+    'M11': 1350, 'M12': 1330, 'M13': 1310, 'M14': 1290, 'M15': 1270,
+    'M16': 1250, 'M17': 1230,
+}
+
+
+def get_expected_elo_for_rank(rank_str: str) -> float:
+    """Get expected ELO rating for a given rank."""
+    if not rank_str:
+        return 1400
+    # Extract rank letter/number
+    rank_str = rank_str.strip().upper()
+    if rank_str.startswith('Y'):
+        return RANK_EXPECTED_ELO['Y']
+    elif rank_str.startswith('O'):
+        return RANK_EXPECTED_ELO['O']
+    elif rank_str.startswith('S'):
+        return RANK_EXPECTED_ELO['S']
+    elif rank_str.startswith('K'):
+        return RANK_EXPECTED_ELO['K']
+    elif rank_str.startswith('M'):
+        # Extract number
+        import re
+        match = re.search(r'M(\d+)', rank_str)
+        if match:
+            num = int(match.group(1))
+            return RANK_EXPECTED_ELO.get(f'M{num}', 1400)
+    return 1400
+
+
+def get_rank_analysis(actual_elo: float, rank_str: str) -> Optional[str]:
+    """Determine if wrestler is underrated or overrated by their official rank."""
+    expected = get_expected_elo_for_rank(rank_str)
+    diff = actual_elo - expected
+    if diff > 80:
+        return "underrated"  # Performing above their rank
+    elif diff < -80:
+        return "overrated"  # Performing below their rank
+    return None
+
+
+def get_expected_style(east_push_pct: float, east_grapple_pct: float,
+                       west_push_pct: float, west_grapple_pct: float) -> str:
+    """Determine expected bout style based on wrestler tendencies."""
+    east_is_pusher = east_push_pct > 0.55
+    east_is_grappler = east_grapple_pct > 0.55
+    west_is_pusher = west_push_pct > 0.55
+    west_is_grappler = west_grapple_pct > 0.55
+
+    if east_is_grappler and west_is_grappler:
+        return "Belt battle"
+    elif east_is_pusher and west_is_pusher:
+        return "Pushing match"
+    elif (east_is_pusher and west_is_grappler) or (east_is_grappler and west_is_pusher):
+        return "Style clash"
+    else:
+        return None
+
+
+def format_h2h_storyline(east_name: str, west_name: str,
+                         east_h2h_wins: int, total_bouts: int) -> Optional[str]:
+    """Format H2H record into a storyline string."""
+    if total_bouts == 0:
+        return "First meeting"
+
+    west_h2h_wins = total_bouts - east_h2h_wins
+
+    if total_bouts >= 3:
+        if east_h2h_wins == 0:
+            return f"Revenge match — {east_name} 0-{west_h2h_wins} in career"
+        elif west_h2h_wins == 0:
+            return f"Revenge match — {west_name} 0-{east_h2h_wins} in career"
+        elif abs(east_h2h_wins - west_h2h_wins) <= 1:
+            return f"Rivalry match ({east_h2h_wins}-{west_h2h_wins})"
+        elif east_h2h_wins < west_h2h_wins:
+            return f"{east_name} trails {east_h2h_wins}-{west_h2h_wins}"
+        else:
+            return f"{west_name} trails {west_h2h_wins}-{east_h2h_wins}"
+    return None
+
+
+def get_stakes_storyline(features: Dict, east_name: str, west_name: str, day: int) -> List[str]:
+    """Get stakes-related storylines."""
+    storylines = []
+
+    east_wins = features.get('east_basho_wins', 0)
+    east_losses = features.get('east_basho_losses', 0)
+    west_wins = features.get('west_basho_wins', 0)
+    west_losses = features.get('west_basho_losses', 0)
+
+    # Kachikoshi pressure
+    if east_wins == 7:
+        storylines.append(f"{east_name} needs 1 win for kachikoshi")
+    if west_wins == 7:
+        storylines.append(f"{west_name} needs 1 win for kachikoshi")
+
+    # Makekoshi danger
+    if east_losses == 7:
+        storylines.append(f"{east_name} must win to avoid makekoshi")
+    if west_losses == 7:
+        storylines.append(f"{west_name} must win to avoid makekoshi")
+
+    # Ozeki kadoban
+    if features.get('east_is_ozeki') and east_losses >= 6:
+        storylines.append(f"{east_name} (ozeki) fighting to avoid demotion")
+    if features.get('west_is_ozeki') and west_losses >= 6:
+        storylines.append(f"{west_name} (ozeki) fighting to avoid demotion")
+
+    return storylines
+
+
+def format_recent_form(wins: int, losses: int) -> str:
+    """Format current basho record as recent form string."""
+    if wins == 0 and losses == 0:
+        return None
+    total = wins + losses
+    if total == 0:
+        return None
+    win_pct = wins / total
+    if win_pct >= 0.8:
+        return f"{wins}-{losses} (hot)"
+    elif win_pct <= 0.3:
+        return f"{wins}-{losses} (cold)"
+    else:
+        return f"{wins}-{losses}"
+
+
+def get_wrestler_style(wrestler_id: int, historical_results: pd.DataFrame) -> Dict:
+    """
+    Analyze wrestler's style from historical bout results.
+    Returns dict with style info.
+    """
+    if historical_results is None or historical_results.empty:
+        return {'style': None, 'push_pct': 0.5, 'grapple_pct': 0.5}
+
+    # Get bouts where this wrestler won
+    won_bouts = historical_results[historical_results['winnerId'] == wrestler_id]
+
+    if len(won_bouts) == 0:
+        return {'style': None, 'push_pct': 0.5, 'grapple_pct': 0.5}
+
+    # Categorize kimarite
+    push_kimarite = ['oshidashi', 'oshitaoshi', 'tsukidashi', 'tsukitaoshi', 'hatakikomi', 'hikiotoshi']
+    grapple_kimarite = ['yorikiri', 'yoritaoshi', 'uwatenage', 'shitatenage', 'uwatedashinage', 'shitatedashinage', 'sukuinage', 'kotenage']
+
+    total = len(won_bouts)
+    push_wins = sum(1 for k in won_bouts['kimarite'] if k and k.lower() in push_kimarite)
+    grapple_wins = sum(1 for k in won_bouts['kimarite'] if k and k.lower() in grapple_kimarite)
+
+    push_pct = push_wins / total if total > 0 else 0
+    grapple_pct = grapple_wins / total if total > 0 else 0
+
+    if push_pct > 0.5:
+        style = "Pusher"
+    elif grapple_pct > 0.5:
+        style = "Grappler"
+    else:
+        style = "Balanced"
+
+    return {'style': style, 'push_pct': push_pct, 'grapple_pct': grapple_pct}
 
 
 def load_models():
@@ -348,6 +517,21 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
             num_simulations=10000,
         )
 
+    # Initialize rating systems and compute ratings from historical data
+    elo = EloSystem(k_factor=32.0)
+    glicko = Glicko2System(tau=0.5)
+
+    # Process all historical bouts to build ratings
+    if historical_results is not None and not historical_results.empty:
+        for _, hbout in historical_results.iterrows():
+            if pd.notna(hbout.get('winnerId')):
+                winner_id = hbout['winnerId']
+                east_id = hbout['eastId']
+                west_id = hbout['westId']
+                loser_id = west_id if winner_id == east_id else east_id
+                elo.update(winner_id, loser_id)
+                glicko.update_single_bout(winner_id, loser_id)
+
     # Build bout data for template
     bout_data = []
     for idx in ranked_interest['bout_idx']:
@@ -356,37 +540,100 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
         interest = interest_df[interest_df['bout_idx'] == idx].iloc[0]
         features = features_list[idx]
 
+        east_id = bout['eastId']
+        west_id = bout['westId']
+        east_name = bout['eastShikona']
+        west_name = bout['westShikona']
+
         p_east = pred['pred_east_win_prob']
 
-        # Determine favorite
-        if p_east >= 0.5:
-            favorite = bout['eastShikona']
-            favorite_prob = p_east
-        else:
-            favorite = bout['westShikona']
-            favorite_prob = 1 - p_east
+        # Get ratings
+        east_elo = elo.get_rating(east_id)
+        west_elo = elo.get_rating(west_id)
+        east_glicko, east_rd, _ = glicko.get_rating(east_id)
+        west_glicko, west_rd, _ = glicko.get_rating(west_id)
 
-        # Format prediction string
-        if favorite_prob >= 0.65:
-            pred_str = f"{favorite} favored ({favorite_prob*100:.0f}%)"
-        elif favorite_prob >= 0.55:
-            pred_str = f"{favorite} slight edge ({favorite_prob*100:.0f}%)"
+        # Rank analysis (underrated/overrated)
+        east_rank_analysis = get_rank_analysis(east_elo, bout['eastRank'])
+        west_rank_analysis = get_rank_analysis(west_elo, bout['westRank'])
+
+        # Recent form (current basho record)
+        east_form = format_recent_form(
+            features.get('east_basho_wins', 0),
+            features.get('east_basho_losses', 0)
+        )
+        west_form = format_recent_form(
+            features.get('west_basho_wins', 0),
+            features.get('west_basho_losses', 0)
+        )
+
+        # Get wrestler styles
+        east_style_info = get_wrestler_style(east_id, historical_results)
+        west_style_info = get_wrestler_style(west_id, historical_results)
+
+        # Compute expected bout style
+        expected_style = get_expected_style(
+            east_style_info['push_pct'], east_style_info['grapple_pct'],
+            west_style_info['push_pct'], west_style_info['grapple_pct']
+        )
+
+        # Format prediction string - simpler for close matches
+        if abs(p_east - 0.5) < 0.08:
+            pred_str = "Close match"
+        elif p_east >= 0.5:
+            pred_str = f"{east_name} ({p_east*100:.0f}%)"
         else:
-            pred_str = f"Coin flip ({p_east*100:.0f}-{(1-p_east)*100:.0f})"
+            pred_str = f"{west_name} ({(1-p_east)*100:.0f}%)"
+
+        # Build storylines
+        storylines = []
+
+        # H2H storyline
+        h2h_total = features.get('east_h2h_total_bouts', 0)
+        h2h_storyline = format_h2h_storyline(
+            east_name, west_name,
+            features.get('east_h2h_wins', 0),
+            h2h_total
+        )
+        if h2h_storyline:
+            storylines.append(h2h_storyline)
+
+        # Stakes storylines
+        stakes = get_stakes_storyline(features, east_name, west_name, day)
+        storylines.extend(stakes)
+
+        # Must watch tag - based on interest score
+        is_must_watch = interest['interest_score'] >= 70
 
         bout_data.append({
             'bout_number': bout['bout_number'],
-            'east_name': bout['eastShikona'],
-            'west_name': bout['westShikona'],
+            'east_name': east_name,
+            'west_name': west_name,
             'east_rank': bout['eastRank'],
             'west_rank': bout['westRank'],
             'prediction': pred_str,
             'p_east': p_east,
+            'is_close': abs(p_east - 0.5) < 0.08,
             'interest_score': interest['interest_score'],
             'interest_label': get_interest_label(interest['interest_score']),
             'interest_reasons': interest['interest_reasons'],
             'is_bout_of_day': idx == bout_of_day_idx,
+            'is_must_watch': is_must_watch,
             'features': features,
+            # Ratings
+            'east_elo': round(east_elo),
+            'west_elo': round(west_elo),
+            'east_glicko': round(east_glicko),
+            'west_glicko': round(west_glicko),
+            'east_rank_analysis': east_rank_analysis,
+            'west_rank_analysis': west_rank_analysis,
+            # Recent form and style
+            'east_form': east_form,
+            'west_form': west_form,
+            'east_style': east_style_info['style'],
+            'west_style': west_style_info['style'],
+            'expected_style': expected_style,
+            'storylines': storylines,
         })
 
     # Render HTML

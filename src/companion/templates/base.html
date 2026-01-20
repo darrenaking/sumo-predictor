@@ -3,46 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Sumo Companion{% endblock %}</title>
+    <title>{% block title %}TachiAI{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        sumo: {
-                            red: '#8B0000',
-                            'red-light': '#A52A2A',
-                            gold: '#FFD700',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     {% block head %}{% endblock %}
 </head>
-<body class="min-h-screen bg-zinc-50 text-zinc-900">
-    <nav class="bg-sumo-red text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <div class="flex justify-between items-center h-14">
-                <a href="/" class="text-lg sm:text-xl font-bold tracking-tight">Sumo Companion</a>
-                <div class="flex items-center gap-4">
-                    {% block nav_controls %}{% endblock %}
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6">
+<body class="min-h-screen bg-white text-gray-900">
+    <main class="max-w-2xl mx-auto px-4 py-12">
         {% block content %}{% endblock %}
     </main>
-
-    <footer class="bg-zinc-800 text-zinc-400 mt-12">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-center text-sm">
-            <p>Data from sumo-api.com</p>
-        </div>
-    </footer>
 
     <script src="/js/spoiler-free.js"></script>
     {% block scripts %}{% endblock %}

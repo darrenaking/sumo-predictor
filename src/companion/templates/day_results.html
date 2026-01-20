@@ -1,142 +1,107 @@
 {% extends "base.html" %}
 
-{% block title %}Day {{ day }} Results - {{ basho_name }} - Sumo Companion{% endblock %}
-
-{% block nav_controls %}
-<a href="/" class="text-white/80 hover:text-white text-sm">Home</a>
-{% endblock %}
+{% block title %}Day {{ day }} Results - {{ basho_name }} - TachiAI{% endblock %}
 
 {% block content %}
-<header class="mb-6">
-    <div class="text-sm text-zinc-500 mb-2">
-        <a href="/" class="hover:text-zinc-700">Home</a>
-        <span class="mx-2">/</span>
-        <span>{{ basho_name }}</span>
-    </div>
-    <h1 class="text-2xl sm:text-3xl font-bold text-zinc-900">Day {{ day }} Results</h1>
-    <p class="text-zinc-500 mt-1">{{ basho_name }}</p>
-</header>
+<div class="mb-6">
+    <a href="/" class="text-sm text-gray-500 hover:text-gray-900">← Back</a>
+</div>
 
-<!-- Prediction Accuracy -->
-<section class="bg-white border border-zinc-200 rounded-xl shadow-sm p-6 mb-6 text-center">
-    <div class="text-4xl sm:text-5xl font-bold text-sumo-red mb-1">{{ "%.0f"|format(accuracy) }}%</div>
-    <div class="text-zinc-500 text-sm">correct predictions today</div>
-</section>
+<h1 class="text-2xl font-bold text-gray-900 mb-1">Day {{ day }} Results</h1>
+<p class="text-gray-500 mb-8">{{ basho_name }}</p>
 
-<!-- Upsets -->
+<div class="mb-8 text-center">
+    <div class="text-4xl font-bold text-gray-900 mb-1">{{ "%.0f"|format(accuracy) }}%</div>
+    <div class="text-sm text-gray-500">correct predictions</div>
+</div>
+
 {% if upsets %}
-<section class="bg-red-50 border border-red-200 rounded-xl p-4 sm:p-6 mb-6">
-    <h2 class="text-lg font-bold text-red-900 mb-4">Upsets</h2>
-    <p class="text-sm text-red-700 mb-4">Bouts where the 65%+ favorite lost</p>
+<div class="mb-8">
+    <h2 class="text-lg font-bold text-gray-900 mb-4">Upsets</h2>
     <div class="space-y-3">
         {% for upset in upsets %}
-        <div class="bg-white/60 rounded-lg p-3 border-l-4 border-red-400">
-            <div class="flex flex-wrap items-center gap-2 mb-1">
-                <span class="text-zinc-400 line-through">{{ upset.east_name if upset.winner == upset.west_name else upset.west_name }}</span>
-                <span class="text-zinc-400">→</span>
-                <span class="font-semibold text-zinc-900">{{ upset.winner }}</span>
+        <div class="py-3 border-b border-gray-100">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="text-gray-400 line-through">{{ upset.east_name if upset.winner == upset.west_name else upset.west_name }}</span>
+                <span class="text-gray-400">→</span>
+                <span class="font-medium">{{ upset.winner }}</span>
             </div>
-            <div class="text-sm text-zinc-500">
-                by {{ upset.kimarite }} • {{ "%.0f"|format(upset.upset_magnitude * 100) }}% favorite lost
+            <div class="text-sm text-gray-500">
+                {{ upset.kimarite }} · {{ "%.0f"|format(upset.upset_magnitude * 100) }}% favorite lost
             </div>
         </div>
         {% endfor %}
     </div>
-</section>
+</div>
 {% endif %}
 
-<!-- All Results -->
-<section class="bg-white border border-zinc-200 rounded-xl shadow-sm mb-6 overflow-hidden">
-    <div class="px-4 sm:px-6 py-4 border-b border-zinc-100 bg-zinc-50">
-        <h2 class="text-lg font-bold text-zinc-900">All Results</h2>
-    </div>
-    <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-            <thead>
-                <tr class="text-left text-zinc-500 border-b border-zinc-100 bg-zinc-50">
-                    <th class="px-4 py-3 font-medium">#</th>
-                    <th class="px-4 py-3 font-medium">East</th>
-                    <th class="px-4 py-3 font-medium">West</th>
-                    <th class="px-4 py-3 font-medium">Winner</th>
-                    <th class="px-4 py-3 font-medium hidden sm:table-cell">Kimarite</th>
-                    <th class="px-4 py-3 font-medium text-center">Pred</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-zinc-100">
-                {% for result in results %}
-                <tr class="{% if result.is_upset %}bg-red-50{% elif result.predicted_correct %}bg-green-50{% else %}bg-amber-50{% endif %}">
-                    <td class="px-4 py-3 text-zinc-400">{{ result.bout_number }}</td>
-                    <td class="px-4 py-3">
-                        <span class="text-xs text-zinc-400 block">{{ result.east_rank }}</span>
-                        <span class="font-medium {% if result.winner == result.east_name %}text-green-700{% else %}text-zinc-600{% endif %}">{{ result.east_name }}</span>
-                    </td>
-                    <td class="px-4 py-3">
-                        <span class="text-xs text-zinc-400 block">{{ result.west_rank }}</span>
-                        <span class="font-medium {% if result.winner == result.west_name %}text-green-700{% else %}text-zinc-600{% endif %}">{{ result.west_name }}</span>
-                    </td>
-                    <td class="px-4 py-3 font-semibold text-zinc-900">{{ result.winner }}</td>
-                    <td class="px-4 py-3 text-zinc-500 hidden sm:table-cell">{{ result.kimarite }}</td>
-                    <td class="px-4 py-3 text-center">
-                        {% if result.predicted_correct %}
-                        <span class="text-green-600 font-bold">✓</span>
-                        {% else %}
-                        <span class="text-red-500">✗</span>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
+<div class="mb-8">
+    <h2 class="text-lg font-bold text-gray-900 mb-4">All Results</h2>
+    <table class="w-full text-sm">
+        <thead>
+            <tr class="text-left text-gray-500 border-b border-gray-200">
+                <th class="pb-2 font-medium">#</th>
+                <th class="pb-2 font-medium">East</th>
+                <th class="pb-2 font-medium">West</th>
+                <th class="pb-2 font-medium">Winner</th>
+                <th class="pb-2 font-medium text-center">Pred</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr class="border-b border-gray-100">
+                <td class="py-2 text-gray-400">{{ result.bout_number }}</td>
+                <td class="py-2">
+                    <span class="text-xs text-gray-400 block">{{ result.east_rank }}</span>
+                    <span class="{% if result.winner == result.east_name %}font-medium{% else %}text-gray-500{% endif %}">{{ result.east_name }}</span>
+                </td>
+                <td class="py-2">
+                    <span class="text-xs text-gray-400 block">{{ result.west_rank }}</span>
+                    <span class="{% if result.winner == result.west_name %}font-medium{% else %}text-gray-500{% endif %}">{{ result.west_name }}</span>
+                </td>
+                <td class="py-2 font-medium">{{ result.winner }}</td>
+                <td class="py-2 text-center">
+                    {% if result.predicted_correct %}✓{% else %}✗{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
-<!-- Current Standings -->
 {% if standings %}
-<section class="bg-white border border-zinc-200 rounded-xl shadow-sm mb-6 overflow-hidden">
-    <div class="px-4 sm:px-6 py-4 border-b border-zinc-100 bg-zinc-50">
-        <h2 class="text-lg font-bold text-zinc-900">Current Standings</h2>
-        <p class="text-sm text-zinc-500">Through Day {{ day }}</p>
-    </div>
-    <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-            <thead>
-                <tr class="text-left text-zinc-500 border-b border-zinc-100">
-                    <th class="px-4 py-3 font-medium">#</th>
-                    <th class="px-4 py-3 font-medium">Wrestler</th>
-                    <th class="px-4 py-3 font-medium">Record</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-zinc-50">
-                {% for s in standings %}
-                <tr>
-                    <td class="px-4 py-2 text-zinc-400">{{ loop.index }}</td>
-                    <td class="px-4 py-2 font-medium text-zinc-900">{{ s.name }}</td>
-                    <td class="px-4 py-2 text-zinc-600">{{ s.wins }}-{{ s.losses }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
+<div class="mb-8">
+    <h2 class="text-lg font-bold text-gray-900 mb-1">Standings</h2>
+    <p class="text-sm text-gray-500 mb-4">Through Day {{ day }}</p>
+    <table class="w-full text-sm">
+        <thead>
+            <tr class="text-left text-gray-500 border-b border-gray-200">
+                <th class="pb-2 font-medium">#</th>
+                <th class="pb-2 font-medium">Wrestler</th>
+                <th class="pb-2 font-medium">Record</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in standings %}
+            <tr class="border-b border-gray-100">
+                <td class="py-2 text-gray-400">{{ loop.index }}</td>
+                <td class="py-2 font-medium">{{ s.name }}</td>
+                <td class="py-2 text-gray-600">{{ s.wins }}-{{ s.losses }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endif %}
 
-<!-- Navigation -->
-<nav class="flex flex-wrap justify-center gap-3 py-6">
+<nav class="flex justify-center gap-4 text-sm py-6 border-t border-gray-200">
     {% if day > 1 %}
-    <a href="day-{{ '%02d'|format(day - 1) }}-results.html" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        ← Day {{ day - 1 }} Results
-    </a>
+    <a href="day-{{ '%02d'|format(day - 1) }}-results.html" class="text-gray-500 hover:text-gray-900">← Day {{ day - 1 }}</a>
     {% endif %}
-    <a href="day-{{ '%02d'|format(day) }}-preview.html" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        Day {{ day }} Preview
-    </a>
-    <a href="/" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        Home
-    </a>
+    <a href="day-{{ '%02d'|format(day) }}-preview.html" class="text-gray-500 hover:text-gray-900">Preview</a>
+    <a href="/" class="text-gray-500 hover:text-gray-900">Home</a>
     {% if day < 15 %}
-    <a href="day-{{ '%02d'|format(day + 1) }}-results.html" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        Day {{ day + 1 }} Results →
-    </a>
+    <a href="day-{{ '%02d'|format(day + 1) }}-results.html" class="text-gray-500 hover:text-gray-900">Day {{ day + 1 }} →</a>
     {% endif %}
 </nav>
 {% endblock %}

@@ -1,153 +1,100 @@
 {% extends "base.html" %}
 
-{% block title %}Day {{ day }} Preview - {{ basho_name }} - Sumo Companion{% endblock %}
-
-{% block nav_controls %}
-<a href="/" class="text-white/80 hover:text-white text-sm">Home</a>
-{% endblock %}
+{% block title %}Day {{ day }} Preview - {{ basho_name }} - TachiAI{% endblock %}
 
 {% block content %}
-<header class="mb-6">
-    <div class="text-sm text-zinc-500 mb-2">
-        <a href="/" class="hover:text-zinc-700">Home</a>
-        <span class="mx-2">/</span>
-        <span>{{ basho_name }}</span>
-    </div>
-    <h1 class="text-2xl sm:text-3xl font-bold text-zinc-900">Day {{ day }} Preview</h1>
-    <p class="text-zinc-500 mt-1">{{ basho_name }}</p>
-</header>
+<div class="mb-6">
+    <a href="/" class="text-sm text-gray-500 hover:text-gray-900">← Back</a>
+</div>
 
-<!-- Bout of the Day -->
+<h1 class="text-2xl font-bold text-gray-900 mb-1">Day {{ day }} Preview</h1>
+<p class="text-gray-500 mb-8">{{ basho_name }}</p>
+
 {% if bout_of_day %}
-<section class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-4 sm:p-6 mb-6 shadow-sm">
-    <div class="flex items-center gap-2 mb-4">
-        <span class="text-2xl">🏆</span>
-        <h2 class="text-xl font-bold text-amber-900">Bout of the Day</h2>
-    </div>
-    <div class="bg-white/60 rounded-lg p-4 sm:p-6">
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-4">
-            <div class="text-center sm:text-right">
-                <span class="block text-xs text-zinc-500">{{ bout_of_day.east_rank }}</span>
-                <span class="block text-lg sm:text-xl font-bold text-zinc-900">{{ bout_of_day.east_name }}</span>
-            </div>
-            <div class="text-zinc-400 text-lg font-light">vs</div>
-            <div class="text-center sm:text-left">
-                <span class="block text-xs text-zinc-500">{{ bout_of_day.west_rank }}</span>
-                <span class="block text-lg sm:text-xl font-bold text-zinc-900">{{ bout_of_day.west_name }}</span>
-            </div>
+<div class="mb-8 p-4 border border-gray-200 rounded">
+    <p class="text-sm text-gray-500 mb-3">Bout of the Day</p>
+    <div class="flex items-center justify-center gap-4 mb-3">
+        <div class="text-right">
+            <span class="text-xs text-gray-400 block">{{ bout_of_day.east_rank }}</span>
+            <span class="font-medium">{{ bout_of_day.east_name }}</span>
         </div>
-        <p class="text-center text-zinc-700 font-medium mb-4">{{ bout_of_day.prediction }}</p>
-        {% if bout_of_day.interest_reasons %}
-        <div class="border-t border-amber-200 pt-4 mt-4">
-            <h4 class="text-sm font-semibold text-amber-800 mb-2">Why to Watch:</h4>
-            <ul class="space-y-1">
-                {% for reason in bout_of_day.interest_reasons %}
-                <li class="text-sm text-zinc-600 flex items-start gap-2">
-                    <span class="text-amber-500 mt-0.5">•</span>
-                    {{ reason }}
-                </li>
-                {% endfor %}
-            </ul>
+        <span class="text-gray-400">vs</span>
+        <div class="text-left">
+            <span class="text-xs text-gray-400 block">{{ bout_of_day.west_rank }}</span>
+            <span class="font-medium">{{ bout_of_day.west_name }}</span>
         </div>
-        {% endif %}
     </div>
-</section>
+    <p class="text-center text-sm text-gray-600">{{ bout_of_day.prediction }}</p>
+    {% if bout_of_day.interest_reasons %}
+    <div class="mt-3 pt-3 border-t border-gray-100">
+        <ul class="text-sm text-gray-500 space-y-1">
+            {% for reason in bout_of_day.interest_reasons %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
 {% endif %}
 
-<!-- Yusho Race -->
 {% if yusho_race %}
-<section class="bg-white border border-zinc-200 rounded-xl shadow-sm mb-6 overflow-hidden">
-    <div class="px-4 sm:px-6 py-4 border-b border-zinc-100 bg-zinc-50">
-        <h2 class="text-lg font-bold text-zinc-900">Yusho Race</h2>
-        <p class="text-sm text-zinc-500">Leader: {{ yusho_race.leader_wins }} wins • {{ yusho_race.days_remaining }} days remaining</p>
-    </div>
-    <div class="p-4 sm:p-6 overflow-x-auto">
-        <table class="w-full text-sm">
-            <thead>
-                <tr class="text-left text-zinc-500 border-b border-zinc-100">
-                    <th class="pb-2 font-medium">Wrestler</th>
-                    <th class="pb-2 font-medium">Record</th>
-                    <th class="pb-2 font-medium">Yusho %</th>
-                    <th class="pb-2 font-medium hidden sm:table-cell">Magic #</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-zinc-50">
-                {% for c in yusho_race.contenders %}
-                <tr>
-                    <td class="py-2 font-medium text-zinc-900">{{ c.name }}</td>
-                    <td class="py-2 text-zinc-600">{{ c.record }}</td>
-                    <td class="py-2 text-zinc-900 font-semibold">{{ c.probability }}</td>
-                    <td class="py-2 text-zinc-500 hidden sm:table-cell">{% if c.magic_number %}{{ c.magic_number }}{% else %}—{% endif %}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% if yusho_race.playoff_probability > 5 %}
-        <p class="mt-4 text-sm text-zinc-500 italic">
-            Playoff probability: {{ "%.1f"|format(yusho_race.playoff_probability) }}%
-        </p>
-        {% endif %}
-    </div>
-</section>
+<div class="mb-8">
+    <h2 class="text-lg font-bold text-gray-900 mb-1">Yusho Race</h2>
+    <p class="text-sm text-gray-500 mb-4">{{ yusho_race.leader_wins }} wins lead · {{ yusho_race.days_remaining }} days left</p>
+    <table class="w-full text-sm">
+        <thead>
+            <tr class="text-left text-gray-500 border-b border-gray-200">
+                <th class="pb-2 font-medium">Wrestler</th>
+                <th class="pb-2 font-medium">Record</th>
+                <th class="pb-2 font-medium">Yusho %</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in yusho_race.contenders %}
+            <tr class="border-b border-gray-100">
+                <td class="py-2">{{ c.name }}</td>
+                <td class="py-2 text-gray-600">{{ c.record }}</td>
+                <td class="py-2">{{ c.probability }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endif %}
 
-<!-- All Bouts -->
-<section class="mb-6">
-    <div class="mb-4">
-        <h2 class="text-lg font-bold text-zinc-900">All Makuuchi Bouts</h2>
-        <p class="text-sm text-zinc-500">Ranked by interest level</p>
-    </div>
-    <div class="space-y-3">
+<div class="mb-8">
+    <h2 class="text-lg font-bold text-gray-900 mb-4">All Bouts</h2>
+    <div class="space-y-4">
         {% for bout in bouts %}
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow {% if bout.is_bout_of_day %}ring-2 ring-amber-300{% endif %}">
-            <div class="flex items-center justify-between mb-3">
-                <span class="text-xs text-zinc-400">#{{ bout.bout_number }}</span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
-                    {% if bout.interest_label == 'Must Watch' %}bg-amber-100 text-amber-800
-                    {% elif bout.interest_label == 'Highly Interesting' %}bg-green-100 text-green-800
-                    {% elif bout.interest_label == 'Worth Watching' %}bg-blue-100 text-blue-800
-                    {% else %}bg-zinc-100 text-zinc-600{% endif %}">
-                    {{ bout.interest_label }}
-                </span>
+        <div class="py-3 border-b border-gray-100">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs text-gray-400">#{{ bout.bout_number }}</span>
+                <span class="text-xs text-gray-500">{{ bout.interest_label }}</span>
             </div>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-3">
-                <div class="text-center sm:text-right flex-1">
-                    <span class="block text-xs text-zinc-400">{{ bout.east_rank }}</span>
-                    <span class="block font-semibold text-zinc-900">{{ bout.east_name }}</span>
+            <div class="flex items-center justify-center gap-4 mb-2">
+                <div class="text-right flex-1">
+                    <span class="text-xs text-gray-400 block">{{ bout.east_rank }}</span>
+                    <span class="font-medium">{{ bout.east_name }}</span>
                 </div>
-                <div class="text-zinc-300 text-sm">vs</div>
-                <div class="text-center sm:text-left flex-1">
-                    <span class="block text-xs text-zinc-400">{{ bout.west_rank }}</span>
-                    <span class="block font-semibold text-zinc-900">{{ bout.west_name }}</span>
+                <span class="text-gray-400 text-sm">vs</span>
+                <div class="text-left flex-1">
+                    <span class="text-xs text-gray-400 block">{{ bout.west_rank }}</span>
+                    <span class="font-medium">{{ bout.west_name }}</span>
                 </div>
             </div>
-            <p class="text-center text-sm text-zinc-600 mb-2">{{ bout.prediction }}</p>
-            {% if bout.interest_reasons %}
-            <div class="flex flex-wrap justify-center gap-1.5 mt-3">
-                {% for reason in bout.interest_reasons %}
-                <span class="inline-block px-2 py-0.5 bg-zinc-100 rounded text-xs text-zinc-600">{{ reason }}</span>
-                {% endfor %}
-            </div>
-            {% endif %}
+            <p class="text-center text-sm text-gray-600">{{ bout.prediction }}</p>
         </div>
         {% endfor %}
     </div>
-</section>
+</div>
 
-<!-- Navigation -->
-<nav class="flex flex-wrap justify-center gap-3 py-6">
+<nav class="flex justify-center gap-4 text-sm py-6 border-t border-gray-200">
     {% if day > 1 %}
-    <a href="day-{{ '%02d'|format(day - 1) }}-preview.html" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        ← Day {{ day - 1 }}
-    </a>
+    <a href="day-{{ '%02d'|format(day - 1) }}-preview.html" class="text-gray-500 hover:text-gray-900">← Day {{ day - 1 }}</a>
     {% endif %}
-    <a href="/" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        Home
-    </a>
+    <a href="/" class="text-gray-500 hover:text-gray-900">Home</a>
     {% if day < 15 %}
-    <a href="day-{{ '%02d'|format(day + 1) }}-preview.html" class="inline-flex items-center px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors">
-        Day {{ day + 1 }} →
-    </a>
+    <a href="day-{{ '%02d'|format(day + 1) }}-preview.html" class="text-gray-500 hover:text-gray-900">Day {{ day + 1 }} →</a>
     {% endif %}
 </nav>
 {% endblock %}

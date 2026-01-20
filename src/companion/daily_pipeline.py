@@ -26,6 +26,7 @@ from src.data_collection import (
     fetch_torikumi_from_banzuke,
     fetch_current_basho_standings,
     fetch_all_rikishi,
+    fetch_head_to_head,
     parse_banzuke_rank,
     make_request,
 )
@@ -127,8 +128,9 @@ def get_expected_style(east_push_pct: float, east_grapple_pct: float,
 def format_h2h_storyline(east_name: str, west_name: str,
                          east_h2h_wins: int, total_bouts: int) -> Optional[str]:
     """Format H2H record into a storyline string."""
+    # First meeting is shown separately, don't add to storylines
     if total_bouts == 0:
-        return "First meeting"
+        return None
 
     west_h2h_wins = total_bouts - east_h2h_wins
 
@@ -650,14 +652,19 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
         else:
             pred_str = f"{west_name} ({(1-p_east)*100:.0f}%)"
 
+        # Fetch lifetime H2H record from API
+        h2h_data = fetch_head_to_head(east_id, west_id)
+        h2h_east_wins = h2h_data['east_wins']
+        h2h_west_wins = h2h_data['west_wins']
+        h2h_total = h2h_data['total']
+
         # Build storylines
         storylines = []
 
         # H2H storyline
-        h2h_total = features.get('east_h2h_total_bouts', 0)
         h2h_storyline = format_h2h_storyline(
             east_name, west_name,
-            features.get('east_h2h_wins', 0),
+            h2h_east_wins,
             h2h_total
         )
         if h2h_storyline:
@@ -699,10 +706,10 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
             'west_style': west_style_info['style'],
             'expected_style': expected_style,
             'storylines': storylines,
-            # Head-to-head
-            'h2h_east_wins': features.get('east_h2h_wins', 0),
-            'h2h_west_wins': features.get('east_h2h_losses', 0),
-            'h2h_total': features.get('east_h2h_total_bouts', 0),
+            # Head-to-head (lifetime)
+            'h2h_east_wins': h2h_east_wins,
+            'h2h_west_wins': h2h_west_wins,
+            'h2h_total': h2h_total,
         })
 
     # Render HTML

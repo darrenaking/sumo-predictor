@@ -91,6 +91,31 @@ def fetch_rikishi_details(rikishi_id: int) -> Optional[Dict]:
     return make_request(f"/rikishi/{rikishi_id}")
 
 
+def fetch_head_to_head(rikishi_id: int, opponent_id: int) -> Dict:
+    """
+    Fetch head-to-head record between two wrestlers.
+
+    Returns dict with 'east_wins' and 'west_wins' where east is rikishi_id.
+    """
+    data = make_request(f"/rikishi/{rikishi_id}/matches/{opponent_id}")
+
+    if not data:
+        return {'east_wins': 0, 'west_wins': 0, 'total': 0}
+
+    matches = data.get('matches')
+    if not matches:
+        return {'east_wins': 0, 'west_wins': 0, 'total': 0}
+
+    east_wins = sum(1 for m in matches if m.get('winnerId') == rikishi_id)
+    west_wins = len(matches) - east_wins
+
+    return {
+        'east_wins': east_wins,
+        'west_wins': west_wins,
+        'total': len(matches)
+    }
+
+
 def fetch_rikishi_matches(rikishi_id: int) -> pd.DataFrame:
     """Fetch all matches for a specific wrestler."""
     all_matches = []

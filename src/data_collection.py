@@ -145,6 +145,125 @@ def fetch_kimarite_reference() -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def fetch_basho_banzuke(basho_id: str, division: str = "Makuuchi") -> Optional[Dict]:
+    """
+    Fetch banzuke (rankings) for a tournament with embedded match records.
+
+    This is an alternative to torikumi endpoint that includes all matchups
+    and results in the wrestler's record field.
+    """
+    return make_request(f"/basho/{basho_id}/banzuke/{division}")
+
+
+def fetch_torikumi_from_banzuke(basho_id: str, day: int, division: str = "Makuuchi") -> List[Dict]:
+    """
+    Extract torikumi (matchups) for a specific day from banzuke data.
+
+    This is a fallback when /torikumi endpoint returns 404.
+    Returns list of bout dicts with eastId, westId, eastShikona, westShikona,
+    winnerId (if completed), kimarite (if completed).
+    """
+    banzuke = fetch_basho_banzuke(basho_id, division)
+    if not banzuke:
+        return []
+
+    # Build wrestler lookup from banzuke
+    wrestlers = {}
+    for side in ['east', 'west']:
+        for w in banzuke.get(side, []):
+            wrestlers[w['rikishiID']] = {
+                'id': w['rikishiID'],
+                'shikona': w['shikonaEn'],
+                'rank': w['rank'],
+                'record': w.get('record', []),
+                'wins': w.get('wins', 0),
+                'losses': w.get('losses', 0),
+            }
+
+    # Extract matchups for the given day (0-indexed in record array)
+    day_idx = day - 1
+    bouts = []
+    seen_pairs = set()
+
+    for w_id, w_data in wrestlers.items():
+        if day_idx >= len(w_data['record']):
+            continue
+
+        bout_record = w_data['record'][day_idx]
+        opponent_id = bout_record.get('opponentID')
+
+        if not opponent_id or opponent_id not in wrestlers:
+            continue
+
+        # Avoid duplicate bouts (A vs B and B vs A)
+        pair = tuple(sorted([w_id, opponent_id]))
+        if pair in seen_pairs:
+            continue
+        seen_pairs.add(pair)
+
+        opponent = wrestlers[opponent_id]
+        result = bout_record.get('result', '')
+        kimarite = bout_record.get('kimarite', '')
+
+        # Determine winner if bout completed
+        winner_id = None
+        if result == 'win':
+            winner_id = w_id
+        elif result == 'loss':
+            winner_id = opponent_id
+
+        # Use higher rank as east (traditional ordering)
+        # Lower rankValue = higher rank
+        w_rank_val = wrestlers[w_id].get('rankValue', 999) if 'rankValue' not in w_data else 999
+        o_rank_val = wrestlers[opponent_id].get('rankValue', 999)
+
+        # Determine east/west based on rank or just use current wrestler as east
+        east_id, west_id = w_id, opponent_id
+
+        bouts.append({
+            'eastId': east_id,
+            'westId': west_id,
+            'eastShikona': wrestlers[east_id]['shikona'],
+            'westShikona': wrestlers[west_id]['shikona'],
+            'eastRank': wrestlers[east_id]['rank'],
+            'westRank': wrestlers[west_id]['rank'],
+            'winnerId': winner_id,
+            'kimarite': kimarite if winner_id else None,
+            'day': day,
+            'bashoId': basho_id,
+        })
+
+    return bouts
+
+
+def fetch_current_basho_standings(basho_id: str, division: str = "Makuuchi") -> pd.DataFrame:
+    """
+    Fetch current tournament standings from banzuke.
+
+    Returns DataFrame with wrestler_id, name, rank, wins, losses.
+    """
+    banzuke = fetch_basho_banzuke(basho_id, division)
+    if not banzuke:
+        return pd.DataFrame()
+
+    standings = []
+    for side in ['east', 'west']:
+        for w in banzuke.get(side, []):
+            standings.append({
+                'wrestler_id': w['rikishiID'],
+                'name': w['shikonaEn'],
+                'rank': w['rank'],
+                'wins': w.get('wins', 0),
+                'losses': w.get('losses', 0),
+                'absences': w.get('absences', 0),
+            })
+
+    df = pd.DataFrame(standings)
+    if not df.empty:
+        df = df.sort_values('wins', ascending=False)
+    return df
+
+
 def generate_basho_ids(start_year: int = 1958, end_year: int = 2025) -> List[str]:
     """
     Generate all valid basho IDs.

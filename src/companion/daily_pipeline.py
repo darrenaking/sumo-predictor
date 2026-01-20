@@ -23,6 +23,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.data_collection import (
     fetch_basho_torikumi,
+    fetch_torikumi_from_banzuke,
+    fetch_current_basho_standings,
     fetch_all_rikishi,
     parse_banzuke_rank,
     make_request,
@@ -274,15 +276,40 @@ def fetch_day_matchups(basho_id: str, day: int, division: str = "Makuuchi") -> p
     Fetch matchups for a specific day.
 
     Returns DataFrame with bout information.
+    Tries torikumi endpoint first, falls back to banzuke-based extraction.
     """
+    # Try torikumi endpoint first
     data = fetch_basho_torikumi(basho_id, division, day)
 
-    if not data or 'torikumi' not in data:
+    if data and 'torikumi' in data:
+        bouts = []
+        for i, bout in enumerate(data['torikumi']):
+            bouts.append({
+                'bout_number': i + 1,
+                'bashoId': basho_id,
+                'day': day,
+                'division': division,
+                'eastId': bout.get('eastId'),
+                'westId': bout.get('westId'),
+                'eastShikona': bout.get('eastShikona'),
+                'westShikona': bout.get('westShikona'),
+                'eastRank': bout.get('eastRank'),
+                'westRank': bout.get('westRank'),
+                'winnerId': bout.get('winnerId'),
+                'kimarite': bout.get('kimarite'),
+            })
+        return pd.DataFrame(bouts)
+
+    # Fallback to banzuke-based extraction
+    print(f"Torikumi endpoint unavailable, using banzuke fallback for {basho_id} day {day}")
+    banzuke_bouts = fetch_torikumi_from_banzuke(basho_id, day, division)
+
+    if not banzuke_bouts:
         print(f"No matchups found for {basho_id} day {day}")
         return pd.DataFrame()
 
     bouts = []
-    for i, bout in enumerate(data['torikumi']):
+    for i, bout in enumerate(banzuke_bouts):
         bouts.append({
             'bout_number': i + 1,
             'bashoId': basho_id,
@@ -294,8 +321,8 @@ def fetch_day_matchups(basho_id: str, day: int, division: str = "Makuuchi") -> p
             'westShikona': bout.get('westShikona'),
             'eastRank': bout.get('eastRank'),
             'westRank': bout.get('westRank'),
-            'winnerId': bout.get('winnerId'),  # None if not yet fought
-            'kimarite': bout.get('kimarite'),  # None if not yet fought
+            'winnerId': bout.get('winnerId'),
+            'kimarite': bout.get('kimarite'),
         })
 
     return pd.DataFrame(bouts)

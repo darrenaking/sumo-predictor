@@ -1,0 +1,689 @@
+/* Sumo Companion App Styles */
+
+:root {
+    --primary-color: #8B0000;
+    --primary-light: #A52A2A;
+    --secondary-color: #2F4F4F;
+    --background: #F5F5F5;
+    --card-bg: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #666666;
+    --border-color: #E0E0E0;
+    --success: #2E7D32;
+    --warning: #F57C00;
+    --error: #C62828;
+    --gold: #FFD700;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Page Header */
+.page-header {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: #FAFAFA;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.help-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #3D6363;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Bout Cards */
+.bout-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.bout-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: box-shadow 0.2s;
+}
+
+.bout-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bout-card.featured {
+    border-color: var(--gold);
+    border-width: 2px;
+    background: linear-gradient(135deg, #FFFEF0 0%, white 100%);
+}
+
+.bout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.bout-number {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.interest-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.interest-badge.must-watch {
+    background: var(--gold);
+    color: #1A1A1A;
+}
+
+.interest-badge.highly-interesting {
+    background: #E8F5E9;
+    color: var(--success);
+}
+
+.interest-badge.worth-watching {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.interest-badge.standard-match {
+    background: #F5F5F5;
+    color: var(--text-secondary);
+}
+
+.interest-badge.lower-card {
+    background: #FAFAFA;
+    color: #999;
+}
+
+.bout-wrestlers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.wrestler {
+    text-align: center;
+}
+
+.wrestler.east {
+    text-align: right;
+}
+
+.wrestler.west {
+    text-align: left;
+}
+
+.wrestler .rank {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.wrestler .name {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.bout-vs {
+    color: var(--text-secondary);
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.bout-prediction {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.bout-reasons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    justify-content: center;
+}
+
+.reason-tag {
+    background: #F0F0F0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Featured Bout (Bout of the Day) */
+.bout-of-day .featured-bout {
+    text-align: center;
+    padding: 1rem;
+}
+
+.bout-of-day .bout-wrestlers .wrestler .name {
+    font-size: 1.5rem;
+}
+
+.bout-of-day .bout-prediction {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.bout-of-day .bout-storylines {
+    text-align: left;
+    max-width: 500px;
+    margin: 1rem auto 0;
+}
+
+.bout-of-day .bout-storylines h4 {
+    margin-bottom: 0.5rem;
+}
+
+.bout-of-day .bout-storylines ul {
+    list-style: disc inside;
+}
+
+.bout-of-day .bout-storylines li {
+    color: var(--text-secondary);
+}
+
+/* Yusho Race */
+.yusho-race .yusho-status {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.playoff-chance {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Tables */
+.standings-table,
+.results-table,
+.bouts-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.standings-table th,
+.standings-table td,
+.results-table th,
+.results-table td,
+.bouts-table th,
+.bouts-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.standings-table th,
+.results-table th,
+.bouts-table th {
+    background: #FAFAFA;
+    font-weight: 600;
+}
+
+.results-table tr.correct {
+    background: #F1F8E9;
+}
+
+.results-table tr.incorrect {
+    background: #FFF3E0;
+}
+
+.results-table tr.upset {
+    background: #FFEBEE;
+}
+
+.prediction-result.correct {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.prediction-result.incorrect {
+    color: var(--error);
+}
+
+.winner-cell {
+    color: var(--success);
+}
+
+/* Upsets */
+.upset-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.upset-card {
+    padding: 1rem;
+    background: #FFEBEE;
+    border-radius: 8px;
+    border-left: 4px solid var(--error);
+}
+
+.upset-wrestlers {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.upset-wrestlers .loser {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+}
+
+.upset-wrestlers .winner {
+    font-weight: 600;
+}
+
+.upset-arrow {
+    margin: 0 0.5rem;
+}
+
+.upset-details {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.upset-details .kimarite {
+    margin-right: 1rem;
+}
+
+/* Accuracy */
+.accuracy-display {
+    text-align: center;
+}
+
+.accuracy-value {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.accuracy-label {
+    color: var(--text-secondary);
+}
+
+/* Day Navigation */
+.day-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.day-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.day-link {
+    padding: 0.75rem;
+    background: var(--card-bg);
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.day-link.watched {
+    background: #E8F5E9;
+    border-color: var(--success);
+}
+
+.day-link.next {
+    background: #FFF3E0;
+    border-color: var(--warning);
+}
+
+.day-link.hidden {
+    opacity: 0.5;
+}
+
+.day-link .day-num {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.day-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.day-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    color: #CCC;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.generated-at {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* Wrestler Profile Styles */
+.rank-comparison {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.rank-item .label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.rank-item .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.rank-insight {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.rank-insight.positive {
+    background: #E8F5E9;
+    color: var(--success);
+}
+
+.rank-insight.negative {
+    background: #FFF3E0;
+    color: var(--warning);
+}
+
+.style-bars {
+    margin-bottom: 1.5rem;
+}
+
+.style-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.style-label {
+    width: 100px;
+    font-size: 0.875rem;
+}
+
+.bar-container {
+    flex: 1;
+    height: 20px;
+    background: #F0F0F0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 0.75rem;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.bar.push {
+    background: #F44336;
+}
+
+.bar.grapple {
+    background: #2196F3;
+}
+
+.bar.evasion {
+    background: #4CAF50;
+}
+
+.style-value {
+    width: 50px;
+    text-align: right;
+    font-weight: 600;
+}
+
+.form-stats,
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: #FAFAFA;
+    border-radius: 6px;
+}
+
+.stat-item .label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-item .value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.streak-info {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #FFF3E0;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bout-wrestlers {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .wrestler.east,
+    .wrestler.west {
+        text-align: center;
+    }
+
+    .rank-comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .day-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .standings-table,
+    .results-table {
+        font-size: 0.875rem;
+    }
+
+    .standings-table th,
+    .standings-table td,
+    .results-table th,
+    .results-table td {
+        padding: 0.5rem;
+    }
+}

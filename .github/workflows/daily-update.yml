@@ -7,12 +7,12 @@ on:
   workflow_dispatch:
     inputs:
       basho_id:
-        description: 'Tournament ID (YYYYMM, e.g., 202501)'
+        description: 'Tournament ID (YYYYMM, e.g., 202601)'
         required: true
         type: string
       day:
-        description: 'Day number (1-15)'
-        required: true
+        description: 'Day number (1-15, leave empty for all days)'
+        required: false
         type: string
 
 permissions:

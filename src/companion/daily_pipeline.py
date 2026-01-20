@@ -176,20 +176,54 @@ def get_stakes_storyline(features: Dict, east_name: str, west_name: str, day: in
     return storylines
 
 
-def format_recent_form(wins: int, losses: int) -> str:
-    """Format current basho record as recent form string."""
+def get_wrestler_last_results(wrestler_id: int, historical_results: pd.DataFrame, basho_id: str) -> list:
+    """Get list of recent results (W/L) for a wrestler in this basho."""
+    if historical_results is None or historical_results.empty:
+        return []
+
+    basho_results = historical_results[historical_results['bashoId'] == basho_id].copy()
+    if basho_results.empty:
+        return []
+
+    # Get bouts involving this wrestler
+    wrestler_bouts = basho_results[
+        (basho_results['eastId'] == wrestler_id) | (basho_results['westId'] == wrestler_id)
+    ].copy()
+
+    if wrestler_bouts.empty:
+        return []
+
+    # Sort by day
+    wrestler_bouts = wrestler_bouts.sort_values('day')
+
+    # Build result list
+    results = []
+    for _, bout in wrestler_bouts.iterrows():
+        if pd.notna(bout.get('winnerId')):
+            results.append('W' if bout['winnerId'] == wrestler_id else 'L')
+
+    return results
+
+
+def format_recent_form(wins: int, losses: int, last_results: list = None) -> dict:
+    """Format current basho record as recent form dict with streak info."""
     if wins == 0 and losses == 0:
         return None
     total = wins + losses
     if total == 0:
         return None
-    win_pct = wins / total
-    if win_pct >= 0.8:
-        return f"{wins}-{losses} (hot)"
-    elif win_pct <= 0.3:
-        return f"{wins}-{losses} (cold)"
-    else:
-        return f"{wins}-{losses}"
+
+    result = {'record': f"{wins}-{losses}", 'streak': None}
+
+    # Check last 3 results for streak (no minimum threshold)
+    if last_results and len(last_results) >= 3:
+        last_3 = last_results[-3:]
+        if all(r == 'W' for r in last_3):
+            result['streak'] = 'hot'
+        elif all(r == 'L' for r in last_3):
+            result['streak'] = 'cold'
+
+    return result
 
 
 def get_wrestler_style(wrestler_id: int, historical_results: pd.DataFrame) -> Dict:
@@ -584,14 +618,18 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
         east_rank_analysis = get_rank_analysis(east_elo, bout['eastRank'])
         west_rank_analysis = get_rank_analysis(west_elo, bout['westRank'])
 
-        # Recent form (current basho record)
+        # Recent form (current basho record with streak)
+        east_last_results = get_wrestler_last_results(east_id, historical_results, basho_id)
+        west_last_results = get_wrestler_last_results(west_id, historical_results, basho_id)
         east_form = format_recent_form(
             features.get('east_basho_wins', 0),
-            features.get('east_basho_losses', 0)
+            features.get('east_basho_losses', 0),
+            east_last_results
         )
         west_form = format_recent_form(
             features.get('west_basho_wins', 0),
-            features.get('west_basho_losses', 0)
+            features.get('west_basho_losses', 0),
+            west_last_results
         )
 
         # Get wrestler styles
@@ -661,6 +699,10 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
             'west_style': west_style_info['style'],
             'expected_style': expected_style,
             'storylines': storylines,
+            # Head-to-head
+            'h2h_east_wins': features.get('east_h2h_wins', 0),
+            'h2h_west_wins': features.get('east_h2h_losses', 0),
+            'h2h_total': features.get('east_h2h_total_bouts', 0),
         })
 
     # Render HTML

@@ -19,14 +19,20 @@
 
 {% if tournaments %}
 <div id="days-list" class="space-y-3">
-    {% for d in range(1, 16) %}
-    <div class="flex items-center justify-between py-3 border-b border-gray-100" data-day="{{ d }}">
-        <span class="text-gray-900 font-medium">Day {{ d }}</span>
+    {% for day_info in tournaments[0].days %}
+    {% if day_info.has_preview or day_info.has_results %}
+    <div class="flex items-center justify-between py-3 border-b border-gray-100" data-day="{{ day_info.day }}">
+        <span class="text-gray-900 font-medium">Day {{ day_info.day }}</span>
         <div class="flex gap-4">
-            <a href="{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-preview.html" class="preview-link text-gray-500 hover:text-gray-900 text-sm">Preview</a>
-            <a href="{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-results.html" class="results-link text-gray-500 hover:text-gray-900 text-sm">Results</a>
+            {% if day_info.has_preview %}
+            <a href="{{ tournaments[0].dir }}/day-{{ '%02d'|format(day_info.day) }}-preview.html" class="preview-link text-gray-500 hover:text-gray-900 text-sm">Preview</a>
+            {% endif %}
+            {% if day_info.has_results %}
+            <a href="{{ tournaments[0].dir }}/day-{{ '%02d'|format(day_info.day) }}-results.html" class="results-link text-gray-500 hover:text-gray-900 text-sm">Results</a>
+            {% endif %}
         </div>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 {% else %}

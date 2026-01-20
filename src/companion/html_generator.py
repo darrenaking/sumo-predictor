@@ -170,10 +170,24 @@ def render_index_page(output_dir: Path) -> str:
             try:
                 year, month = subdir.name.split('-')
                 basho_id = f"{year}{month}"
+
+                # Check which days have preview/results files
+                days_available = []
+                for day in range(1, 16):
+                    day_str = f"{day:02d}"
+                    has_preview = (subdir / f"day-{day_str}-preview.html").exists()
+                    has_results = (subdir / f"day-{day_str}-results.html").exists()
+                    days_available.append({
+                        'day': day,
+                        'has_preview': has_preview,
+                        'has_results': has_results,
+                    })
+
                 tournaments.append({
                     'id': basho_id,
                     'dir': subdir.name,
                     'name': get_basho_name(basho_id),
+                    'days': days_available,
                 })
             except ValueError:
                 continue

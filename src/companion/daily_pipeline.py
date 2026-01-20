@@ -127,24 +127,22 @@ def get_expected_style(east_push_pct: float, east_grapple_pct: float,
 
 def format_h2h_storyline(east_name: str, west_name: str,
                          east_h2h_wins: int, total_bouts: int) -> Optional[str]:
-    """Format H2H record into a storyline string."""
+    """Format H2H record into a storyline string.
+
+    Only returns meaningful storylines - the actual record is shown separately.
+    """
     # First meeting is shown separately, don't add to storylines
     if total_bouts == 0:
         return None
 
     west_h2h_wins = total_bouts - east_h2h_wins
 
+    # Only flag notable situations without repeating the record
     if total_bouts >= 3:
         if east_h2h_wins == 0:
-            return f"Revenge match — {east_name} 0-{west_h2h_wins} in career"
+            return f"{east_name} seeking first career win"
         elif west_h2h_wins == 0:
-            return f"Revenge match — {west_name} 0-{east_h2h_wins} in career"
-        elif abs(east_h2h_wins - west_h2h_wins) <= 1:
-            return f"Rivalry match ({east_h2h_wins}-{west_h2h_wins})"
-        elif east_h2h_wins < west_h2h_wins:
-            return f"{east_name} trails {east_h2h_wins}-{west_h2h_wins}"
-        else:
-            return f"{west_name} trails {west_h2h_wins}-{east_h2h_wins}"
+            return f"{west_name} seeking first career win"
     return None
 
 

@@ -208,22 +208,18 @@ def get_wrestler_last_results(wrestler_id: int, historical_results: pd.DataFrame
 
 
 def format_recent_form(wins: int, losses: int, last_results: list = None) -> dict:
-    """Format current basho record as recent form dict with streak info."""
+    """Format current basho record as recent form dict with last 3 results."""
     if wins == 0 and losses == 0:
         return None
     total = wins + losses
     if total == 0:
         return None
 
-    result = {'record': f"{wins}-{losses}", 'streak': None}
+    result = {'record': f"{wins}-{losses}", 'last_3': []}
 
-    # Check last 3 results for streak (no minimum threshold)
-    if last_results and len(last_results) >= 3:
-        last_3 = last_results[-3:]
-        if all(r == 'W' for r in last_3):
-            result['streak'] = 'hot'
-        elif all(r == 'L' for r in last_3):
-            result['streak'] = 'cold'
+    # Get last 3 results for dot display
+    if last_results:
+        result['last_3'] = last_results[-3:]
 
     return result
 

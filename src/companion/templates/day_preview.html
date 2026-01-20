@@ -17,26 +17,28 @@
         <div class="text-right">
             <span class="text-xs text-gray-400 block">{{ bout_of_day.east_rank }}</span>
             <span class="font-medium">{{ bout_of_day.east_name }}</span>
-            <div class="text-xs">
+            <div class="text-xs text-gray-500">
                 {% if bout_of_day.east_form %}
-                <span class="{% if bout_of_day.east_form.streak == 'hot' %}text-red-500{% elif bout_of_day.east_form.streak == 'cold' %}text-blue-500{% else %}text-gray-500{% endif %}">
-                    {{ bout_of_day.east_form.record }}{% if bout_of_day.east_form.streak %} ({{ bout_of_day.east_form.streak }}){% endif %}
-                </span>
+                <span>{{ bout_of_day.east_form.record }}</span>
+                {% if bout_of_day.east_form.last_3 %}
+                <span class="ml-1">{% for r in bout_of_day.east_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
                 {% endif %}
-                {% if bout_of_day.east_style %}<span class="text-gray-500"> · {{ bout_of_day.east_style }}</span>{% endif %}
+                {% endif %}
+                {% if bout_of_day.east_style %}<span> · {{ bout_of_day.east_style }}</span>{% endif %}
             </div>
         </div>
         <span class="text-gray-400">vs</span>
         <div class="text-left">
             <span class="text-xs text-gray-400 block">{{ bout_of_day.west_rank }}</span>
             <span class="font-medium">{{ bout_of_day.west_name }}</span>
-            <div class="text-xs">
+            <div class="text-xs text-gray-500">
                 {% if bout_of_day.west_form %}
-                <span class="{% if bout_of_day.west_form.streak == 'hot' %}text-red-500{% elif bout_of_day.west_form.streak == 'cold' %}text-blue-500{% else %}text-gray-500{% endif %}">
-                    {{ bout_of_day.west_form.record }}{% if bout_of_day.west_form.streak %} ({{ bout_of_day.west_form.streak }}){% endif %}
-                </span>
+                <span>{{ bout_of_day.west_form.record }}</span>
+                {% if bout_of_day.west_form.last_3 %}
+                <span class="ml-1">{% for r in bout_of_day.west_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
                 {% endif %}
-                {% if bout_of_day.west_style %}<span class="text-gray-500"> · {{ bout_of_day.west_style }}</span>{% endif %}
+                {% endif %}
+                {% if bout_of_day.west_style %}<span> · {{ bout_of_day.west_style }}</span>{% endif %}
             </div>
         </div>
     </div>
@@ -102,26 +104,28 @@
                 <div class="text-right flex-1">
                     <span class="text-xs text-gray-400 block">{{ bout.east_rank }}</span>
                     <span class="font-medium text-gray-900">{{ bout.east_name }}</span>
-                    <div class="text-xs mt-0.5">
+                    <div class="text-xs mt-0.5 text-gray-500">
                         {% if bout.east_form %}
-                        <span class="{% if bout.east_form.streak == 'hot' %}text-red-500{% elif bout.east_form.streak == 'cold' %}text-blue-500{% else %}text-gray-500{% endif %}">
-                            {{ bout.east_form.record }}{% if bout.east_form.streak %} ({{ bout.east_form.streak }}){% endif %}
-                        </span>
+                        <span>{{ bout.east_form.record }}</span>
+                        {% if bout.east_form.last_3 %}
+                        <span class="ml-1">{% for r in bout.east_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
                         {% endif %}
-                        {% if bout.east_style %}<span class="text-gray-500"> · {{ bout.east_style }}</span>{% endif %}
+                        {% endif %}
+                        {% if bout.east_style %}<span> · {{ bout.east_style }}</span>{% endif %}
                     </div>
                 </div>
                 <span class="text-gray-300 text-sm">vs</span>
                 <div class="text-left flex-1">
                     <span class="text-xs text-gray-400 block">{{ bout.west_rank }}</span>
                     <span class="font-medium text-gray-900">{{ bout.west_name }}</span>
-                    <div class="text-xs mt-0.5">
+                    <div class="text-xs mt-0.5 text-gray-500">
                         {% if bout.west_form %}
-                        <span class="{% if bout.west_form.streak == 'hot' %}text-red-500{% elif bout.west_form.streak == 'cold' %}text-blue-500{% else %}text-gray-500{% endif %}">
-                            {{ bout.west_form.record }}{% if bout.west_form.streak %} ({{ bout.west_form.streak }}){% endif %}
-                        </span>
+                        <span>{{ bout.west_form.record }}</span>
+                        {% if bout.west_form.last_3 %}
+                        <span class="ml-1">{% for r in bout.west_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
                         {% endif %}
-                        {% if bout.west_style %}<span class="text-gray-500"> · {{ bout.west_style }}</span>{% endif %}
+                        {% endif %}
+                        {% if bout.west_style %}<span> · {{ bout.west_style }}</span>{% endif %}
                     </div>
                 </div>
             </div>

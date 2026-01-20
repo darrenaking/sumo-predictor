@@ -23,8 +23,8 @@
     <div class="flex items-center justify-between py-3 border-b border-gray-100" data-day="{{ d }}">
         <span class="text-gray-900 font-medium">Day {{ d }}</span>
         <div class="flex gap-4">
-            <a href="/{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-preview.html" class="preview-link text-gray-500 hover:text-gray-900 text-sm">Preview</a>
-            <a href="/{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-results.html" class="results-link text-gray-500 hover:text-gray-900 text-sm">Results</a>
+            <a href="{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-preview.html" class="preview-link text-gray-500 hover:text-gray-900 text-sm">Preview</a>
+            <a href="{{ tournaments[0].dir }}/day-{{ '%02d'|format(d) }}-results.html" class="results-link text-gray-500 hover:text-gray-900 text-sm">Results</a>
         </div>
     </div>
     {% endfor %}
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const day = row.dataset.day;
             const previewLink = row.querySelector('.preview-link');
             const resultsLink = row.querySelector('.results-link');
-            previewLink.href = `/${basho}/day-${day.padStart(2, '0')}-preview.html`;
-            resultsLink.href = `/${basho}/day-${day.padStart(2, '0')}-results.html`;
+            previewLink.href = `${basho}/day-${day.padStart(2, '0')}-preview.html`;
+            resultsLink.href = `${basho}/day-${day.padStart(2, '0')}-results.html`;
         });
     });
 });

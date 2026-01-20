@@ -559,9 +559,9 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
                 elo.update(winner_id, loser_id)
                 glicko.update_single_bout(winner_id, loser_id)
 
-    # Build bout data for template
+    # Build bout data for template (in bout order, not interest order)
     bout_data = []
-    for idx in ranked_interest['bout_idx']:
+    for idx in range(len(bouts_df)):
         bout = bouts_df.iloc[idx]
         pred = predictions_df.iloc[idx]
         interest = interest_df[interest_df['bout_idx'] == idx].iloc[0]

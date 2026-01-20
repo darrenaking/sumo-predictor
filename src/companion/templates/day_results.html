@@ -7,8 +7,13 @@
     <a href="../" class="text-sm text-gray-500 hover:text-gray-900">← Back</a>
 </div>
 
-<h1 class="text-2xl font-bold text-gray-900 mb-1">Day {{ day }} Results</h1>
-<p class="text-gray-500 mb-8">{{ basho_name }}</p>
+<h1 class="text-2xl font-bold text-gray-900 mb-1">Day {{ day }}</h1>
+<p class="text-gray-500 mb-4">{{ basho_name }}</p>
+
+<div class="flex gap-4 mb-8 border-b border-gray-200">
+    <a href="day-{{ '%02d'|format(day) }}-preview.html" class="pb-2 text-gray-500 hover:text-gray-900">Preview</a>
+    <span class="pb-2 border-b-2 border-gray-900 font-medium text-gray-900">Results</span>
+</div>
 
 <div class="mb-8 text-center">
     <div class="text-4xl font-bold text-gray-900 mb-1">{{ "%.0f"|format(accuracy) }}%</div>
@@ -98,7 +103,6 @@
     {% if day > 1 %}
     <a href="day-{{ '%02d'|format(day - 1) }}-results.html" class="text-gray-500 hover:text-gray-900">← Day {{ day - 1 }}</a>
     {% endif %}
-    <a href="day-{{ '%02d'|format(day) }}-preview.html" class="text-gray-500 hover:text-gray-900">Preview</a>
     <a href="../" class="text-gray-500 hover:text-gray-900">Home</a>
     {% if day < 15 %}
     <a href="day-{{ '%02d'|format(day + 1) }}-results.html" class="text-gray-500 hover:text-gray-900">Day {{ day + 1 }} →</a>

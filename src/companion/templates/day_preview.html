@@ -16,7 +16,7 @@
     <div class="flex items-center justify-center gap-6 mb-3">
         <div class="text-right">
             <span class="text-xs text-gray-400 block">{{ bout_of_day.east_rank }}</span>
-            <span class="font-medium">{{ bout_of_day.east_name }}</span>
+            <span class="font-medium">{{ bout_of_day.east_name }}{% if bout_of_day.east_form and bout_of_day.east_form.streak > 5 and bout_of_day.east_form.streak_type == 'W' %} 🔥{% endif %}</span>
             <div class="text-xs text-gray-500">
                 {% if bout_of_day.east_form %}
                 <span>{{ bout_of_day.east_form.record }}</span>
@@ -30,7 +30,7 @@
         <span class="text-gray-400">vs</span>
         <div class="text-left">
             <span class="text-xs text-gray-400 block">{{ bout_of_day.west_rank }}</span>
-            <span class="font-medium">{{ bout_of_day.west_name }}</span>
+            <span class="font-medium">{% if bout_of_day.west_form and bout_of_day.west_form.streak > 5 and bout_of_day.west_form.streak_type == 'W' %}🔥 {% endif %}{{ bout_of_day.west_name }}</span>
             <div class="text-xs text-gray-500">
                 {% if bout_of_day.west_form %}
                 <span>{{ bout_of_day.west_form.record }}</span>
@@ -103,7 +103,7 @@
             <div class="flex items-center justify-center gap-6 mb-3">
                 <div class="text-right flex-1">
                     <span class="text-xs text-gray-400 block">{{ bout.east_rank }}</span>
-                    <span class="font-medium text-gray-900">{{ bout.east_name }}</span>
+                    <span class="font-medium text-gray-900">{{ bout.east_name }}{% if bout.east_form and bout.east_form.streak > 5 and bout.east_form.streak_type == 'W' %} 🔥{% endif %}</span>
                     <div class="text-xs mt-0.5 text-gray-500">
                         {% if bout.east_form %}
                         <span>{{ bout.east_form.record }}</span>
@@ -117,7 +117,7 @@
                 <span class="text-gray-300 text-sm">vs</span>
                 <div class="text-left flex-1">
                     <span class="text-xs text-gray-400 block">{{ bout.west_rank }}</span>
-                    <span class="font-medium text-gray-900">{{ bout.west_name }}</span>
+                    <span class="font-medium text-gray-900">{% if bout.west_form and bout.west_form.streak > 5 and bout.west_form.streak_type == 'W' %}🔥 {% endif %}{{ bout.west_name }}</span>
                     <div class="text-xs mt-0.5 text-gray-500">
                         {% if bout.west_form %}
                         <span>{{ bout.west_form.record }}</span>

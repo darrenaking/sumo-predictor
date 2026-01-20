@@ -146,6 +146,28 @@ def format_h2h_storyline(east_name: str, west_name: str,
     return None
 
 
+def get_streak_storylines(east_name: str, west_name: str,
+                          east_form: dict, west_form: dict) -> List[str]:
+    """Get storylines for winning/losing streaks > 3."""
+    storylines = []
+
+    if east_form and east_form.get('streak', 0) > 3:
+        streak = east_form['streak']
+        if east_form.get('streak_type') == 'W':
+            storylines.append(f"{east_name} on {streak}-bout winning streak")
+        else:
+            storylines.append(f"{east_name} on {streak}-bout losing streak")
+
+    if west_form and west_form.get('streak', 0) > 3:
+        streak = west_form['streak']
+        if west_form.get('streak_type') == 'W':
+            storylines.append(f"{west_name} on {streak}-bout winning streak")
+        else:
+            storylines.append(f"{west_name} on {streak}-bout losing streak")
+
+    return storylines
+
+
 def get_stakes_storyline(features: Dict, east_name: str, west_name: str, day: int) -> List[str]:
     """Get stakes-related storylines."""
     storylines = []
@@ -205,19 +227,42 @@ def get_wrestler_last_results(wrestler_id: int, historical_results: pd.DataFrame
     return results
 
 
+def get_current_streak(last_results: list) -> tuple:
+    """Calculate current winning or losing streak from results list.
+
+    Returns (streak_type, streak_length) where streak_type is 'W' or 'L'.
+    """
+    if not last_results:
+        return (None, 0)
+
+    # Count from the end
+    streak_type = last_results[-1]
+    streak_length = 0
+    for result in reversed(last_results):
+        if result == streak_type:
+            streak_length += 1
+        else:
+            break
+
+    return (streak_type, streak_length)
+
+
 def format_recent_form(wins: int, losses: int, last_results: list = None) -> dict:
-    """Format current basho record as recent form dict with last 3 results."""
+    """Format current basho record as recent form dict with last 3 results and streak."""
     if wins == 0 and losses == 0:
         return None
     total = wins + losses
     if total == 0:
         return None
 
-    result = {'record': f"{wins}-{losses}", 'last_3': []}
+    result = {'record': f"{wins}-{losses}", 'last_3': [], 'streak': 0, 'streak_type': None}
 
     # Get last 3 results for dot display
     if last_results:
         result['last_3'] = last_results[-3:]
+        streak_type, streak_length = get_current_streak(last_results)
+        result['streak'] = streak_length
+        result['streak_type'] = streak_type
 
     return result
 
@@ -667,6 +712,10 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
         # Stakes storylines
         stakes = get_stakes_storyline(features, east_name, west_name, day)
         storylines.extend(stakes)
+
+        # Streak storylines (> 3 bouts)
+        streak_stories = get_streak_storylines(east_name, west_name, east_form, west_form)
+        storylines.extend(streak_stories)
 
         # Must watch tag - based on interest score
         is_must_watch = interest['interest_score'] >= 70

@@ -425,20 +425,23 @@
             `;
 
             // Results table
-            const resultsRowsHtml = data.results.map(r => `
+            const resultsRowsHtml = data.results.map(r => {
+                const predictedEast = r.p_east >= 0.5;
+                const eastMark = predictedEast ? `<span class="text-indigo-500">${r.predicted_correct ? '&#10003;' : '&#10007;'}</span>` : '';
+                const westMark = !predictedEast ? `<span class="text-indigo-500">${r.predicted_correct ? '&#10003;' : '&#10007;'}</span>` : '';
+                return `
                 <tr class="border-b border-gray-100">
                     <td class="py-2 text-gray-400">${r.bout_number}</td>
                     <td class="py-2">
                         <span class="text-xs text-gray-400 block">${r.east_rank}</span>
-                        <span class="${r.winner === r.east_name ? 'font-medium' : 'text-gray-500'}">${r.east_name}</span>
+                        <span class="${r.winner === r.east_name ? 'font-medium' : 'text-gray-500'}">${r.east_name}</span> ${eastMark}
                     </td>
                     <td class="py-2">
                         <span class="text-xs text-gray-400 block">${r.west_rank}</span>
-                        <span class="${r.winner === r.west_name ? 'font-medium' : 'text-gray-500'}">${r.west_name}</span>
+                        <span class="${r.winner === r.west_name ? 'font-medium' : 'text-gray-500'}">${r.west_name}</span> ${westMark}
                     </td>
-                    <td class="py-2 text-center">${r.predicted_correct ? '&#10003;' : '&#10007;'}</td>
                 </tr>
-            `).join('');
+            `}).join('');
 
             // Standings
             let standingsHtml = '';
@@ -497,7 +500,6 @@
                                 <th class="pb-2 font-medium">#</th>
                                 <th class="pb-2 font-medium">East</th>
                                 <th class="pb-2 font-medium">West</th>
-                                <th class="pb-2 font-medium text-center">Pred</th>
                             </tr>
                         </thead>
                         <tbody>${resultsRowsHtml}</tbody>

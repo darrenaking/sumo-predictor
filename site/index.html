@@ -240,7 +240,7 @@
 
                 yushoHtml = `
                     <div class="mb-8 mt-6">
-                        <p class="text-sm text-gray-500 mb-3">With ${data.yusho_race.days_remaining} days left</p>
+                        <p class="text-lg text-gray-500 mb-3">With ${data.yusho_race.days_remaining} days left...</p>
                         <div class="inline-block">${contendersHtml}</div>
                     </div>
                 `;
@@ -252,12 +252,12 @@
             return `
                 <div class="sticky top-0 bg-white z-10 pb-2">
                     <div class="mb-4 pt-4">
-                        <a href="#" data-nav="home" class="text-sm text-gray-500 hover:text-gray-900">&larr; TachiAI</a>
+                        <a href="#" data-nav="home" class="text-lg font-bold text-gray-900 hover:text-gray-700">TachiAI</a>
                     </div>
 
                     <div class="flex items-baseline justify-between mb-4">
                         ${prevLink}
-                        <h1 class="text-2xl font-bold text-gray-900">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
+                        <h1 class="text-lg font-bold text-gray-900 mx-4">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
                         ${nextLink}
                     </div>
 
@@ -270,7 +270,7 @@
                 ${yushoHtml}
 
                 <div class="mb-8">
-                    <h2 class="text-lg font-bold text-gray-900 mb-4">Bouts</h2>
+                    <h2 class="text-lg text-gray-500">Bouts</h2>
                     <div>${boutsHtml}</div>
                 </div>
             `;
@@ -315,7 +315,7 @@
                 : '';
 
             return `
-                <div class="py-4 border-b border-gray-300">
+                <div class="py-4">
                     ${labelsHtml ? `<div class="flex items-center gap-1.5 mb-2">${labelsHtml}</div>` : ''}
 
                     <div class="flex items-center mb-1">
@@ -468,12 +468,12 @@
             return `
                 <div class="sticky top-0 bg-white z-10 pb-2">
                     <div class="mb-4 pt-4">
-                        <a href="#" data-nav="home" class="text-sm text-gray-500 hover:text-gray-900">&larr; TachiAI</a>
+                        <a href="#" data-nav="home" class="text-lg font-bold text-gray-900 hover:text-gray-700">TachiAI</a>
                     </div>
 
                     <div class="flex items-baseline justify-between mb-4">
                         ${prevLink}
-                        <h1 class="text-2xl font-bold text-gray-900">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
+                        <h1 class="text-lg font-bold text-gray-900 mx-4">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
                         ${nextLink}
                     </div>
 

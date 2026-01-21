@@ -170,7 +170,7 @@
         renderHome() {
             if (this.state.tournaments.length === 0) {
                 return `
-                    <h1 class="text-3xl font-bold text-gray-900 mb-8">TachiAI</h1>
+                    <h1 class="text-lg font-bold text-gray-900 mb-4">TachiAI</h1>
                     <p class="text-gray-500">No tournaments available yet.</p>
                 `;
             }
@@ -184,13 +184,13 @@
                 if (hasData) {
                     return `
                         <button data-basho="${current.id}" data-day="${day}"
-                            class="w-12 h-12 flex items-center justify-center border border-gray-300 rounded text-gray-900 hover:bg-gray-100 font-medium cursor-pointer">
+                            class="px-3 py-2 text-gray-900 hover:text-indigo-500 font-medium cursor-pointer">
                             ${day}
                         </button>
                     `;
                 } else {
                     return `
-                        <span class="w-12 h-12 flex items-center justify-center border border-gray-200 rounded text-gray-300">
+                        <span class="px-3 py-2 text-gray-300">
                             ${day}
                         </span>
                     `;
@@ -198,9 +198,11 @@
             }).join('');
 
             return `
-                <h1 class="text-3xl font-bold text-gray-900 mb-8">TachiAI</h1>
-                <p class="text-gray-500 mb-6">${this.getBashoName(current.id)}</p>
-                <div class="grid grid-cols-5 gap-2 max-w-xs">
+                <div class="mb-4 pt-4">
+                    <span class="text-lg font-bold text-gray-900">TachiAI</span>
+                </div>
+                <p class="text-lg text-gray-500 mb-4">Select day.</p>
+                <div class="flex flex-wrap">
                     ${daysHtml}
                 </div>
             `;

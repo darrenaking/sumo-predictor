@@ -397,10 +397,10 @@
                 ? `<a href="#" data-nav="${basho}/${day+1}/results" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
                 : '<span></span>';
 
-            // Upsets
+            // Upsets section with MSE
             let upsetsHtml = '';
-            if (data.upsets?.length > 0) {
-                const upsetItemsHtml = data.upsets.map(u => `
+            const upsetItemsHtml = data.upsets?.length > 0
+                ? data.upsets.map(u => `
                     <div class="py-3 border-b border-gray-100">
                         <div class="flex items-center gap-2 mb-1">
                             <span class="text-gray-400 line-through">${u.east_name === u.winner ? u.west_name : u.east_name}</span>
@@ -411,15 +411,18 @@
                             ${u.kimarite} &middot; ${Math.round(u.upset_magnitude * 100)}% favorite lost
                         </div>
                     </div>
-                `).join('');
+                `).join('')
+                : '<p class="text-gray-500 text-sm">No upsets today</p>';
 
-                upsetsHtml = `
-                    <div class="mb-8">
-                        <h2 class="text-lg font-bold text-gray-900 mb-4">Upsets</h2>
-                        <div class="space-y-3">${upsetItemsHtml}</div>
+            upsetsHtml = `
+                <div class="mb-8 mt-6">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <h2 class="text-lg font-bold text-gray-900">Upsets</h2>
+                        <span class="text-sm text-gray-500">MSE: ${data.brier_score?.toFixed(3) || '—'}</span>
                     </div>
-                `;
-            }
+                    <div class="space-y-3">${upsetItemsHtml}</div>
+                </div>
+            `;
 
             // Results table
             const resultsRowsHtml = data.results.map(r => `
@@ -433,7 +436,6 @@
                         <span class="text-xs text-gray-400 block">${r.west_rank}</span>
                         <span class="${r.winner === r.west_name ? 'font-medium' : 'text-gray-500'}">${r.west_name}</span>
                     </td>
-                    <td class="py-2 font-medium">${r.winner}</td>
                     <td class="py-2 text-center">${r.predicted_correct ? '&#10003;' : '&#10007;'}</td>
                 </tr>
             `).join('');
@@ -485,11 +487,6 @@
                     </div>
                 </div>
 
-                <div class="mb-8 mt-6 text-center">
-                    <div class="text-4xl font-bold text-gray-900 mb-1">${data.brier_score?.toFixed(3) || '—'}</div>
-                    <div class="text-sm text-gray-500">Brier score</div>
-                </div>
-
                 ${upsetsHtml}
 
                 <div class="mb-8">
@@ -500,7 +497,6 @@
                                 <th class="pb-2 font-medium">#</th>
                                 <th class="pb-2 font-medium">East</th>
                                 <th class="pb-2 font-medium">West</th>
-                                <th class="pb-2 font-medium">Winner</th>
                                 <th class="pb-2 font-medium text-center">Pred</th>
                             </tr>
                         </thead>

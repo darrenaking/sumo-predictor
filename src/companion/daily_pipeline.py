@@ -145,9 +145,9 @@ def format_h2h_storyline(east_name: str, west_name: str,
     # Only flag notable situations without repeating the record
     if total_bouts >= 3:
         if east_h2h_wins == 0:
-            return f"{east_name} seeking first career win"
+            return f"{east_name} yet to win against {west_name}"
         elif west_h2h_wins == 0:
-            return f"{west_name} seeking first career win"
+            return f"{west_name} yet to win against {east_name}"
     return None
 
 

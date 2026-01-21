@@ -39,9 +39,9 @@
       "storylines": [
         "Tobizaru must win to avoid makekoshi"
       ],
-      "h2h_east_wins": 0,
+      "h2h_east_wins": 1,
       "h2h_west_wins": 0,
-      "h2h_total": 0
+      "h2h_total": 1
     },
     {
       "bout_number": 2,
@@ -80,8 +80,8 @@
         "Shishi on 5-bout winning streak"
       ],
       "h2h_east_wins": 0,
-      "h2h_west_wins": 1,
-      "h2h_total": 1
+      "h2h_west_wins": 2,
+      "h2h_total": 2
     },
     {
       "bout_number": 3,
@@ -117,9 +117,9 @@
       "east_style": "Balanced",
       "west_style": "Balanced",
       "storylines": [],
-      "h2h_east_wins": 8,
+      "h2h_east_wins": 9,
       "h2h_west_wins": 1,
-      "h2h_total": 9
+      "h2h_total": 10
     },
     {
       "bout_number": 4,
@@ -157,9 +157,9 @@
       "storylines": [
         "Oshoumi needs 1 win for kachikoshi"
       ],
-      "h2h_east_wins": 1,
+      "h2h_east_wins": 2,
       "h2h_west_wins": 2,
-      "h2h_total": 3
+      "h2h_total": 4
     },
     {
       "bout_number": 5,
@@ -196,8 +196,8 @@
       "west_style": "Pusher",
       "storylines": [],
       "h2h_east_wins": 2,
-      "h2h_west_wins": 5,
-      "h2h_total": 7
+      "h2h_west_wins": 6,
+      "h2h_total": 8
     },
     {
       "bout_number": 6,
@@ -233,9 +233,9 @@
       "east_style": "Grappler",
       "west_style": "Grappler",
       "storylines": [],
-      "h2h_east_wins": 0,
+      "h2h_east_wins": 1,
       "h2h_west_wins": 0,
-      "h2h_total": 0
+      "h2h_total": 1
     },
     {
       "bout_number": 7,
@@ -272,8 +272,8 @@
       "west_style": "Balanced",
       "storylines": [],
       "h2h_east_wins": 4,
-      "h2h_west_wins": 1,
-      "h2h_total": 5
+      "h2h_west_wins": 2,
+      "h2h_total": 6
     },
     {
       "bout_number": 8,
@@ -309,9 +309,9 @@
       "east_style": "Balanced",
       "west_style": "Pusher",
       "storylines": [],
-      "h2h_east_wins": 2,
+      "h2h_east_wins": 3,
       "h2h_west_wins": 1,
-      "h2h_total": 3
+      "h2h_total": 4
     },
     {
       "bout_number": 9,
@@ -351,8 +351,8 @@
         "Roga on 4-bout losing streak"
       ],
       "h2h_east_wins": 9,
-      "h2h_west_wins": 2,
-      "h2h_total": 11
+      "h2h_west_wins": 3,
+      "h2h_total": 12
     },
     {
       "bout_number": 10,
@@ -388,14 +388,14 @@
       "east_style": "Grappler",
       "west_style": "Grappler",
       "storylines": [
-        "Hiradoumi seeking first career win",
+        "Hiradoumi yet to win against Asanoyama",
         "Hiradoumi needs 1 win for kachikoshi",
         "Asanoyama needs 1 win for kachikoshi",
         "Hiradoumi on 4-bout winning streak"
       ],
       "h2h_east_wins": 0,
-      "h2h_west_wins": 3,
-      "h2h_total": 3
+      "h2h_west_wins": 4,
+      "h2h_total": 4
     },
     {
       "bout_number": 11,
@@ -432,8 +432,8 @@
       "west_style": "Balanced",
       "storylines": [],
       "h2h_east_wins": 9,
-      "h2h_west_wins": 4,
-      "h2h_total": 13
+      "h2h_west_wins": 5,
+      "h2h_total": 14
     },
     {
       "bout_number": 12,
@@ -472,8 +472,8 @@
         "Kinbozan must win to avoid makekoshi"
       ],
       "h2h_east_wins": 4,
-      "h2h_west_wins": 6,
-      "h2h_total": 10
+      "h2h_west_wins": 7,
+      "h2h_total": 11
     },
     {
       "bout_number": 13,
@@ -513,8 +513,8 @@
         "Atamifuji on 8-bout winning streak"
       ],
       "h2h_east_wins": 0,
-      "h2h_west_wins": 1,
-      "h2h_total": 1
+      "h2h_west_wins": 2,
+      "h2h_total": 2
     },
     {
       "bout_number": 14,
@@ -551,8 +551,8 @@
       "west_style": "Grappler",
       "storylines": [],
       "h2h_east_wins": 2,
-      "h2h_west_wins": 0,
-      "h2h_total": 2
+      "h2h_west_wins": 1,
+      "h2h_total": 3
     },
     {
       "bout_number": 15,
@@ -590,9 +590,9 @@
       "storylines": [
         "Ichiyamamoto on 6-bout losing streak"
       ],
-      "h2h_east_wins": 2,
+      "h2h_east_wins": 3,
       "h2h_west_wins": 1,
-      "h2h_total": 3
+      "h2h_total": 4
     },
     {
       "bout_number": 16,
@@ -629,8 +629,8 @@
       "west_style": "Balanced",
       "storylines": [],
       "h2h_east_wins": 3,
-      "h2h_west_wins": 12,
-      "h2h_total": 15
+      "h2h_west_wins": 13,
+      "h2h_total": 16
     },
     {
       "bout_number": 17,
@@ -667,8 +667,8 @@
       "west_style": "Grappler",
       "storylines": [],
       "h2h_east_wins": 1,
-      "h2h_west_wins": 0,
-      "h2h_total": 1
+      "h2h_west_wins": 1,
+      "h2h_total": 2
     },
     {
       "bout_number": 18,
@@ -704,11 +704,11 @@
       "east_style": "Grappler",
       "west_style": "Grappler",
       "storylines": [
-        "Hakunofuji seeking first career win"
+        "Hakunofuji yet to win against Aonishiki"
       ],
       "h2h_east_wins": 0,
-      "h2h_west_wins": 4,
-      "h2h_total": 4
+      "h2h_west_wins": 5,
+      "h2h_total": 5
     },
     {
       "bout_number": 19,
@@ -747,8 +747,8 @@
         "Kotozakura needs 1 win for kachikoshi"
       ],
       "h2h_east_wins": 9,
-      "h2h_west_wins": 4,
-      "h2h_total": 13
+      "h2h_west_wins": 5,
+      "h2h_total": 14
     },
     {
       "bout_number": 20,
@@ -784,11 +784,11 @@
       "east_style": "Balanced",
       "west_style": "Pusher",
       "storylines": [
-        "Kirishima seeking first career win"
+        "Kirishima yet to win against Onosato"
       ],
       "h2h_east_wins": 0,
-      "h2h_west_wins": 9,
-      "h2h_total": 9
+      "h2h_west_wins": 10,
+      "h2h_total": 10
     },
     {
       "bout_number": 21,
@@ -827,9 +827,9 @@
         "Hoshoryu needs 1 win for kachikoshi",
         "Takayasu needs 1 win for kachikoshi"
       ],
-      "h2h_east_wins": 5,
+      "h2h_east_wins": 6,
       "h2h_west_wins": 10,
-      "h2h_total": 15
+      "h2h_total": 16
     }
   ],
   "yusho_race": {
@@ -889,7 +889,7 @@
       }
     ]
   },
-  "generated_at": "2026-01-21T10:19:59.348563",
+  "generated_at": "2026-01-21T12:16:37.317504",
   "results": [
     {
       "bout_number": 1,
@@ -1118,7 +1118,7 @@
       "upset_magnitude": 0.7267726017333201
     }
   ],
-  "accuracy": 0.0,
+  "brier_score": 0.2549960819956237,
   "standings": [
     {
       "name": "Atamifuji",
@@ -1195,6 +1195,5 @@
       "wins": 6,
       "losses": 5
     }
-  ],
-  "brier_score": 0.2549960819956237
+  ]
 }

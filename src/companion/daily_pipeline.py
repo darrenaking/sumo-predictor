@@ -919,7 +919,12 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
         return
 
     # Check if ALL results are available (don't generate partial results)
-    missing_results = bouts_df['winnerId'].isna().sum()
+    # Handle both NaN and empty string/falsy winnerId values
+    def is_valid_winner(w):
+        return pd.notna(w) and w not in ('', None, 0)
+
+    valid_winners = bouts_df['winnerId'].apply(is_valid_winner).sum()
+    missing_results = len(bouts_df) - valid_winners
     if missing_results > 0:
         print(f"Results incomplete for {basho_id} day {day}: {missing_results} of {len(bouts_df)} bouts missing winners")
         return

@@ -702,25 +702,41 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
     # Select bout of the day
     bout_of_day_idx = select_bout_of_day(interest_df)
 
-    # Run yusho simulation (if we have standings)
+    # Run yusho simulation (if we have standings) - just show contenders, no probabilities
     yusho_result = None
     if standings is not None and day > 1:
-        # Build prediction dict for remaining bouts
-        bout_predictions = {}
-        for i, row in predictions_df.iterrows():
-            east_id = bouts_df.iloc[i]['eastId']
-            west_id = bouts_df.iloc[i]['westId']
-            bout_predictions[(east_id, west_id)] = row['pred_east_win_prob']
-
         standings_df = get_current_standings(historical_results, basho_id, day - 1)
 
-        yusho_result = simulate_yusho_race(
-            standings_df,
-            bouts_df,
-            bout_predictions,
-            name_lookup,
-            num_simulations=10000,
-        )
+        # Simple yusho race - just show current standings leaders
+        if not standings_df.empty:
+            leader_wins = standings_df['wins'].max()
+            days_remaining = 15 - day + 1
+
+            # Get contenders (within striking distance of leader)
+            max_catchup = days_remaining  # Can gain at most 1 win per day
+            contenders_df = standings_df[standings_df['wins'] >= leader_wins - max_catchup].head(10)
+
+            from src.companion.yusho_simulation import YushoRaceResult, YushoContender
+            contenders = []
+            for _, row in contenders_df.iterrows():
+                contenders.append(YushoContender(
+                    wrestler_id=row['wrestler_id'],
+                    wrestler_name=name_lookup.get(row['wrestler_id'], f"Wrestler {row['wrestler_id']}"),
+                    current_wins=row['wins'],
+                    current_losses=row['losses'],
+                    yusho_probability=0,  # Not computing for now
+                    expected_wins=0,
+                    wins_std=0,
+                    magic_number=None,
+                ))
+
+            yusho_result = YushoRaceResult(
+                contenders=contenders,
+                leader_wins=leader_wins,
+                days_remaining=days_remaining,
+                playoff_probability=0,
+                simulation_count=0,
+            )
 
     # Initialize rating systems and compute ratings from historical data
     elo = EloSystem(k_factor=32.0)
@@ -851,6 +867,8 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
             'east_style': east_style_info['style'],
             'west_style': west_style_info['style'],
             'expected_style': expected_style,
+            'is_belt_battle': expected_style == "Belt battle",
+            'is_pushing_match': expected_style == "Pushing match",
             'storylines': storylines,
             # Head-to-head (lifetime)
             'h2h_east_wins': h2h_east_wins,

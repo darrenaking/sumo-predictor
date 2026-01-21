@@ -82,11 +82,9 @@ def render_preview_page(
                 {
                     'name': c.wrestler_name,
                     'record': f"{c.current_wins}-{c.current_losses}",
-                    'probability': f"{c.yusho_probability:.1f}%",
                     'magic_number': c.magic_number,
                 }
                 for c in yusho_race.contenders
-                if c.yusho_probability >= 0.5
             ]
         }
 
@@ -164,7 +162,7 @@ def render_index_page(output_dir: Path) -> str:
 
     # Find available tournaments
     tournaments = []
-    for subdir in sorted(output_dir.iterdir()):
+    for subdir in sorted(output_dir.iterdir(), reverse=True):
         if subdir.is_dir() and '-' in subdir.name:
             # Parse YYYY-MM format
             try:

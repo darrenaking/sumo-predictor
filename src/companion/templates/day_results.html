@@ -3,21 +3,19 @@
 {% block title %}Day {{ day }} Results - {{ basho_name }} - TachiAI{% endblock %}
 
 {% block content %}
-<nav class="flex justify-between text-sm mb-6">
+<div class="flex items-baseline justify-between mb-4">
     {% if day > 1 %}
-    <a href="day-{{ '%02d'|format(day - 1) }}-results.html" class="text-gray-500 hover:text-gray-900">← Day {{ day - 1 }}</a>
+    <a href="day-{{ '%02d'|format(day - 1) }}-results.html" class="text-sm text-gray-500 hover:text-gray-900">← Day {{ day - 1 }}</a>
     {% else %}
     <span></span>
     {% endif %}
+    <h1 class="text-2xl font-bold text-gray-900">Day {{ day }} <span class="font-normal text-gray-500">{{ basho_name }}</span></h1>
     {% if day < 15 %}
-    <a href="day-{{ '%02d'|format(day + 1) }}-results.html" class="text-gray-500 hover:text-gray-900">Day {{ day + 1 }} →</a>
+    <a href="day-{{ '%02d'|format(day + 1) }}-results.html" class="text-sm text-gray-500 hover:text-gray-900">Day {{ day + 1 }} →</a>
     {% else %}
     <span></span>
     {% endif %}
-</nav>
-
-<h1 class="text-2xl font-bold text-gray-900 mb-1">Day {{ day }}</h1>
-<p class="text-gray-500 mb-4">{{ basho_name }}</p>
+</div>
 
 <div class="flex gap-4 mb-8 border-b border-gray-200">
     <a href="day-{{ '%02d'|format(day) }}-preview.html" class="pb-2 text-gray-500 hover:text-gray-900">Preview</a>

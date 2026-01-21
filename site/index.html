@@ -232,17 +232,16 @@
             let yushoHtml = '';
             if (data.yusho_race?.contenders?.length > 0) {
                 const contendersHtml = data.yusho_race.contenders.map(c => `
-                    <div class="flex justify-between text-sm py-1">
+                    <div class="grid grid-cols-[8rem_auto] text-sm py-2 border-b border-gray-200">
                         <span class="font-medium">${c.name}</span>
                         <span class="text-gray-600">${c.record}</span>
                     </div>
                 `).join('');
 
                 yushoHtml = `
-                    <div class="mb-8">
-                        <h2 class="text-lg font-bold text-gray-900 mb-2">Yusho Race</h2>
-                        <p class="text-sm text-gray-500 mb-3">${data.yusho_race.days_remaining} days left</p>
-                        <div class="space-y-1">${contendersHtml}</div>
+                    <div class="mb-8 mt-6">
+                        <p class="text-sm text-gray-500 mb-3">With ${data.yusho_race.days_remaining} days left</p>
+                        <div class="inline-block">${contendersHtml}</div>
                     </div>
                 `;
             }
@@ -251,26 +250,28 @@
             const boutsHtml = data.bouts.map(bout => this.renderBout(bout)).join('');
 
             return `
-                <div class="mb-6">
-                    <a href="#" data-nav="home" class="text-sm text-gray-500 hover:text-gray-900">&larr; TachiAI</a>
-                </div>
+                <div class="sticky top-0 bg-white z-10 pb-2">
+                    <div class="mb-4 pt-4">
+                        <a href="#" data-nav="home" class="text-sm text-gray-500 hover:text-gray-900">&larr; TachiAI</a>
+                    </div>
 
-                <div class="flex items-baseline justify-between mb-4">
-                    ${prevLink}
-                    <h1 class="text-2xl font-bold text-gray-900">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
-                    ${nextLink}
-                </div>
+                    <div class="flex items-baseline justify-between mb-4">
+                        ${prevLink}
+                        <h1 class="text-2xl font-bold text-gray-900">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
+                        ${nextLink}
+                    </div>
 
-                <div class="flex gap-4 mb-8 border-b border-gray-200">
-                    <span class="pb-2 border-b-2 border-gray-900 font-medium text-gray-900">Preview</span>
-                    <a href="#" data-nav="${basho}/${day}/results" class="pb-2 text-gray-500 hover:text-gray-900">Results</a>
+                    <div class="flex gap-4 border-b border-gray-200">
+                        <span class="pb-2 border-b-2 border-gray-900 font-medium text-gray-900">Preview</span>
+                        <a href="#" data-nav="${basho}/${day}/results" class="pb-2 text-gray-500 hover:text-gray-900">Results</a>
+                    </div>
                 </div>
 
                 ${yushoHtml}
 
                 <div class="mb-8">
                     <h2 class="text-lg font-bold text-gray-900 mb-4">Bouts</h2>
-                    <div class="space-y-6">${boutsHtml}</div>
+                    <div>${boutsHtml}</div>
                 </div>
 
                 <nav class="flex justify-between text-sm py-6">
@@ -319,8 +320,8 @@
                 : '';
 
             return `
-                <div class="py-4 border-b border-gray-100">
-                    <div class="flex items-center gap-3 mb-2">
+                <div class="py-4 border-b border-gray-300">
+                    <div class="flex items-center gap-1.5 mb-2">
                         <span class="text-xs text-gray-400">#${bout.bout_number}</span>
                         ${labelsHtml}
                     </div>
@@ -473,22 +474,24 @@
             }
 
             return `
-                <div class="mb-6">
-                    <a href="#" data-nav="home" class="text-sm text-gray-500 hover:text-gray-900">&larr; TachiAI</a>
+                <div class="sticky top-0 bg-white z-10 pb-2">
+                    <div class="mb-4 pt-4">
+                        <a href="#" data-nav="home" class="text-sm text-gray-500 hover:text-gray-900">&larr; TachiAI</a>
+                    </div>
+
+                    <div class="flex items-baseline justify-between mb-4">
+                        ${prevLink}
+                        <h1 class="text-2xl font-bold text-gray-900">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
+                        ${nextLink}
+                    </div>
+
+                    <div class="flex gap-4 border-b border-gray-200">
+                        <a href="#" data-nav="${basho}/${day}/preview" class="pb-2 text-gray-500 hover:text-gray-900">Preview</a>
+                        <span class="pb-2 border-b-2 border-gray-900 font-medium text-gray-900">Results</span>
+                    </div>
                 </div>
 
-                <div class="flex items-baseline justify-between mb-4">
-                    ${prevLink}
-                    <h1 class="text-2xl font-bold text-gray-900">Day ${day} <span class="font-normal text-gray-500">${bashoName}</span></h1>
-                    ${nextLink}
-                </div>
-
-                <div class="flex gap-4 mb-8 border-b border-gray-200">
-                    <a href="#" data-nav="${basho}/${day}/preview" class="pb-2 text-gray-500 hover:text-gray-900">Preview</a>
-                    <span class="pb-2 border-b-2 border-gray-900 font-medium text-gray-900">Results</span>
-                </div>
-
-                <div class="mb-8 text-center">
+                <div class="mb-8 mt-6 text-center">
                     <div class="text-4xl font-bold text-gray-900 mb-1">${Math.round(data.accuracy)}%</div>
                     <div class="text-sm text-gray-500">correct predictions</div>
                 </div>

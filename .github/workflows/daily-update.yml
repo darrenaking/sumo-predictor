@@ -1,79 +1,85 @@
-name: Daily Sumo Update
+name: Daily Update
 
 on:
+  # Run daily at 6am JST (9pm UTC previous day) during basho
   schedule:
-    # Run at 7pm JST (10:00 UTC) - after day's sumo finishes
-    - cron: '0 10 * * *'
+    - cron: '0 21 * * *'
+
+  # Allow manual trigger with inputs
   workflow_dispatch:
     inputs:
-      basho_id:
-        description: 'Tournament ID (YYYYMM, e.g., 202601)'
+      basho:
+        description: 'Tournament ID (YYYYMM)'
         required: true
-        type: string
+        default: '202601'
       day:
-        description: 'Day number (1-15, leave empty for all days)'
-        required: false
-        type: string
+        description: 'Day number (1-15)'
+        required: true
+        default: '1'
+      mode:
+        description: 'Generation mode'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - preview
+          - results
+          - both
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write
 
 jobs:
-  generate:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Generate pages
         run: |
-          BASHO="${{ github.event.inputs.basho_id }}"
-          DAY="${{ github.event.inputs.day }}"
+          pip install -r requirements.txt
 
-          if [ -z "$BASHO" ]; then
-            # Auto-detect current basho (odd months: 01, 03, 05, 07, 09, 11)
-            YEAR=$(TZ=Asia/Tokyo date +%Y)
-            MONTH=$(TZ=Asia/Tokyo date +%m)
-            BASHO="${YEAR}${MONTH}"
-          fi
+      - name: Calculate current day (for scheduled runs)
+        id: calc_day
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            # Calculate day based on basho start date
+            # January 2026 basho starts on Jan 12
+            BASHO_START="2026-01-12"
+            TODAY=$(date -u +%Y-%m-%d)
+            DAY=$(( ($(date -d "$TODAY" +%s) - $(date -d "$BASHO_START" +%s)) / 86400 + 1 ))
 
-          if [ -z "$DAY" ]; then
-            # Generate all 15 days
-            for d in $(seq 1 15); do
-              echo "Generating day $d..."
-              python -m src.companion.daily_pipeline --basho $BASHO --day $d --mode both || true
-            done
+            # Clamp to 1-15
+            if [ $DAY -lt 1 ]; then DAY=1; fi
+            if [ $DAY -gt 15 ]; then DAY=15; fi
+
+            echo "basho=202601" >> $GITHUB_OUTPUT
+            echo "day=$DAY" >> $GITHUB_OUTPUT
+            echo "mode=both" >> $GITHUB_OUTPUT
           else
-            python -m src.companion.daily_pipeline --basho $BASHO --day $DAY --mode both
+            echo "basho=${{ github.event.inputs.basho }}" >> $GITHUB_OUTPUT
+            echo "day=${{ github.event.inputs.day }}" >> $GITHUB_OUTPUT
+            echo "mode=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
           fi
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
+      - name: Run daily pipeline
+        run: |
+          python -m src.companion.daily_pipeline \
+            --basho ${{ steps.calc_day.outputs.basho }} \
+            --day ${{ steps.calc_day.outputs.day }} \
+            --mode ${{ steps.calc_day.outputs.mode }}
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: generate
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add site/data/
+          git diff --staged --quiet || git commit -m "Update day ${{ steps.calc_day.outputs.day }} data for ${{ steps.calc_day.outputs.basho }}"
+          git push

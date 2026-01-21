@@ -43,6 +43,12 @@
             return `${bashoId.slice(0, 4)}-${bashoId.slice(4)}`;
         },
 
+        formatRank(rank) {
+            // Remove unnecessary "1" from Yokozuna rank (e.g., "Yokozuna 1 East" -> "Yokozuna East")
+            if (!rank) return '';
+            return rank.replace(/^Yokozuna 1/, 'Yokozuna');
+        },
+
         async init() {
             // Parse URL hash for routing
             this.handleRoute();
@@ -360,9 +366,9 @@
                     </div>
 
                     <div class="grid grid-cols-[1fr_auto_1fr] text-xs text-gray-400">
-                        <div class="text-right pr-2">${bout.east_rank}</div>
+                        <div class="text-right pr-2">${this.formatRank(bout.east_rank)}</div>
                         <div class="w-8"></div>
-                        <div class="text-left pl-2">${bout.west_rank}</div>
+                        <div class="text-left pl-2">${this.formatRank(bout.west_rank)}</div>
                     </div>
 
                     ${bout.east_style || bout.west_style ? `
@@ -452,11 +458,11 @@
                 <tr class="border-b border-gray-100">
                     <td class="py-2 text-gray-400">${r.bout_number}</td>
                     <td class="py-2">
-                        <span class="text-xs text-gray-400 block">${r.east_rank}</span>
+                        <span class="text-xs text-gray-400 block">${this.formatRank(r.east_rank)}</span>
                         <span class="${r.winner === r.east_name ? 'font-medium' : 'text-gray-500'}">${r.east_name}</span> ${eastMark}
                     </td>
                     <td class="py-2">
-                        <span class="text-xs text-gray-400 block">${r.west_rank}</span>
+                        <span class="text-xs text-gray-400 block">${this.formatRank(r.west_rank)}</span>
                         <span class="${r.winner === r.west_name ? 'font-medium' : 'text-gray-500'}">${r.west_name}</span> ${westMark}
                     </td>
                 </tr>

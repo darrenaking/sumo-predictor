@@ -230,20 +230,41 @@
                 ? `<a href="#" data-nav="${basho}/${day+1}/preview" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
                 : '<span></span>';
 
-            // Yusho race
-            let yushoHtml = '';
+            // Standings (from previous day - use yusho_race contenders which have pre-day records)
+            let standingsHtml = '';
             if (data.yusho_race?.contenders?.length > 0) {
-                const contendersHtml = data.yusho_race.contenders.map(c => `
-                    <div class="grid grid-cols-[8rem_auto] text-sm py-2 border-b border-gray-200">
-                        <span class="font-medium">${c.name}</span>
-                        <span class="text-gray-600">${c.record}</span>
-                    </div>
-                `).join('');
+                // Calculate tied rankings - only show rank for first in each group
+                let currentRank = 1;
+                let prevRecord = null;
+                const standingsRowsHtml = data.yusho_race.contenders.map((c, i) => {
+                    const isNewRank = c.record !== prevRecord;
+                    if (isNewRank) {
+                        currentRank = i + 1;
+                        prevRecord = c.record;
+                    }
+                    return `
+                    <tr class="border-b border-gray-100">
+                        <td class="py-2 text-gray-400">${isNewRank ? currentRank : ''}</td>
+                        <td class="py-2 font-medium">${c.name}</td>
+                        <td class="py-2 text-gray-600">${c.record}</td>
+                    </tr>
+                `}).join('');
 
-                yushoHtml = `
+                const daysRemaining = 16 - day;
+                standingsHtml = `
                     <div class="mb-8 mt-6">
-                        <p class="text-lg text-gray-500 mb-3">With ${data.yusho_race.days_remaining} days left...</p>
-                        <div class="inline-block">${contendersHtml}</div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-1">Leaders</h2>
+                        <p class="text-sm text-gray-500 mb-4">${daysRemaining} days remaining</p>
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-gray-500 border-b border-gray-200">
+                                    <th class="pb-2 font-medium"></th>
+                                    <th class="pb-2 font-medium">Rikishi</th>
+                                    <th class="pb-2 font-medium">Record</th>
+                                </tr>
+                            </thead>
+                            <tbody>${standingsRowsHtml}</tbody>
+                        </table>
                     </div>
                 `;
             }
@@ -269,7 +290,7 @@
                     </div>
                 </div>
 
-                ${yushoHtml}
+                ${standingsHtml}
 
                 <div class="mb-8">
                     <h2 class="text-lg font-bold text-gray-900 -mb-2">Bouts</h2>
@@ -385,16 +406,17 @@
             const basho = data.basho_id;
             const bashoName = this.getBashoName(basho);
 
-            // Navigation - check if next day has data
+            // Navigation - check if next day has data (results or preview)
             const tournament = this.state.tournaments.find(t => t.id === basho);
             const nextDayInfo = tournament?.days?.find(d => d.day === day + 1);
-            const hasNextDay = nextDayInfo?.has_results;
+            const hasNextDay = nextDayInfo?.has_results || nextDayInfo?.has_preview;
+            const nextView = nextDayInfo?.has_results ? 'results' : 'preview';
 
             const prevLink = day > 1
                 ? `<a href="#" data-nav="${basho}/${day-1}/results" class="text-sm text-gray-500 hover:text-gray-900">&larr;</a>`
                 : '<span></span>';
             const nextLink = day < 15 && hasNextDay
-                ? `<a href="#" data-nav="${basho}/${day+1}/results" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
+                ? `<a href="#" data-nav="${basho}/${day+1}/${nextView}" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
                 : '<span></span>';
 
             // Upsets section
@@ -443,13 +465,22 @@
             // Standings
             let standingsHtml = '';
             if (data.standings?.length > 0) {
-                const standingsRowsHtml = data.standings.map((s, i) => `
+                // Calculate tied rankings - only show rank for first in each group
+                let currentRank = 1;
+                let prevWins = null;
+                const standingsRowsHtml = data.standings.map((s, i) => {
+                    const isNewRank = s.wins !== prevWins;
+                    if (isNewRank) {
+                        currentRank = i + 1;
+                        prevWins = s.wins;
+                    }
+                    return `
                     <tr class="border-b border-gray-100">
-                        <td class="py-2 text-gray-400">${i + 1}</td>
+                        <td class="py-2 text-gray-400">${isNewRank ? currentRank : ''}</td>
                         <td class="py-2 font-medium">${s.name}</td>
                         <td class="py-2 text-gray-600">${s.wins}-${s.losses}</td>
                     </tr>
-                `).join('');
+                `}).join('');
 
                 standingsHtml = `
                     <div class="mb-8">
@@ -458,8 +489,8 @@
                         <table class="w-full text-sm">
                             <thead>
                                 <tr class="text-left text-gray-500 border-b border-gray-200">
-                                    <th class="pb-2 font-medium">#</th>
-                                    <th class="pb-2 font-medium">Wrestler</th>
+                                    <th class="pb-2 font-medium"></th>
+                                    <th class="pb-2 font-medium">Rikishi</th>
                                     <th class="pb-2 font-medium">Record</th>
                                 </tr>
                             </thead>

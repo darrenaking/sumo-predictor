@@ -429,7 +429,7 @@
     }
   ],
   "yusho_race": null,
-  "generated_at": "2026-01-20T21:46:07.390949",
+  "generated_at": "2026-01-21T10:17:48.444767",
   "results": [
     {
       "bout_number": 1,
@@ -728,5 +728,6 @@
       "wins": 1,
       "losses": 0
     }
-  ]
+  ],
+  "brier_score": 0.20629012456785098
 }

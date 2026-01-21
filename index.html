@@ -486,8 +486,8 @@
                 </div>
 
                 <div class="mb-8 mt-6 text-center">
-                    <div class="text-4xl font-bold text-gray-900 mb-1">${Math.round(data.accuracy)}%</div>
-                    <div class="text-sm text-gray-500">correct predictions</div>
+                    <div class="text-4xl font-bold text-gray-900 mb-1">${data.brier_score?.toFixed(3) || '—'}</div>
+                    <div class="text-sm text-gray-500">Brier score</div>
                 </div>
 
                 ${upsetsHtml}

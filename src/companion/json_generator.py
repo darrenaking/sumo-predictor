@@ -145,7 +145,7 @@ def generate_results_json(
     day: int,
     results: List[Dict],
     upsets: List[Dict],
-    accuracy: float,
+    brier_score: float,
     standings: Any,  # DataFrame
     name_lookup: Dict[int, str],
 ) -> Dict:
@@ -157,7 +157,7 @@ def generate_results_json(
         day: Day number
         results: List of result data dicts
         upsets: List of upset bouts
-        accuracy: Prediction accuracy percentage
+        brier_score: Brier score (0 = perfect, 0.25 = random)
         standings: Current standings DataFrame
         name_lookup: Wrestler ID to name mapping
 
@@ -206,7 +206,7 @@ def generate_results_json(
         'day': day,
         'results': clean_results,
         'upsets': clean_upsets,
-        'accuracy': accuracy,
+        'brier_score': brier_score,
         'standings': standings_data,
         'generated_at': datetime.now().isoformat(),
     }

@@ -955,6 +955,7 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
     results_data = []
     upsets = []
     correct_predictions = 0
+    brier_sum = 0.0
 
     for i, bout in bouts_df.iterrows():
         pred = predictions_df.iloc[i]
@@ -973,6 +974,11 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
 
         if correct:
             correct_predictions += 1
+
+        # Brier score: (predicted_prob - actual_outcome)^2
+        # actual_outcome is 1 if east won, 0 if west won
+        actual_outcome = 1.0 if winner_id == east_id else 0.0
+        brier_sum += (p_east - actual_outcome) ** 2
 
         # Check for upset
         is_upset = not correct and predicted_prob >= 0.65
@@ -996,8 +1002,8 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
         if is_upset:
             upsets.append(result)
 
-    # Daily accuracy
-    accuracy = correct_predictions / len(bouts_df) * 100 if len(bouts_df) > 0 else 0
+    # Brier score (lower is better: 0 = perfect, 0.25 = random)
+    brier_score = brier_sum / len(bouts_df) if len(bouts_df) > 0 else 0
 
     # Get updated standings
     standings_df = get_current_standings(all_results, basho_id, day)
@@ -1008,7 +1014,7 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
         day=day,
         results=results_data,
         upsets=upsets,
-        accuracy=accuracy,
+        brier_score=brier_score,
         standings=standings_df,
         name_lookup=name_lookup,
     )

@@ -1,0 +1,899 @@
+{
+  "basho_id": "202601",
+  "basho_name": "2026 Hatsu Basho (January)",
+  "day": 12,
+  "bouts": [
+    {
+      "bout_number": 1,
+      "east_name": "Tobizaru",
+      "west_name": "Mitakeumi",
+      "east_rank": "Maegashira 13 East",
+      "west_rank": "Maegashira 14 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": true,
+      "east_form": {
+        "record": "4-7",
+        "last_3": [
+          "L",
+          "W",
+          "W"
+        ],
+        "streak": 2,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "5-6",
+        "last_3": [
+          "W",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Pusher",
+      "west_style": "Pusher",
+      "storylines": [
+        "Tobizaru must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 9,
+      "h2h_west_wins": 4,
+      "h2h_total": 13
+    },
+    {
+      "bout_number": 2,
+      "east_name": "Chiyoshoma",
+      "west_name": "Tomokaze",
+      "east_rank": "Maegashira 11 East",
+      "west_rank": "Maegashira 13 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "4-7",
+        "last_3": [
+          "L",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "4-7",
+        "last_3": [
+          "L",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "east_style": "Balanced",
+      "west_style": "Pusher",
+      "storylines": [
+        "Chiyoshoma must win to avoid makekoshi",
+        "Tomokaze must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 2,
+      "h2h_west_wins": 2,
+      "h2h_total": 4
+    },
+    {
+      "bout_number": 3,
+      "east_name": "Tokihayate",
+      "west_name": "Asakoryu",
+      "east_rank": "Maegashira 10 East",
+      "west_rank": "Maegashira 15 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "6-5",
+        "last_3": [
+          "W",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "6-5",
+        "last_3": [
+          "L",
+          "W",
+          "W"
+        ],
+        "streak": 2,
+        "streak_type": "W"
+      },
+      "east_style": "Grappler",
+      "west_style": "Pusher",
+      "storylines": [],
+      "h2h_east_wins": 6,
+      "h2h_west_wins": 3,
+      "h2h_total": 9
+    },
+    {
+      "bout_number": 4,
+      "east_name": "Asahakuryu",
+      "west_name": "Kotoshoho",
+      "east_rank": "Maegashira 17 East",
+      "west_rank": "Maegashira 10 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "5-6",
+        "last_3": [
+          "L",
+          "L",
+          "L"
+        ],
+        "streak": 4,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "6-5",
+        "last_3": [
+          "W",
+          "L",
+          "L"
+        ],
+        "streak": 2,
+        "streak_type": "L"
+      },
+      "east_style": "Grappler",
+      "west_style": "Balanced",
+      "storylines": [
+        "Asahakuryu on 4-bout losing streak"
+      ],
+      "h2h_east_wins": 0,
+      "h2h_west_wins": 0,
+      "h2h_total": 0
+    },
+    {
+      "bout_number": 5,
+      "east_name": "Hatsuyama",
+      "west_name": "Roga",
+      "east_rank": "Maegashira 17 West",
+      "west_rank": "Maegashira 9 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "1-10",
+        "last_3": [
+          "W",
+          "L",
+          "L"
+        ],
+        "streak": 2,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "4-7",
+        "last_3": [
+          "L",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Pusher",
+      "west_style": "Balanced",
+      "storylines": [
+        "Roga must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 0,
+      "h2h_west_wins": 0,
+      "h2h_total": 0
+    },
+    {
+      "bout_number": 6,
+      "east_name": "Shodai",
+      "west_name": "Midorifuji",
+      "east_rank": "Maegashira 8 East",
+      "west_rank": "Maegashira 12 East",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "5-6",
+        "last_3": [
+          "L",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "5-6",
+        "last_3": [
+          "L",
+          "W",
+          "W"
+        ],
+        "streak": 2,
+        "streak_type": "W"
+      },
+      "east_style": "Pusher",
+      "west_style": "Balanced",
+      "storylines": [],
+      "h2h_east_wins": 11,
+      "h2h_west_wins": 5,
+      "h2h_total": 16
+    },
+    {
+      "bout_number": 7,
+      "east_name": "Ryuden",
+      "west_name": "Kinbozan",
+      "east_rank": "Maegashira 15 East",
+      "west_rank": "Maegashira 8 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "4-7",
+        "last_3": [
+          "L",
+          "L",
+          "L"
+        ],
+        "streak": 3,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "4-7",
+        "last_3": [
+          "L",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Balanced",
+      "west_style": "Balanced",
+      "storylines": [
+        "Kinbozan yet to win against Ryuden",
+        "Ryuden must win to avoid makekoshi",
+        "Kinbozan must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 6,
+      "h2h_west_wins": 0,
+      "h2h_total": 6
+    },
+    {
+      "bout_number": 8,
+      "east_name": "Asanoyama",
+      "west_name": "Fujinokawa",
+      "east_rank": "Maegashira 16 East",
+      "west_rank": "Maegashira 7 West",
+      "p_east": 0.5423961787756384,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "8-3",
+        "last_3": [
+          "W",
+          "W",
+          "W"
+        ],
+        "streak": 3,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "7-4",
+        "last_3": [
+          "W",
+          "L",
+          "L"
+        ],
+        "streak": 2,
+        "streak_type": "L"
+      },
+      "east_style": "Grappler",
+      "west_style": "Pusher",
+      "storylines": [
+        "Fujinokawa needs 1 win for kachikoshi"
+      ],
+      "h2h_east_wins": 0,
+      "h2h_west_wins": 0,
+      "h2h_total": 0
+    },
+    {
+      "bout_number": 9,
+      "east_name": "Nishikifuji",
+      "west_name": "Onokatsu",
+      "east_rank": "Maegashira 11 West",
+      "west_rank": "Maegashira 6 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": true,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "6-5",
+        "last_3": [
+          "W",
+          "L",
+          "L"
+        ],
+        "streak": 2,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "5-6",
+        "last_3": [
+          "L",
+          "W",
+          "W"
+        ],
+        "streak": 2,
+        "streak_type": "W"
+      },
+      "east_style": "Grappler",
+      "west_style": "Grappler",
+      "storylines": [],
+      "h2h_east_wins": 1,
+      "h2h_west_wins": 3,
+      "h2h_total": 4
+    },
+    {
+      "bout_number": 10,
+      "east_name": "Tamawashi",
+      "west_name": "Gonoyama",
+      "east_rank": "Maegashira 5 East",
+      "west_rank": "Maegashira 9 East",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "4-7",
+        "last_3": [
+          "W",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "4-7",
+        "last_3": [
+          "W",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "east_style": "Balanced",
+      "west_style": "Pusher",
+      "storylines": [
+        "Tamawashi must win to avoid makekoshi",
+        "Gonoyama must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 3,
+      "h2h_west_wins": 2,
+      "h2h_total": 5
+    },
+    {
+      "bout_number": 11,
+      "east_name": "Oshoumi",
+      "west_name": "Churanoumi",
+      "east_rank": "Maegashira 16 West",
+      "west_rank": "Maegashira 5 West",
+      "p_east": 0.5423961787756384,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "8-3",
+        "last_3": [
+          "W",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "7-4",
+        "last_3": [
+          "W",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Grappler",
+      "west_style": "Balanced",
+      "storylines": [
+        "Churanoumi needs 1 win for kachikoshi"
+      ],
+      "h2h_east_wins": 0,
+      "h2h_west_wins": 0,
+      "h2h_total": 0
+    },
+    {
+      "bout_number": 12,
+      "east_name": "Daieisho",
+      "west_name": "Oshoma",
+      "east_rank": "Maegashira 4 East",
+      "west_rank": "Maegashira 7 East",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "4-7",
+        "last_3": [
+          "W",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "6-5",
+        "last_3": [
+          "L",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "east_style": "Pusher",
+      "west_style": "Balanced",
+      "storylines": [
+        "Daieisho must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 1,
+      "h2h_west_wins": 1,
+      "h2h_total": 2
+    },
+    {
+      "bout_number": 13,
+      "east_name": "Ura",
+      "west_name": "Hakunofuji",
+      "east_rank": "Maegashira 2 East",
+      "west_rank": "Maegashira 3 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "1-10",
+        "last_3": [
+          "L",
+          "L",
+          "L"
+        ],
+        "streak": 4,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "5-6",
+        "last_3": [
+          "L",
+          "L",
+          "L"
+        ],
+        "streak": 3,
+        "streak_type": "L"
+      },
+      "east_style": "Pusher",
+      "west_style": "Grappler",
+      "storylines": [
+        "Ura on 4-bout losing streak"
+      ],
+      "h2h_east_wins": 1,
+      "h2h_west_wins": 2,
+      "h2h_total": 3
+    },
+    {
+      "bout_number": 14,
+      "east_name": "Ichiyamamoto",
+      "west_name": "Takanosho",
+      "east_rank": "Maegashira 1 East",
+      "west_rank": "Maegashira 3 East",
+      "p_east": 0.5394620739360401,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "2-9",
+        "last_3": [
+          "L",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "2-9",
+        "last_3": [
+          "L",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Balanced",
+      "west_style": "Balanced",
+      "storylines": [],
+      "h2h_east_wins": 1,
+      "h2h_west_wins": 6,
+      "h2h_total": 7
+    },
+    {
+      "bout_number": 15,
+      "east_name": "Wakatakakage",
+      "west_name": "Yoshinofuji",
+      "east_rank": "Maegashira 2 West",
+      "west_rank": "Maegashira 1 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "5-6",
+        "last_3": [
+          "L",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "6-5",
+        "last_3": [
+          "W",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Balanced",
+      "west_style": "Grappler",
+      "storylines": [],
+      "h2h_east_wins": 1,
+      "h2h_west_wins": 0,
+      "h2h_total": 1
+    },
+    {
+      "bout_number": 16,
+      "east_name": "Oho",
+      "west_name": "Shishi",
+      "east_rank": "Komusubi 1 East",
+      "west_rank": "Maegashira 14 East",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": true,
+      "east_form": {
+        "record": "4-7",
+        "last_3": [
+          "W",
+          "L",
+          "L"
+        ],
+        "streak": 2,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "8-3",
+        "last_3": [
+          "W",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "east_style": "Pusher",
+      "west_style": "Pusher",
+      "storylines": [
+        "Oho must win to avoid makekoshi"
+      ],
+      "h2h_east_wins": 0,
+      "h2h_west_wins": 0,
+      "h2h_total": 0
+    },
+    {
+      "bout_number": 17,
+      "east_name": "Hiradoumi",
+      "west_name": "Wakamotoharu",
+      "east_rank": "Maegashira 6 East",
+      "west_rank": "Komusubi 1 West",
+      "p_east": 0.5432202605460913,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "7-4",
+        "last_3": [
+          "W",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "5-6",
+        "last_3": [
+          "W",
+          "W",
+          "W"
+        ],
+        "streak": 4,
+        "streak_type": "W"
+      },
+      "east_style": "Grappler",
+      "west_style": "Balanced",
+      "storylines": [
+        "Hiradoumi needs 1 win for kachikoshi",
+        "Wakamotoharu on 4-bout winning streak"
+      ],
+      "h2h_east_wins": 5,
+      "h2h_west_wins": 4,
+      "h2h_total": 9
+    },
+    {
+      "bout_number": 18,
+      "east_name": "Kotozakura",
+      "west_name": "Abi",
+      "east_rank": "Ozeki 1 East",
+      "west_rank": "Maegashira 12 West",
+      "p_east": 0.5663992864628651,
+      "is_bout_of_day": true,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "7-4",
+        "last_3": [
+          "W",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "9-2",
+        "last_3": [
+          "L",
+          "W",
+          "W"
+        ],
+        "streak": 2,
+        "streak_type": "W"
+      },
+      "east_style": "Balanced",
+      "west_style": "Balanced",
+      "storylines": [
+        "Kotozakura needs 1 win for kachikoshi"
+      ],
+      "h2h_east_wins": 13,
+      "h2h_west_wins": 6,
+      "h2h_total": 19
+    },
+    {
+      "bout_number": 19,
+      "east_name": "Atamifuji",
+      "west_name": "Aonishiki",
+      "east_rank": "Maegashira 4 West",
+      "west_rank": "Ozeki 1 West",
+      "p_east": 0.5423961787756384,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "9-2",
+        "last_3": [
+          "W",
+          "W",
+          "W"
+        ],
+        "streak": 9,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "9-2",
+        "last_3": [
+          "W",
+          "W",
+          "W"
+        ],
+        "streak": 3,
+        "streak_type": "W"
+      },
+      "east_style": "Pusher",
+      "west_style": "Grappler",
+      "storylines": [
+        "Atamifuji on 9-bout winning streak"
+      ],
+      "h2h_east_wins": 0,
+      "h2h_west_wins": 2,
+      "h2h_total": 2
+    },
+    {
+      "bout_number": 20,
+      "east_name": "Hoshoryu",
+      "west_name": "Kirishima",
+      "east_rank": "Yokozuna 1 East",
+      "west_rank": "Sekiwake 1 East",
+      "p_east": 0.5655835805044671,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": false,
+      "east_form": {
+        "record": "8-3",
+        "last_3": [
+          "L",
+          "W",
+          "W"
+        ],
+        "streak": 2,
+        "streak_type": "W"
+      },
+      "west_form": {
+        "record": "8-3",
+        "last_3": [
+          "W",
+          "L",
+          "L"
+        ],
+        "streak": 2,
+        "streak_type": "L"
+      },
+      "east_style": "Grappler",
+      "west_style": "Balanced",
+      "storylines": [],
+      "h2h_east_wins": 13,
+      "h2h_west_wins": 10,
+      "h2h_total": 23
+    },
+    {
+      "bout_number": 21,
+      "east_name": "Takayasu",
+      "west_name": "Onosato",
+      "east_rank": "Sekiwake 1 West",
+      "west_rank": "Yokozuna 1 West",
+      "p_east": 0.5269987318619042,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
+      "is_belt_battle": false,
+      "is_pushing_match": true,
+      "east_form": {
+        "record": "7-4",
+        "last_3": [
+          "L",
+          "W",
+          "L"
+        ],
+        "streak": 1,
+        "streak_type": "L"
+      },
+      "west_form": {
+        "record": "7-4",
+        "last_3": [
+          "L",
+          "L",
+          "W"
+        ],
+        "streak": 1,
+        "streak_type": "W"
+      },
+      "east_style": "Pusher",
+      "west_style": "Pusher",
+      "storylines": [
+        "Takayasu needs 1 win for kachikoshi",
+        "Onosato needs 1 win for kachikoshi"
+      ],
+      "h2h_east_wins": 2,
+      "h2h_west_wins": 5,
+      "h2h_total": 7
+    }
+  ],
+  "yusho_race": {
+    "leader_wins": 9,
+    "days_remaining": 4,
+    "playoff_probability": 0,
+    "contenders": [
+      {
+        "name": "Atamifuji",
+        "record": "9-2",
+        "magic_number": null
+      },
+      {
+        "name": "Abi",
+        "record": "9-2",
+        "magic_number": null
+      },
+      {
+        "name": "Aonishiki",
+        "record": "9-2",
+        "magic_number": null
+      },
+      {
+        "name": "Hoshoryu",
+        "record": "8-3",
+        "magic_number": null
+      },
+      {
+        "name": "Oshoumi",
+        "record": "8-3",
+        "magic_number": null
+      },
+      {
+        "name": "Shishi",
+        "record": "8-3",
+        "magic_number": null
+      },
+      {
+        "name": "Asanoyama",
+        "record": "8-3",
+        "magic_number": null
+      },
+      {
+        "name": "Kirishima",
+        "record": "8-3",
+        "magic_number": null
+      },
+      {
+        "name": "Hiradoumi",
+        "record": "7-4",
+        "magic_number": null
+      },
+      {
+        "name": "Kotozakura",
+        "record": "7-4",
+        "magic_number": null
+      }
+    ]
+  },
+  "generated_at": "2026-01-21T13:16:10.729314"
+}

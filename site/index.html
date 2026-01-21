@@ -397,17 +397,17 @@
                 ? `<a href="#" data-nav="${basho}/${day+1}/results" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
                 : '<span></span>';
 
-            // Upsets section with MSE
+            // Upsets section
             let upsetsHtml = '';
             const upsetItemsHtml = data.upsets?.length > 0
                 ? data.upsets.map(u => `
-                    <div class="py-3 border-b border-gray-100">
-                        <div class="flex items-center gap-2 mb-1">
+                    <div class="py-2 border-b border-gray-100">
+                        <div class="flex items-center gap-2">
                             <span class="text-gray-400 line-through">${u.east_name === u.winner ? u.west_name : u.east_name}</span>
                             <span class="text-gray-400">&rarr;</span>
                             <span class="font-medium">${u.winner}</span>
                         </div>
-                        <div class="text-sm text-gray-500">
+                        <div class="text-xs text-gray-500">
                             ${u.kimarite} &middot; ${Math.round(u.upset_magnitude * 100)}% favorite lost
                         </div>
                     </div>
@@ -415,12 +415,9 @@
                 : '<p class="text-gray-500 text-sm">No upsets today</p>';
 
             upsetsHtml = `
-                <div class="mb-8 mt-6">
-                    <div class="flex items-baseline gap-4 mb-4">
-                        <h2 class="text-lg font-bold text-gray-900">Upsets</h2>
-                        <span class="text-sm text-gray-500">MSE: ${data.brier_score?.toFixed(3) || '—'}</span>
-                    </div>
-                    <div class="space-y-3">${upsetItemsHtml}</div>
+                <div class="mb-6 mt-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-2">Upsets</h2>
+                    <div>${upsetItemsHtml}</div>
                 </div>
             `;
 
@@ -493,7 +490,11 @@
                 ${upsetsHtml}
 
                 <div class="mb-8">
-                    <h2 class="text-lg font-bold text-gray-900 mb-4">All Results</h2>
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <h2 class="text-lg font-bold text-gray-900">Predictions</h2>
+                        <span class="text-sm text-gray-500">${data.results?.filter(r => r.predicted_correct).length}/${data.results?.length} correct</span>
+                        <span class="text-sm text-gray-500">MSE: ${data.brier_score?.toFixed(3) || '—'}</span>
+                    </div>
                     <table class="w-full text-sm">
                         <thead>
                             <tr class="text-left text-gray-500 border-b border-gray-200">

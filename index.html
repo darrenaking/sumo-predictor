@@ -222,10 +222,10 @@
             const hasNextDay = nextDayInfo?.has_preview || nextDayInfo?.has_results;
 
             const prevLink = day > 1
-                ? `<a href="#" data-nav="${basho}/${day-1}/preview" class="text-sm text-gray-500 hover:text-gray-900">&larr; Day ${day-1}</a>`
+                ? `<a href="#" data-nav="${basho}/${day-1}/preview" class="text-sm text-gray-500 hover:text-gray-900">&larr;</a>`
                 : '<span></span>';
             const nextLink = day < 15 && hasNextDay
-                ? `<a href="#" data-nav="${basho}/${day+1}/preview" class="text-sm text-gray-500 hover:text-gray-900">Day ${day+1} &rarr;</a>`
+                ? `<a href="#" data-nav="${basho}/${day+1}/preview" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
                 : '<span></span>';
 
             // Yusho race
@@ -273,11 +273,6 @@
                     <h2 class="text-lg font-bold text-gray-900 mb-4">Bouts</h2>
                     <div>${boutsHtml}</div>
                 </div>
-
-                <nav class="flex justify-between text-sm py-6">
-                    ${prevLink}
-                    ${nextLink}
-                </nav>
             `;
         },
 
@@ -321,10 +316,7 @@
 
             return `
                 <div class="py-4 border-b border-gray-300">
-                    <div class="flex items-center gap-1.5 mb-2">
-                        <span class="text-xs text-gray-400">#${bout.bout_number}</span>
-                        ${labelsHtml}
-                    </div>
+                    ${labelsHtml ? `<div class="flex items-center gap-1.5 mb-2">${labelsHtml}</div>` : ''}
 
                     <div class="flex items-center mb-1">
                         <div class="relative h-1 bg-gray-100 flex-1">
@@ -334,8 +326,9 @@
                     </div>
 
                     <div class="grid grid-cols-[1fr_auto_1fr] items-baseline">
-                        <div class="text-right pr-2">
-                            ${pct >= 50 ? `<span class="text-xs text-indigo-500">${pct}%</span> ` : ''}<span class="font-medium text-gray-900">${bout.east_name}</span>
+                        <div class="flex items-baseline justify-end pr-2">
+                            <span class="font-medium text-gray-400 mr-auto">${bout.bout_number}</span>
+                            ${pct >= 50 ? `<span class="text-xs text-indigo-500 mr-1">${pct}%</span>` : ''}<span class="font-medium text-gray-900">${bout.east_name}</span>
                         </div>
                         <div class="text-xs text-gray-400 px-1">${h2hHtml}</div>
                         <div class="text-left pl-2">
@@ -396,10 +389,10 @@
             const hasNextDay = nextDayInfo?.has_results;
 
             const prevLink = day > 1
-                ? `<a href="#" data-nav="${basho}/${day-1}/results" class="text-sm text-gray-500 hover:text-gray-900">&larr; Day ${day-1}</a>`
+                ? `<a href="#" data-nav="${basho}/${day-1}/results" class="text-sm text-gray-500 hover:text-gray-900">&larr;</a>`
                 : '<span></span>';
             const nextLink = day < 15 && hasNextDay
-                ? `<a href="#" data-nav="${basho}/${day+1}/results" class="text-sm text-gray-500 hover:text-gray-900">Day ${day+1} &rarr;</a>`
+                ? `<a href="#" data-nav="${basho}/${day+1}/results" class="text-sm text-gray-500 hover:text-gray-900">&rarr;</a>`
                 : '<span></span>';
 
             // Upsets
@@ -514,11 +507,6 @@
                 </div>
 
                 ${standingsHtml}
-
-                <nav class="flex justify-between text-sm py-6">
-                    ${prevLink}
-                    ${nextLink}
-                </nav>
             `;
         }
     };

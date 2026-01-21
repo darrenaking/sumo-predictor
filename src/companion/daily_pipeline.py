@@ -6,7 +6,7 @@ Orchestrates:
 2. Loading models and generating predictions
 3. Computing interest scores
 4. Running yusho simulations
-5. Generating HTML output
+5. Generating JSON output for client-side rendering
 """
 
 import argparse
@@ -47,10 +47,11 @@ from src.companion.yusho_simulation import (
     get_current_standings,
     YushoRaceResult,
 )
-from src.companion.html_generator import (
-    render_preview_page,
-    render_results_page,
-    render_index_page,
+from src.companion.json_generator import (
+    generate_preview_json,
+    generate_results_json,
+    write_day_json,
+    generate_index_json,
 )
 
 
@@ -876,8 +877,8 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
             'h2h_total': h2h_total,
         })
 
-    # Render HTML
-    html = render_preview_page(
+    # Generate JSON data
+    json_data = generate_preview_json(
         basho_id=basho_id,
         day=day,
         bouts=bout_data,
@@ -885,10 +886,8 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
         name_lookup=name_lookup,
     )
 
-    # Write output
-    output_file = output_dir / f"day-{day:02d}-preview.html"
-    output_file.write_text(html)
-    print(f"Written: {output_file}")
+    # Write JSON output
+    write_day_json(json_data, SITE_OUTPUT, basho_id, day)
 
 
 def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None):
@@ -1003,8 +1002,8 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
     # Get updated standings
     standings_df = get_current_standings(all_results, basho_id, day)
 
-    # Render HTML
-    html = render_results_page(
+    # Generate results JSON
+    results_json = generate_results_json(
         basho_id=basho_id,
         day=day,
         results=results_data,
@@ -1014,10 +1013,21 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
         name_lookup=name_lookup,
     )
 
-    # Write output
-    output_file = output_dir / f"day-{day:02d}-results.html"
-    output_file.write_text(html)
-    print(f"Written: {output_file}")
+    # Merge with existing day JSON (which has preview data)
+    from src.companion.json_generator import format_basho_dir
+    basho_dir = format_basho_dir(basho_id)
+    day_file = SITE_OUTPUT / "data" / basho_dir / f"day-{day:02d}.json"
+
+    if day_file.exists():
+        with open(day_file) as f:
+            existing_data = json.load(f)
+        # Merge results into existing preview data
+        existing_data.update(results_json)
+        merged_data = existing_data
+    else:
+        merged_data = results_json
+
+    write_day_json(merged_data, SITE_OUTPUT, basho_id, day)
 
 
 def run_daily_pipeline(basho_id: str, day: int, mode: str = 'both'):
@@ -1037,8 +1047,8 @@ def run_daily_pipeline(basho_id: str, day: int, mode: str = 'both'):
     if mode in ('results', 'both') and day > 0:
         generate_results(basho_id, day)
 
-    # Regenerate index page
-    render_index_page(SITE_OUTPUT)
+    # Regenerate JSON index
+    generate_index_json(SITE_OUTPUT)
 
 
 def main():

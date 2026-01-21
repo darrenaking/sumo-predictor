@@ -38,6 +38,7 @@ env/
 *.lgb
 *.joblib
 data/
+!site/data/
 output/
 
 # IDE

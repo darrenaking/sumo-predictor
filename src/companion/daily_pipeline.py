@@ -918,9 +918,10 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
         print(f"No results found for {basho_id} day {day}")
         return
 
-    # Check if results are available
-    if bouts_df['winnerId'].isna().all():
-        print(f"Results not yet available for {basho_id} day {day}")
+    # Check if ALL results are available (don't generate partial results)
+    missing_results = bouts_df['winnerId'].isna().sum()
+    if missing_results > 0:
+        print(f"Results incomplete for {basho_id} day {day}: {missing_results} of {len(bouts_df)} bouts missing winners")
         return
 
     # Fetch all results through today

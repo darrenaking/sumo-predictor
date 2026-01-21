@@ -272,7 +272,7 @@
                 ${yushoHtml}
 
                 <div class="mb-8">
-                    <h2 class="text-lg text-gray-500">Bouts</h2>
+                    <h2 class="text-lg font-bold text-gray-900 -mb-2">Bouts</h2>
                     <div>${boutsHtml}</div>
                 </div>
             `;
@@ -416,7 +416,7 @@
 
             upsetsHtml = `
                 <div class="mb-6 mt-6">
-                    <h2 class="text-lg font-bold text-gray-900 mb-2">Upsets</h2>
+                    <h2 class="text-lg font-bold text-gray-900">Major Upsets</h2>
                     <div>${upsetItemsHtml}</div>
                 </div>
             `;
@@ -490,10 +490,12 @@
                 ${upsetsHtml}
 
                 <div class="mb-8">
-                    <div class="flex items-baseline gap-4 mb-4">
-                        <h2 class="text-lg font-bold text-gray-900">Predictions</h2>
-                        <span class="text-sm text-gray-500">${data.results?.filter(r => r.predicted_correct).length}/${data.results?.length} correct</span>
-                        <span class="text-sm text-gray-500">MSE: ${data.brier_score?.toFixed(3) || '—'}</span>
+                    <div class="flex items-baseline justify-between mb-4">
+                        <h2 class="text-lg font-bold text-gray-900">Results</h2>
+                        <div class="flex gap-4">
+                            <span class="text-sm text-gray-500">${data.results?.filter(r => r.predicted_correct).length}/${data.results?.length} correct predictions</span>
+                            <span class="text-sm text-gray-500">${data.brier_score?.toFixed(3) || '—'} MSE</span>
+                        </div>
                     </div>
                     <table class="w-full text-sm">
                         <thead>

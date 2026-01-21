@@ -57,7 +57,11 @@ from src.companion.html_generator import (
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 KAGGLE_OUTPUT = PROJECT_ROOT / "kaggle-output" / "04-v3"
+FEATURES_PARQUET = PROJECT_ROOT / "kaggle-output" / "03-v6" / "features.parquet"
 SITE_OUTPUT = PROJECT_ROOT / "site"
+
+# Cached features dataframe
+_cached_features = None
 
 # Rank to expected ELO mapping (higher rank = higher expected ELO)
 RANK_EXPECTED_ELO = {
@@ -311,11 +315,88 @@ def load_models():
     kimarite_model = lgb.Booster(model_file=str(KAGGLE_OUTPUT / "kimarite_model.lgb"))
     kimarite_encoder = joblib.load(KAGGLE_OUTPUT / "kimarite_encoder.joblib")
 
-    # Load feature columns
+    # Load feature columns (skip header row)
     with open(KAGGLE_OUTPUT / "feature_columns.csv") as f:
-        feature_columns = [line.strip() for line in f if line.strip()]
+        lines = [line.strip() for line in f if line.strip()]
+        # Skip the first line if it's "0" (header)
+        feature_columns = lines[1:] if lines[0] == "0" else lines
 
     return winner_model, kimarite_model, kimarite_encoder, feature_columns
+
+
+def load_features_cache() -> pd.DataFrame:
+    """Load and cache the pre-computed features from parquet."""
+    global _cached_features
+    if _cached_features is None:
+        print("Loading pre-computed features from parquet...")
+        _cached_features = pd.read_parquet(FEATURES_PARQUET)
+        print(f"Loaded {len(_cached_features):,} rows of features")
+    return _cached_features
+
+
+def get_precomputed_features(basho_id: str, day: int, bouts_df: pd.DataFrame) -> Optional[pd.DataFrame]:
+    """
+    Get pre-computed features for specific bouts from the features parquet.
+
+    Returns DataFrame with features if found, None if not available.
+    """
+    features_df = load_features_cache()
+
+    # Filter to matching basho and day
+    basho_features = features_df[
+        (features_df['bashoId'] == basho_id) &
+        (features_df['day'] == day)
+    ].copy()
+
+    if len(basho_features) == 0:
+        print(f"No pre-computed features found for {basho_id} day {day}")
+        return None
+
+    # Match by eastId and westId
+    matched_features = []
+    for _, bout in bouts_df.iterrows():
+        east_id = bout['eastId']
+        west_id = bout['westId']
+
+        # Find matching feature row
+        match = basho_features[
+            (basho_features['eastId'] == east_id) &
+            (basho_features['westId'] == west_id)
+        ]
+
+        if len(match) > 0:
+            matched_features.append(match.iloc[0].to_dict())
+        else:
+            # Try swapped order
+            match = basho_features[
+                (basho_features['eastId'] == west_id) &
+                (basho_features['westId'] == east_id)
+            ]
+            if len(match) > 0:
+                # Need to swap features
+                row = match.iloc[0].to_dict()
+                # Swap east/west prefixed columns
+                swapped = {}
+                for k, v in row.items():
+                    if k.startswith('east_'):
+                        swapped['west_' + k[5:]] = v
+                    elif k.startswith('west_'):
+                        swapped['east_' + k[5:]] = v
+                    else:
+                        swapped[k] = v
+                # Also swap IDs
+                swapped['eastId'] = east_id
+                swapped['westId'] = west_id
+                # Flip differentials
+                for col in swapped:
+                    if '_diff' in col and isinstance(swapped[col], (int, float)):
+                        swapped[col] = -swapped[col]
+                matched_features.append(swapped)
+            else:
+                print(f"No feature match for bout: {bout.get('eastShikona')} vs {bout.get('westShikona')}")
+                return None
+
+    return pd.DataFrame(matched_features)
 
 
 def load_rikishi_data() -> Tuple[pd.DataFrame, Dict[int, str]]:
@@ -500,34 +581,46 @@ def compute_bout_features(
 
 def generate_predictions(
     bouts_df: pd.DataFrame,
-    features_list: List[Dict],
+    features_df: pd.DataFrame,
     winner_model,
     kimarite_model,
     kimarite_encoder,
     feature_columns: List[str]
 ) -> pd.DataFrame:
-    """Generate predictions for all bouts."""
-    # For now, use a simplified prediction based on rank
-    # In production, would build full feature matrix and use model
+    """Generate predictions for all bouts using trained LightGBM model.
 
+    Args:
+        bouts_df: DataFrame with bout info
+        features_df: DataFrame with pre-computed features (one row per bout, matching bouts_df order)
+        winner_model: Trained LightGBM model
+        kimarite_model: (unused currently)
+        kimarite_encoder: (unused currently)
+        feature_columns: List of feature column names in model order
+    """
     predictions = []
 
-    for i, bout in bouts_df.iterrows():
-        features = features_list[i]
+    for i in range(len(bouts_df)):
+        # Get features for this bout
+        if i < len(features_df):
+            features = features_df.iloc[i]
+        else:
+            features = {}
 
-        # Simple rank-based prediction
-        east_rank = features.get('east_rank_numeric', 50)
-        west_rank = features.get('west_rank_numeric', 50)
+        # Build feature vector in correct order
+        feature_vector = []
+        for col in feature_columns:
+            val = features.get(col, 0) if isinstance(features, dict) else features.get(col, 0)
+            # Handle NaN values
+            if pd.isna(val):
+                val = 0
+            feature_vector.append(val)
 
-        # Lower rank number = higher rank = more likely to win
-        rank_diff = west_rank - east_rank
-
-        # Sigmoid to convert rank diff to probability
-        # Each rank difference ~ 2-3% advantage
-        p_east = 1 / (1 + np.exp(-rank_diff * 0.05))
+        # Predict using model
+        feature_array = np.array([feature_vector])
+        p_east = winner_model.predict(feature_array)[0]
 
         # Clamp to reasonable range
-        p_east = max(0.25, min(0.75, p_east))
+        p_east = max(0.15, min(0.85, p_east))
 
         predictions.append({
             'bout_idx': i,
@@ -572,18 +665,28 @@ def generate_preview(basho_id: str, day: int, output_dir: Optional[Path] = None)
     if day > 1:
         historical_results = fetch_basho_results_through_day(basho_id, day - 1)
 
-    # Compute features for each bout
-    features_list = []
-    for _, bout in bouts_df.iterrows():
-        features = compute_bout_features(bout.to_dict(), rikishi_df, historical_results)
-        features_list.append(features)
+    # Try to load pre-computed features first (much more accurate)
+    precomputed_features = get_precomputed_features(basho_id, day, bouts_df)
 
-    features_df = pd.DataFrame(features_list)
+    if precomputed_features is not None:
+        print(f"Using pre-computed features for {len(precomputed_features)} bouts")
+        features_df = precomputed_features
+        # Also build features_list for template compatibility
+        features_list = [row.to_dict() for _, row in features_df.iterrows()]
+    else:
+        # Fall back to computing basic features
+        print("Pre-computed features not available, using basic features")
+        features_list = []
+        for _, bout in bouts_df.iterrows():
+            features = compute_bout_features(bout.to_dict(), rikishi_df, historical_results)
+            features_list.append(features)
+        features_df = pd.DataFrame(features_list)
 
-    # Generate predictions (simplified for now)
+    # Load models and generate predictions
+    winner_model, kimarite_model, kimarite_encoder, feature_columns = load_models()
     predictions_df = generate_predictions(
-        bouts_df, features_list,
-        None, None, None, []  # Models not used in simplified version
+        bouts_df, features_df,
+        winner_model, kimarite_model, kimarite_encoder, feature_columns
     )
 
     # Compute interest scores
@@ -809,16 +912,26 @@ def generate_results(basho_id: str, day: int, output_dir: Optional[Path] = None)
     # Compute features and predictions (as they would have been before the day)
     historical_results = fetch_basho_results_through_day(basho_id, day - 1) if day > 1 else None
 
-    features_list = []
-    for _, bout in bouts_df.iterrows():
-        features = compute_bout_features(bout.to_dict(), rikishi_df, historical_results)
-        features_list.append(features)
+    # Try to load pre-computed features first (much more accurate)
+    precomputed_features = get_precomputed_features(basho_id, day, bouts_df)
 
-    features_df = pd.DataFrame(features_list)
+    if precomputed_features is not None:
+        print(f"Using pre-computed features for {len(precomputed_features)} bouts")
+        features_df = precomputed_features
+        features_list = [row.to_dict() for _, row in features_df.iterrows()]
+    else:
+        print("Pre-computed features not available, using basic features")
+        features_list = []
+        for _, bout in bouts_df.iterrows():
+            features = compute_bout_features(bout.to_dict(), rikishi_df, historical_results)
+            features_list.append(features)
+        features_df = pd.DataFrame(features_list)
 
+    # Load models and generate predictions
+    winner_model, kimarite_model, kimarite_encoder, feature_columns = load_models()
     predictions_df = generate_predictions(
-        bouts_df, features_list,
-        None, None, None, []
+        bouts_df, features_df,
+        winner_model, kimarite_model, kimarite_encoder, feature_columns
     )
 
     # Analyze results

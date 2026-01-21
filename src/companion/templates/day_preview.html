@@ -48,7 +48,7 @@
 {% endif %}
 
 <div class="mb-8">
-    <h2 class="text-lg font-bold text-gray-900 mb-4">All Bouts</h2>
+    <h2 class="text-lg font-bold text-gray-900 mb-4">Bouts</h2>
     <div class="space-y-6">
         {% for bout in bouts %}
         <div class="py-4 border-b border-gray-100">
@@ -62,53 +62,25 @@
             </div>
 
             {% set pct = (bout.p_east * 100)|round|int %}
-            <div class="flex items-center justify-center gap-6 mb-3">
-                <div class="text-right flex-1">
-                    <span class="text-xs text-gray-400 block">{{ bout.east_rank }}</span>
-                    <div class="flex items-baseline justify-end gap-2">
-                        {% if pct >= 50 %}<span class="text-xs text-indigo-500">{{ pct }}%</span>{% endif %}
-                        <span class="font-medium text-gray-900">{{ bout.east_name }}</span>
-                    </div>
-                    <div class="text-xs mt-0.5 text-gray-500">
-                        {% if bout.east_form %}
-                        <span>{{ bout.east_form.record }}</span>
-                        {% if bout.east_form.last_3 %}
-                        <span class="ml-1">{% for r in bout.east_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
-                        {% endif %}
-                        {% endif %}
-                        {% if bout.east_style %}<span> · {{ bout.east_style }}</span>{% endif %}
-                    </div>
+            <div class="grid grid-cols-[1fr_auto_1fr] items-baseline mb-1">
+                <div class="text-right pr-2 leading-tight">
+                    <span class="text-xs text-gray-400">{{ bout.east_rank }}</span>
                 </div>
-                <div class="text-center">
-                    <span class="text-gray-300 text-sm">vs</span>
-                    <div class="text-xs text-gray-400">
-                        {% if bout.h2h_total > 0 %}
-                        {{ bout.h2h_east_wins }}-{{ bout.h2h_west_wins }}
-                        {% else %}
-                        First meeting
-                        {% endif %}
-                    </div>
+                <div></div>
+                <div class="text-left pl-2 leading-tight">
+                    <span class="text-xs text-gray-400">{{ bout.west_rank }}</span>
                 </div>
-                <div class="text-left flex-1">
-                    <span class="text-xs text-gray-400 block">{{ bout.west_rank }}</span>
-                    <div class="flex items-baseline justify-start gap-2">
-                        <span class="font-medium text-gray-900">{{ bout.west_name }}</span>
-                        {% if pct < 50 %}<span class="text-xs text-indigo-500">{{ 100 - pct }}%</span>{% endif %}
-                    </div>
-                    <div class="text-xs mt-0.5 text-gray-500">
-                        {% if bout.west_form %}
-                        <span>{{ bout.west_form.record }}</span>
-                        {% if bout.west_form.last_3 %}
-                        <span class="ml-1">{% for r in bout.west_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
-                        {% endif %}
-                        {% endif %}
-                        {% if bout.west_style %}<span> · {{ bout.west_style }}</span>{% endif %}
-                    </div>
+                <div class="text-right pr-2">
+                    {% if pct >= 50 %}<span class="text-xs text-indigo-500">{{ pct }}%</span> {% endif %}<span class="font-medium text-gray-900">{{ bout.east_name }}</span>
+                </div>
+                <div class="text-xs text-gray-400 px-1">{% if bout.h2h_total > 0 %}{{ bout.h2h_east_wins }}-{{ bout.h2h_west_wins }}{% else %}—{% endif %}</div>
+                <div class="text-left pl-2">
+                    <span class="font-medium text-gray-900">{{ bout.west_name }}</span>{% if pct < 50 %} <span class="text-xs text-indigo-500">{{ 100 - pct }}%</span>{% endif %}
                 </div>
             </div>
 
             <div class="flex items-center mb-2">
-                <div class="relative h-1 bg-gray-100 flex-1">
+                <div class="relative h-0.5 bg-gray-100 flex-1">
                     <div class="absolute top-0 bottom-0 left-1/2 w-px bg-gray-300"></div>
                     {% if pct >= 50 %}
                     <div class="absolute top-0 bottom-0 right-1/2 bg-indigo-500" style="width: {{ pct - 50 }}%"></div>
@@ -117,6 +89,33 @@
                     {% endif %}
                 </div>
             </div>
+
+            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-1">
+                <div class="text-right flex-1">
+                    {% if bout.east_form %}
+                    <span>{{ bout.east_form.record }}</span>
+                    {% if bout.east_form.last_3 %}
+                    <span class="ml-1">{% for r in bout.east_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <div class="text-left flex-1">
+                    {% if bout.west_form %}
+                    {% if bout.west_form.last_3 %}
+                    <span>{% for r in bout.west_form.last_3 %}<span class="{% if r == 'W' %}text-green-500{% else %}text-red-500{% endif %}">●</span>{% endfor %}</span>
+                    {% endif %}
+                    <span class="ml-1">{{ bout.west_form.record }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if bout.east_style or bout.west_style %}
+            <div class="flex justify-center gap-4 text-xs text-gray-400">
+                <div class="text-right flex-1">{% if bout.east_style %}{{ bout.east_style }}{% endif %}</div>
+                <div class="w-8"></div>
+                <div class="text-left flex-1">{% if bout.west_style %}{{ bout.west_style }}{% endif %}</div>
+            </div>
+            {% endif %}
 
             {% if bout.expected_style %}
             <p class="text-center text-xs text-gray-500 mb-2">{{ bout.expected_style }}</p>
@@ -134,7 +133,7 @@
     </div>
 </div>
 
-<nav class="flex justify-between text-sm py-6 border-t border-gray-200">
+<nav class="flex justify-between text-sm py-6">
     {% if day > 1 %}
     <a href="day-{{ '%02d'|format(day - 1) }}-preview.html" class="text-gray-500 hover:text-gray-900">← Day {{ day - 1 }}</a>
     {% else %}

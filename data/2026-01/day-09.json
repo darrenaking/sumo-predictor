@@ -9,7 +9,7 @@
       "west_name": "Asakoryu",
       "east_rank": "Maegashira 16 West",
       "west_rank": "Maegashira 15 West",
-      "p_east": 0.5423961787756384,
+      "p_east": 0.5632174065593399,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -47,7 +47,7 @@
       "west_name": "Ryuden",
       "east_rank": "Maegashira 14 East",
       "west_rank": "Maegashira 15 East",
-      "p_east": 0.5423961787756384,
+      "p_east": 0.5650188828600908,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -85,7 +85,7 @@
       "west_name": "Tomokaze",
       "east_rank": "Maegashira 17 West",
       "west_rank": "Maegashira 13 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.43458193051154925,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -125,7 +125,7 @@
       "west_name": "Asanoyama",
       "east_rank": "Maegashira 13 East",
       "west_rank": "Maegashira 16 East",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.35684188733813654,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -165,7 +165,7 @@
       "west_name": "Nishikifuji",
       "east_rank": "Maegashira 17 East",
       "west_rank": "Maegashira 11 West",
-      "p_east": 0.5423961787756384,
+      "p_east": 0.49266406678856267,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": true,
@@ -203,7 +203,7 @@
       "west_name": "Mitakeumi",
       "east_rank": "Maegashira 11 East",
       "west_rank": "Maegashira 14 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.49345009685093827,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -241,8 +241,8 @@
       "west_name": "Kotoshoho",
       "east_rank": "Maegashira 12 West",
       "west_rank": "Maegashira 10 West",
-      "p_east": 0.5423961787756384,
-      "is_bout_of_day": false,
+      "p_east": 0.5577953926555126,
+      "is_bout_of_day": true,
       "is_must_watch": false,
       "is_belt_battle": false,
       "is_pushing_match": false,
@@ -281,7 +281,7 @@
       "west_name": "Midorifuji",
       "east_rank": "Maegashira 10 East",
       "west_rank": "Maegashira 12 East",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.5297998624147507,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": true,
@@ -319,7 +319,7 @@
       "west_name": "Fujinokawa",
       "east_rank": "Maegashira 9 West",
       "west_rank": "Maegashira 7 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.3980215939359953,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -357,7 +357,7 @@
       "west_name": "Onokatsu",
       "east_rank": "Maegashira 9 East",
       "west_rank": "Maegashira 6 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.4346046248364919,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -395,7 +395,7 @@
       "west_name": "Kinbozan",
       "east_rank": "Maegashira 6 East",
       "west_rank": "Maegashira 8 West",
-      "p_east": 0.5423961787756384,
+      "p_east": 0.6274458270551883,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -433,7 +433,7 @@
       "west_name": "Churanoumi",
       "east_rank": "Maegashira 8 East",
       "west_rank": "Maegashira 5 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.43439693190482814,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -471,7 +471,7 @@
       "west_name": "Oshoma",
       "east_rank": "Maegashira 5 East",
       "west_rank": "Maegashira 7 East",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.4459889971339022,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -511,7 +511,7 @@
       "west_name": "Hakunofuji",
       "east_rank": "Maegashira 4 East",
       "west_rank": "Maegashira 3 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.3475196981475393,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -549,7 +549,7 @@
       "west_name": "Yoshinofuji",
       "east_rank": "Maegashira 3 East",
       "west_rank": "Maegashira 1 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.3287269516876409,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -589,7 +589,7 @@
       "west_name": "Ichiyamamoto",
       "east_rank": "Komusubi 1 East",
       "west_rank": "Maegashira 1 East",
-      "p_east": 0.5394620739360401,
+      "p_east": 0.6315742351589781,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -630,9 +630,9 @@
       "west_name": "Ura",
       "east_rank": "Sekiwake 1 East",
       "west_rank": "Maegashira 2 East",
-      "p_east": 0.5386369704667343,
-      "is_bout_of_day": true,
-      "is_must_watch": true,
+      "p_east": 0.7051885020500285,
+      "is_bout_of_day": false,
+      "is_must_watch": false,
       "is_belt_battle": false,
       "is_pushing_match": false,
       "east_form": {
@@ -671,7 +671,7 @@
       "west_name": "Aonishiki",
       "east_rank": "Maegashira 2 West",
       "west_rank": "Ozeki 1 West",
-      "p_east": 0.5432202605460913,
+      "p_east": 0.35786597338278014,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -709,7 +709,7 @@
       "west_name": "Takayasu",
       "east_rank": "Ozeki 1 East",
       "west_rank": "Sekiwake 1 West",
-      "p_east": 0.5655835805044671,
+      "p_east": 0.5221820160566039,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -747,7 +747,7 @@
       "west_name": "Onosato",
       "east_rank": "Komusubi 1 West",
       "west_rank": "Yokozuna 1 West",
-      "p_east": 0.5269987318619042,
+      "p_east": 0.3259259304504852,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -785,7 +785,7 @@
       "west_name": "Atamifuji",
       "east_rank": "Yokozuna 1 East",
       "west_rank": "Maegashira 4 West",
-      "p_east": 0.5655835805044671,
+      "p_east": 0.7687218334826931,
       "is_bout_of_day": false,
       "is_must_watch": false,
       "is_belt_battle": false,
@@ -877,7 +877,7 @@
       }
     ]
   },
-  "generated_at": "2026-01-20T21:51:45.895109",
+  "generated_at": "2026-01-20T23:10:13.708475",
   "results": [
     {
       "bout_number": 1,
@@ -907,7 +907,7 @@
       "west_rank": "Maegashira 13 West",
       "winner": "Hatsuyama",
       "kimarite": "oshidashi",
-      "predicted_correct": true
+      "predicted_correct": false
     },
     {
       "bout_number": 4,
@@ -917,7 +917,7 @@
       "west_rank": "Maegashira 16 East",
       "winner": "Asanoyama",
       "kimarite": "yorikiri",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 5,
@@ -927,7 +927,7 @@
       "west_rank": "Maegashira 11 West",
       "winner": "Nishikifuji",
       "kimarite": "yorikiri",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 6,
@@ -937,7 +937,7 @@
       "west_rank": "Maegashira 14 West",
       "winner": "Mitakeumi",
       "kimarite": "hatakikomi",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 7,
@@ -967,7 +967,7 @@
       "west_rank": "Maegashira 7 West",
       "winner": "Fujinokawa",
       "kimarite": "hatakikomi",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 10,
@@ -977,7 +977,7 @@
       "west_rank": "Maegashira 6 West",
       "winner": "Gonoyama",
       "kimarite": "oshidashi",
-      "predicted_correct": true
+      "predicted_correct": false
     },
     {
       "bout_number": 11,
@@ -997,7 +997,7 @@
       "west_rank": "Maegashira 5 West",
       "winner": "Churanoumi",
       "kimarite": "oshidashi",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 13,
@@ -1007,7 +1007,7 @@
       "west_rank": "Maegashira 7 East",
       "winner": "Tamawashi",
       "kimarite": "yorikiri",
-      "predicted_correct": true
+      "predicted_correct": false
     },
     {
       "bout_number": 14,
@@ -1017,7 +1017,7 @@
       "west_rank": "Maegashira 3 West",
       "winner": "Daieisho",
       "kimarite": "tsukidashi",
-      "predicted_correct": true
+      "predicted_correct": false
     },
     {
       "bout_number": 15,
@@ -1027,7 +1027,7 @@
       "west_rank": "Maegashira 1 West",
       "winner": "Yoshinofuji",
       "kimarite": "tsukiotoshi",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 16,
@@ -1057,7 +1057,7 @@
       "west_rank": "Ozeki 1 West",
       "winner": "Aonishiki",
       "kimarite": "kirikaeshi",
-      "predicted_correct": false
+      "predicted_correct": true
     },
     {
       "bout_number": 19,
@@ -1077,7 +1077,7 @@
       "west_rank": "Yokozuna 1 West",
       "winner": "Wakamotoharu",
       "kimarite": "yorikiri",
-      "predicted_correct": true
+      "predicted_correct": false
     },
     {
       "bout_number": 21,
@@ -1090,8 +1090,30 @@
       "predicted_correct": false
     }
   ],
-  "upsets": [],
-  "accuracy": 57.14285714285714,
+  "upsets": [
+    {
+      "east_name": "Daieisho",
+      "west_name": "Hakunofuji",
+      "winner": "Daieisho",
+      "kimarite": "tsukidashi",
+      "upset_magnitude": 0.6524803018524608
+    },
+    {
+      "east_name": "Wakamotoharu",
+      "west_name": "Onosato",
+      "winner": "Wakamotoharu",
+      "kimarite": "yorikiri",
+      "upset_magnitude": 0.6740740695495149
+    },
+    {
+      "east_name": "Hoshoryu",
+      "west_name": "Atamifuji",
+      "winner": "Atamifuji",
+      "kimarite": "oshidashi",
+      "upset_magnitude": 0.7687218334826931
+    }
+  ],
+  "accuracy": 66.66666666666666,
   "standings": [
     {
       "name": "Kirishima",

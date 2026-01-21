@@ -1,0 +1,84 @@
+[
+  {
+    "id": "202601",
+    "dir": "2026-01",
+    "name": "2026 Hatsu Basho (January)",
+    "days": [
+      {
+        "day": 1,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 2,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 3,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 4,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 5,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 6,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 7,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 8,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 9,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 10,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 11,
+        "has_preview": true,
+        "has_results": true
+      },
+      {
+        "day": 12,
+        "has_preview": false,
+        "has_results": false
+      },
+      {
+        "day": 13,
+        "has_preview": false,
+        "has_results": false
+      },
+      {
+        "day": 14,
+        "has_preview": false,
+        "has_results": false
+      },
+      {
+        "day": 15,
+        "has_preview": false,
+        "has_results": false
+      }
+    ]
+  }
+]

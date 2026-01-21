@@ -186,6 +186,7 @@ def generate_results_json(
             'west_rank': r['west_rank'],
             'winner': r['winner'],
             'kimarite': r.get('kimarite'),
+            'p_east': r.get('p_east'),
             'predicted_correct': r['predicted_correct'],
         })
 

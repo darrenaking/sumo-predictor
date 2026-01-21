@@ -889,7 +889,7 @@
       }
     ]
   },
-  "generated_at": "2026-01-21T12:16:37.317504",
+  "generated_at": "2026-01-21T12:35:39.910477",
   "results": [
     {
       "bout_number": 1,
@@ -899,6 +899,7 @@
       "west_rank": "Maegashira 17 West",
       "winner": "Tobizaru",
       "kimarite": "hikiotoshi",
+      "p_east": 0.6073879514753534,
       "predicted_correct": true
     },
     {
@@ -909,6 +910,7 @@
       "west_rank": "Maegashira 12 West",
       "winner": "Abi",
       "kimarite": "tsukiotoshi",
+      "p_east": 0.5115896292195636,
       "predicted_correct": false
     },
     {
@@ -919,6 +921,7 @@
       "west_rank": "Maegashira 15 East",
       "winner": "Midorifuji",
       "kimarite": "katasukashi",
+      "p_east": 0.5500914063953601,
       "predicted_correct": true
     },
     {
@@ -929,6 +932,7 @@
       "west_rank": "Maegashira 11 West",
       "winner": "Oshoumi",
       "kimarite": "sotogake",
+      "p_east": 0.534939843881573,
       "predicted_correct": true
     },
     {
@@ -939,6 +943,7 @@
       "west_rank": "Maegashira 15 West",
       "winner": "Asakoryu",
       "kimarite": "sukuinage",
+      "p_east": 0.4733014130278668,
       "predicted_correct": true
     },
     {
@@ -949,6 +954,7 @@
       "west_rank": "Maegashira 17 East",
       "winner": "Tokihayate",
       "kimarite": "shitatenage",
+      "p_east": 0.502765673943462,
       "predicted_correct": true
     },
     {
@@ -959,6 +965,7 @@
       "west_rank": "Maegashira 14 West",
       "winner": "Mitakeumi",
       "kimarite": "hatakikomi",
+      "p_east": 0.565373094429011,
       "predicted_correct": false
     },
     {
@@ -969,6 +976,7 @@
       "west_rank": "Maegashira 13 West",
       "winner": "Shodai",
       "kimarite": "hikiotoshi",
+      "p_east": 0.5600313871302735,
       "predicted_correct": true
     },
     {
@@ -979,6 +987,7 @@
       "west_rank": "Maegashira 9 West",
       "winner": "Roga",
       "kimarite": "uwatedashinage",
+      "p_east": 0.563915259938946,
       "predicted_correct": false
     },
     {
@@ -989,6 +998,7 @@
       "west_rank": "Maegashira 16 East",
       "winner": "Asanoyama",
       "kimarite": "yorikiri",
+      "p_east": 0.5152466070636507,
       "predicted_correct": false
     },
     {
@@ -999,6 +1009,7 @@
       "west_rank": "Maegashira 5 West",
       "winner": "Churanoumi",
       "kimarite": "oshidashi",
+      "p_east": 0.4319493358272975,
       "predicted_correct": true
     },
     {
@@ -1009,6 +1020,7 @@
       "west_rank": "Maegashira 8 West",
       "winner": "Kinbozan",
       "kimarite": "yorikiri",
+      "p_east": 0.5706750753893816,
       "predicted_correct": false
     },
     {
@@ -1019,6 +1031,7 @@
       "west_rank": "Maegashira 4 West",
       "winner": "Atamifuji",
       "kimarite": "okuridashi",
+      "p_east": 0.3849578620343854,
       "predicted_correct": true
     },
     {
@@ -1029,6 +1042,7 @@
       "west_rank": "Maegashira 6 West",
       "winner": "Onokatsu",
       "kimarite": "tsukiotoshi",
+      "p_east": 0.595777699157088,
       "predicted_correct": false
     },
     {
@@ -1039,6 +1053,7 @@
       "west_rank": "Maegashira 2 West",
       "winner": "Ichiyamamoto",
       "kimarite": "hikiotoshi",
+      "p_east": 0.3250512921269101,
       "predicted_correct": false
     },
     {
@@ -1049,6 +1064,7 @@
       "west_rank": "Komusubi 1 West",
       "winner": "Wakamotoharu",
       "kimarite": "oshitaoshi",
+      "p_east": 0.3850012524323217,
       "predicted_correct": true
     },
     {
@@ -1059,6 +1075,7 @@
       "west_rank": "Maegashira 1 West",
       "winner": "Yoshinofuji",
       "kimarite": "uwatenage",
+      "p_east": 0.4952931725107482,
       "predicted_correct": true
     },
     {
@@ -1069,6 +1086,7 @@
       "west_rank": "Ozeki 1 West",
       "winner": "Aonishiki",
       "kimarite": "shitatenage",
+      "p_east": 0.3452465757657305,
       "predicted_correct": true
     },
     {
@@ -1079,6 +1097,7 @@
       "west_rank": "Maegashira 3 East",
       "winner": "Takanosho",
       "kimarite": "yorikiri",
+      "p_east": 0.7267726017333201,
       "predicted_correct": false
     },
     {
@@ -1089,6 +1108,7 @@
       "west_rank": "Yokozuna 1 West",
       "winner": "Onosato",
       "kimarite": "yorikiri",
+      "p_east": 0.5378266392285376,
       "predicted_correct": false
     },
     {
@@ -1099,6 +1119,7 @@
       "west_rank": "Sekiwake 1 West",
       "winner": "Hoshoryu",
       "kimarite": "tottari",
+      "p_east": 0.6110861185833074,
       "predicted_correct": true
     }
   ],
